@@ -1,12 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon, BMKAFullIcon, BMKAWelcomeIcon, InstagramIcon, MailIcon, MenuIcon, PhoneIcon } from "@/assets/icons";
 import Link from "next/link";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
 import { usePathname } from "next/navigation";
-import moment from "moment";
-import activityData from "./activityData.json";
-import activityCategoryData from "./activityCategoryData.json";
+import { activityData, activityCategoryData } from "@/constants";
 
 export default function Home() {
   const [isActive, setIsActive] = useState(false);
@@ -58,7 +57,9 @@ export default function Home() {
   }, []);
 
   const formatDate = (date: string) => {
-    return moment(date).format("LL");
+    dayjs.extend(localizedFormat);
+    return dayjs(date).format("LL");
+    // return moment(date).format("LL");
   };
 
   // Caraousell
@@ -214,9 +215,9 @@ export default function Home() {
                   </Link>
                 )}
               </div>
-              <motion.div whileTap={{ scale: 0.95 }} role="button" onClick={() => setIsActive(true)} className="p-2 md:hidden bg-bmka-accent-orange rounded">
+              <div role="button" onClick={() => setIsActive(true)} className="p-2 md:hidden bg-bmka-accent-orange rounded">
                 <MenuIcon className="w-8 text-white" />
-              </motion.div>
+              </div>
               <div className={`fixed bg-bmka-primary-blue z-10 top-0 h-full w-full p-10 md:hidden transition-all duration-500 ${isActive ? "right-0" : "-right-full"}`}>
                 <div className="flex justify-end">
                   <div role="button" onClick={() => setIsActive(false)} className="w-min p-2 bg-bmka-accent-orange rounded">

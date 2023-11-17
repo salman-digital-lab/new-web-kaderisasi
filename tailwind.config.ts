@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+                timeline: '1fr auto;',
+                pageWrapper: '1fr auto;',
+            },
+            gridTemplateColumns: {
+                profile: '1fr 3fr;',
+                timeline: '1fr auto 1fr;',
+            },
       colors: {
         "bmka-primary-blue": "#1F99CC",
         "bmka-primary-blue-darken": "#1c8ab8",

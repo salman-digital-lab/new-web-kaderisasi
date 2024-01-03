@@ -5,6 +5,14 @@ const config: Config = {
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
+      gridTemplateRows: {
+                timeline: '1fr auto;',
+                pageWrapper: '1fr auto;',
+            },
+            gridTemplateColumns: {
+                profile: '1fr 3fr;',
+                timeline: '1fr auto 1fr;',
+            },
       fontFamily: {
         sans: ["Roboto", ...defaultTheme.fontFamily.sans],
       },

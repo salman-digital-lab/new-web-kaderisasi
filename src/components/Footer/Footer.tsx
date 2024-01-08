@@ -4,7 +4,7 @@ import { BMKAFullIcon, InstagramIcon, MailIcon, PhoneIcon } from "@/assets/icons
 
 export default function Footer() {
   return (
-    <footer className="py-16 bg-[#081B27]">
+    <footer className="py-16 bg-[bmka-shade-dark-purple]">
         <div className="w-full px-4 md:px-6 max-w-6xl mx-auto">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:gap-4">
             {/* InfoSection */}
@@ -15,7 +15,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <p style={{ opacity: "0.7" }} className="text-white text-sm text-justify">
+                <p className="text-white text-sm text-justify">
                   Portal Aktivis Salman yang dikelola BMKA (Bidang Kemahasiswaan, Kaderisasi dan Alumni) Salman yang berfungsi sebagai pusat pendaftaran kegiatan di @kaderisasisalman. Program pembinaan dalam rangka membentuk kader teladan
                   untuk membangun Indonesia.
                 </p>
@@ -31,19 +31,19 @@ export default function Footer() {
                 <div className="flex flex-col gap-8">
                   <div className="flex items-center gap-6">
                     <InstagramIcon className="w-6 h-6 text-white" />
-                    <p style={{ opacity: "0.7" }} className="text-white text-sm">
+                    <p className="text-white text-sm">
                       @kaderisasisalman
                     </p>
                   </div>
                   <div className="flex items-center gap-6">
                     <MailIcon className="w-6 h-6 text-white" />
-                    <p style={{ opacity: "0.7" }} className="text-white text-sm">
+                    <p className="text-white text-sm">
                       kaderisasi@salmanitb.com
                     </p>
                   </div>
                   <div className="flex items-center gap-6">
                     <PhoneIcon className="w-6 h-6 text-white" />
-                    <p style={{ opacity: "0.7" }} className="text-white text-sm">
+                    <p className="text-white text-sm">
                       +62 821 1128 6037
                     </p>
                   </div>
@@ -57,7 +57,7 @@ export default function Footer() {
                   <p className="pb-2 text-white font-bold">Alamat</p>
                 </div>
                 <div className="sm:max-w-xs">
-                  <p style={{ opacity: "0.7" }} className="text-white text-sm text-justify">
+                  <p className="text-white text-sm text-justify">
                     Jl. Ganesa No.7, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132
                   </p>
                 </div>

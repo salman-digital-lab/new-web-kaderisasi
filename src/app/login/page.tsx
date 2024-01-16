@@ -26,7 +26,7 @@ export default function Login() {
               <input id="email" type="email" placeholder="Masukkan Email Anda" required className="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
             </div>
             <div className="md:text-xl lg:text-base">
-							<Input name="password" label="Password" labelClasses="block font-bold mb-2" type="text" placeholder="Password" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
+							<Input name="password" label="Password" labelClasses="block font-bold mb-2" type="password" placeholder="Password" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
               {/* <label htmlFor="password" className="block font-bold mb-2">Password</label>
               <input id="password" type="password" placeholder="Password" required className="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
             </div>

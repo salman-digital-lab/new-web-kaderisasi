@@ -23,14 +23,14 @@ export default function Register() {
 					</div>
           <form className="flex flex-col gap-2 pr-1">
             <div className="md:text-xl lg:text-base">
-              <Input name="nama" label="Nama" labelClasses="block font-bold mb-2" type="text" placeholder="Isikan Nama Anda" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
-              {/* <label htmlFor="nama" className="block font-bold mb-2">Nama</label>
-              <input id="nama" type="text" placeholder="Isikan Nama Anda" required className="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
+              {/* <Input name="nama" label="Nama" labelClasses="block font-bold mb-2" type="text" placeholder="Isikan Nama Anda" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
+              <label htmlFor="nama" className="block font-bold mb-2">Nama</label>
+              <Input id="nama" type="text" placeholder="Isikan Nama Anda" required classes="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
             </div>
             <div className="md:text-xl lg:text-base">
-              <Input name="email" label="Email" labelClasses="block font-bold mb-2" type="email" placeholder="Masukkan Email Anda" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
-              {/* <label htmlFor="email" className="block font-bold mb-2">Email</label>
-              <input id="email" type="email" placeholder="Masukkan Email Anda" required className="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
+              {/* <Input name="email" label="Email" labelClasses="block font-bold mb-2" type="email" placeholder="Masukkan Email Anda" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}
+              <label htmlFor="email" className="block font-bold mb-2">Email</label>
+              <Input id="email" type="email" placeholder="Masukkan Email Anda" required classes="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" />
             </div>
             <div className="md:text-xl lg:text-base">
               {/* <Input name="password" label="Password" labelClasses="block font-bold mb-2" type="password" placeholder="Password" required={true} inputClasses="block border-2 border-primary focus:border-primary-400 focus:outline-none py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black" /> */}

@@ -1,6 +1,6 @@
 const BMKAWelcome = () => {
   return (
-    <svg width="685" height="606" viewBox="0 0 685 606" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="605" height="526" viewBox="0 0 605 526" fill="none" xmlns="http://www.w3.org/2000/svg">
   <circle cx="177.5" cy="247.5" r="177.5" fill="#D7E9ED" fillOpacity="0.5"/>
   <circle cx="648.5" cy="236.5" r="36.5" fill="#D7E9ED" fillOpacity="0.5"/>
   <circle cx="542" cy="340" r="128.5" stroke="white"/>

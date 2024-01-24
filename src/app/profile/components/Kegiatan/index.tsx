@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { NotebookPen } from 'lucide-react'
+import { Search, NotebookPen } from 'lucide-react'
 import { Button } from '@/components/common';
 import placeholderPosterKegiatan from '@/assets/images/poster-kegiatan-placeholder.jpeg';
 
@@ -8,12 +8,13 @@ export default function Kegiatan() {
 		<div className="flex flex-col gap-6">
 			<div className="flex flex-col md:flex-row justify-between items-center">
 				<h1 className="font-bold text-xl mb-4">Daftar Kegiatan</h1>
-				<form className="self-start">
+				<form className="relative self-start md:w-72">
 					<input
 						type="text"
-						placeholder="Cari kegiatan"
-						className="w-full p-2 border-2 border-primary rounded-md focus:outline-none focus:border-primary/30"
+						placeholder="Cari kegiatan..."
+						className="w-full p-2 pl-8 focus:pl-2 border-2 border-primary rounded-md peer focus:outline-none focus:border-primary/30"
 					/>
+					<Search className="absolute top-1/2 left-2 -translate-y-1/2 text-primary peer-focus:hidden" />
 				</form>
 			</div>
 			<form>

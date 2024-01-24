@@ -16,7 +16,7 @@ export default function Button({
   const TYPE_STYLE = {
     primary: "bg-primary hover:bg-primary-600",
     secondary: "bg-secondary hover:bg-secondary-600",
-    "transparant-primary": "bg-transparant hover:bg-primary-600",
+    "transparant-primary": "bg-transparant border border-gray-500 hover:bg-primary-600",
     "transparant-secondary": "bg-transparant hover:bg-secondary-600",
   };
 

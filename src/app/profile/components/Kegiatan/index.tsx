@@ -36,7 +36,7 @@ export default function Kegiatan() {
 												<p className="font-bold text-primary">
 													Aktualisasi Diri
 												</p>
-												<p className="text-gray-500">Tutup: 20 Februari 2024</p>
+												<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
 												<div>
 													<Button variant="secondary" type="button">
 														Lihat Detail
@@ -58,7 +58,7 @@ export default function Kegiatan() {
 												<p className="font-bold text-primary">
 													Aktualisasi Diri
 												</p>
-												<p className="text-gray-500">Tutup: 20 Februari 2024</p>
+												<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
 												<div>
 													<Button variant="secondary" type="button">
 														Lihat Detail
@@ -80,7 +80,7 @@ export default function Kegiatan() {
 												<p className="font-bold text-primary">
 													Aktualisasi Diri
 												</p>
-												<p className="text-gray-500">Tutup: 20 Februari 2024</p>
+												<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
 												<div>
 													<Button variant="secondary" type="button">
 														Lihat Detail

@@ -18,21 +18,21 @@ export default function Profile() {
 	return (
 		<>
 			<Navbar />
-			<main className="mt-[65px] lg:mt-[84px] min-h-full bg-white text-black pb-6 lg:py-16">
-				<div className="w-full lg:px-6 max-w-6xl mx-auto">
-					<div className="flex flex-col lg:flex-row gap-8 justify-between">
+			<main className="mt-[65px] pb-6 text-black bg-white lg:mt-[84px] lg:py-16">
+				<div className="max-w-6xl lg:px-6 lg:mx-auto">
+					<div className="flex flex-col justify-between gap-8 lg:flex-row">
 						{/* Card */}
 						<section className="lg:w-1/3">
-							<div className="lg:w-80 h-[270px] md:h-[350px] lg:h-[450px] shadow-lg relative">
-								<div className="w-full h-[25%] lg:h-[40%] bg-primary lg:rounded-t-lg"></div>
+							<div className="relative h-[270px] shadow-lg md:h-[350px] lg:w-80 lg:h-[450px]">
+								<div className="h-[25%] bg-primary lg:h-[40%] lg:rounded-t-lg"></div>
 								<div className="absolute top-4/6 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] border-8 border-white rounded-full">
 									<Image
 										src={placeholderImage}
 										alt="Profile image"
-										className="w-full h-full object-cover rounded-full"
+										className="object-cover rounded-full"
 									/>
 								</div>
-								<div className="w-full h-[75%] lg:h-[60%] bg-white rounded-b-lg flex flex-col justify-end pb-4 lg:pb-0 lg:justify-center items-center gap-2">
+								<div className="flex flex-col justify-end items-center gap-2 h-[75%] pb-4 bg-white rounded-b-lg lg:justify-center lg:h-[60%] lg:pb-0">
 									<h2 className="text-lg font-bold">Khabib Nurmagomedov</h2>
 									<p className="text-md text-gray-500">Kader</p>
 									<Button variant="secondary" className="mt-4">

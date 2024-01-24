@@ -1,13 +1,20 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { Navbar } from '@/components/layout';
 import { Button } from '@/components/common';
-import { BukuAktivis } from './components';
+import { Profil, Kegiatan, BukuAktivis } from './components';
 import { Footer } from '@/components/layout';
 import placeholderImage from '@/assets/images/profile-image-placeholder.jpg';
 
 export default function Profile() {
+	const [section, setSection] = useState('profil');
+
+	function switchSection(section: string) {
+		setSection(section);
+	}
+
 	return (
 		<>
 			<Navbar />
@@ -38,12 +45,14 @@ export default function Profile() {
 						{/* Detail */}
 						<section className="w-2/3 px-4 flex flex-col gap-4">
 							<div className="flex justify-start items-center gap-4 mb-8">
-								<Button>Profil</Button>
-								<Button>Kegiatan</Button>
-								<Button>Buku Aktivis</Button>
+								<Button onClick={() => switchSection('profil')} variant={section === 'profil' ? 'primary' : 'transparant-primary'}>Profil</Button>
+								<Button onClick={() => switchSection('kegiatan')} variant={section === 'kegiatan' ? 'primary' : 'transparant-primary'}>Kegiatan</Button>
+								<Button onClick={() => switchSection('buku aktivis')} variant={section === 'buku aktivis' ? 'primary' : 'transparant-primary'}>Buku Aktivis</Button>
 							</div>
 							<div>
-								<BukuAktivis />
+								{section === 'profil' && <Profil/>}
+								{section === 'kegiatan' && <Kegiatan/>}
+								{section === 'buku aktivis' && <BukuAktivis/>}
 							</div>
 						</section>
 						{/* Detail end */}

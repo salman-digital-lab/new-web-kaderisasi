@@ -85,7 +85,7 @@ export default function Profile() {
 										variant={
 											section === 'profil' ? 'primary' : 'transparant-primary'
 										}
-										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
+										className={`px-2 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'profil'
 												? 'border-primary'
 												: 'border-gray-300'
@@ -99,7 +99,7 @@ export default function Profile() {
 										variant={
 											section === 'kegiatan' ? 'primary' : 'transparant-primary'
 										}
-										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
+										className={`px-2 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'kegiatan'
 												? 'border-primary'
 												: 'border-gray-300'
@@ -115,7 +115,7 @@ export default function Profile() {
 												? 'primary'
 												: 'transparant-primary'
 										}
-										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
+										className={`px-2 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'buku aktivis'
 												? 'border-primary'
 												: 'border-gray-300'

@@ -6,13 +6,13 @@ import placeholderPosterKegiatan from '@/assets/images/poster-kegiatan-placehold
 export default function Kegiatan() {
 	return (
 		<div className="flex flex-col gap-6">
-			<div className="flex flex-col md:flex-row justify-between items-center">
-				<h1 className="font-bold text-xl mb-4">Daftar Kegiatan</h1>
+			<div className="flex flex-col justify-between items-center md:flex-row">
+				<h1 className="text-xl font-bold mb-4">Daftar Kegiatan</h1>
 				<form className="relative self-start md:w-72">
 					<input
 						type="text"
 						placeholder="Cari kegiatan..."
-						className="w-full p-2 pl-8 focus:pl-2 border-2 border-primary rounded-md peer focus:outline-none focus:border-primary/30"
+						className="w-full p-2 pl-8 border-2 border-primary rounded-md peer focus:pl-2 focus:outline-none focus:border-primary/30"
 					/>
 					<Search className="absolute top-1/2 left-2 -translate-y-1/2 text-primary peer-focus:hidden" />
 				</form>
@@ -27,73 +27,73 @@ export default function Kegiatan() {
 				</select>
 			</form>
 			<div className="flex flex-col gap-6">
-				<div className="p-4 flex flex-col md:flex-row justify-between gap-4 border border-primary rounded-lg">
-					<div className="md:w-1/4 md:self-start">
-						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 md:h-auto object-cover" />
+				<div className="flex flex-col justify-between gap-4 p-4 border border-primary rounded-lg md:flex-row">
+					<div className="md:self-start md:w-1/4">
+						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 object-cover md:h-auto" />
 					</div>
-					<div className="md:w-2/4 flex flex-col gap-3">
+					<div className="flex flex-col gap-3 md:w-2/4">
 						<h2 className="font-bold text-md">
 							Impactful Class (iClass) Public Speaking
 						</h2>
 						<div className="flex justify-between items-center md:block">
 							<p className="font-bold text-primary">Aktualisasi Diri</p>
-							<p className="md:hidden text-yellow-500"><NotebookPen className="mr-1 inline-block"/>Proses seleksi</p>
+							<p className="text-yellow-500 md:hidden"><NotebookPen className="mr-1 inline-block"/>Proses seleksi</p>
 						</div>
 						<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
-						<div>
+						<div className="md:mt-6">
 							<Button variant="secondary" type="button" className="w-full md:w-auto">
 								Lihat Detail
 							</Button>
 						</div>
 					</div>
-					<div className="hidden md:w-1/4 md:flex md:justify-end md:items-end">
+					<div className="hidden md:flex md:justify-end md:items-end md:w-1/4">
 						<p className="text-yellow-500"><NotebookPen className="mr-1 inline-block"/>Proses seleksi</p>
 					</div>
 				</div>
-				<div className="p-4 flex flex-col md:flex-row justify-between gap-4 border border-primary rounded-lg">
-					<div className="md:w-1/4 md:self-start">
-						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 md:h-auto object-cover" />
+				<div className="flex flex-col justify-between gap-4 p-4 border border-primary rounded-lg md:flex-row">
+					<div className="md:self-start md:w-1/4">
+						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 object-cover md:h-auto" />
 					</div>
-					<div className="md:w-2/4 flex flex-col gap-3">
+					<div className="flex flex-col gap-3 md:w-2/4">
 						<h2 className="font-bold text-md">
 							Impactful Class (iClass) Public Speaking
 						</h2>
 						<div className="flex justify-between items-center md:block">
 							<p className="font-bold text-primary">Aktualisasi Diri</p>
-							<p className="md:hidden text-primary"><NotebookPen className="mr-1 inline-block"/>Pendaftaran</p>
+							<p className="text-primary md:hidden"><NotebookPen className="mr-1 inline-block"/>Pendaftaran</p>
 						</div>
 						<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
-						<div>
+						<div className="md:mt-6">
 							<Button variant="secondary" type="button" className="w-full md:w-auto">
 								Lihat Detail
 							</Button>
 						</div>
 					</div>
-					<div className="hidden md:w-1/4 md:flex md:justify-end md:items-end">
+					<div className="hidden md:flex md:justify-end md:items-end md:w-1/4">
 						<p className="text-primary"><NotebookPen className="mr-1 inline-block"/>Pendaftaran</p>
 					</div>
 				</div>
-				<div className="p-4 flex flex-col md:flex-row justify-between gap-4 border border-primary rounded-lg">
-					<div className="md:w-1/4 md:self-start">
-						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 md:h-auto object-cover" />
+				<div className="flex flex-col justify-between gap-4 p-4 border border-primary rounded-lg md:flex-row">
+					<div className="md:self-start md:w-1/4">
+						<Image src={placeholderPosterKegiatan} alt="Poster kegiatan" className="w-full h-48 object-cover md:h-auto" />
 					</div>
-					<div className="md:w-2/4 flex flex-col gap-3">
+					<div className="flex flex-col gap-3 md:w-2/4">
 						<h2 className="font-bold text-md">
 							Impactful Class (iClass) Public Speaking
 						</h2>
 						<div className="flex justify-between items-center md:block">
 							<p className="font-bold text-primary">Aktualisasi Diri</p>
-							<p className="md:hidden text-green-500"><NotebookPen className="mr-1 inline-block"/>Selesai</p>
+							<p className="text-green-500 md:hidden"><NotebookPen className="mr-1 inline-block"/>Pendaftaran</p>
 						</div>
 						<p className="text-sm text-gray-500">Tutup: 20 Februari 2024</p>
-						<div>
+						<div className="md:mt-6">
 							<Button variant="secondary" type="button" className="w-full md:w-auto">
 								Lihat Detail
 							</Button>
 						</div>
 					</div>
-					<div className="hidden md:w-1/4 md:flex md:justify-end md:items-end">
-						<p className="text-green-500"><NotebookPen className="mr-1 inline-block"/>Selesai</p>
+					<div className="hidden md:flex md:justify-end md:items-end md:w-1/4">
+						<p className="text-green-500"><NotebookPen className="mr-1 inline-block"/>Pendaftaran</p>
 					</div>
 				</div>
 			</div>

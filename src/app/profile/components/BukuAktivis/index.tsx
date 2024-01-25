@@ -38,7 +38,7 @@ export default function BukuAktivis() {
   ];
 
 	return (
-		<div className="bg-primary-100 rounded-lg">
+		<div className="bg-primary-100 rounded-lg md:w-[600px] md:mx-auto lg:w-full lg:mx-0">
 			<h2 className="text-white font-bold p-4 bg-primary rounded-t-lg">
 				Daftar Misi
 			</h2>

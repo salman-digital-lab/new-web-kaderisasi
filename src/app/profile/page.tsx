@@ -43,9 +43,9 @@ export default function Profile() {
 						</section>
 						{/* Card end */}
 						{/* Detail */}
-						<section className="lg:w-2/3 px-4 flex flex-col gap-4">
+						<section className="flex flex-col gap-4 px-4 lg:w-2/3">
 							<div className="hidden lg:block">
-								<div className="flex justify-center lg:justify-start items-center gap-4 mb-8">
+								<div className="flex justify-center items-center gap-4 mb-8 lg:justify-start">
 									<Button
 										onClick={() => switchSection('profil')}
 										variant={
@@ -85,7 +85,7 @@ export default function Profile() {
 										variant={
 											section === 'profil' ? 'primary' : 'transparant-primary'
 										}
-										className={`px-2 md:px-8 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent ${
+										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'profil'
 												? 'border-primary'
 												: 'border-gray-300'
@@ -99,7 +99,7 @@ export default function Profile() {
 										variant={
 											section === 'kegiatan' ? 'primary' : 'transparant-primary'
 										}
-										className={`px-2 md:px-8 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent ${
+										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'kegiatan'
 												? 'border-primary'
 												: 'border-gray-300'
@@ -115,7 +115,7 @@ export default function Profile() {
 												? 'primary'
 												: 'transparant-primary'
 										}
-										className={`px-2 md:px-8 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent ${
+										className={`px-1 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 ${
 											section === 'buku aktivis'
 												? 'border-primary'
 												: 'border-gray-300'

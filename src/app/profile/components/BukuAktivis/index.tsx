@@ -38,13 +38,13 @@ export default function BukuAktivis() {
   ]
 
 	return (
-		<div className="rounded-lg bg-primary-100">
-			<h2 className="p-4 font-bold text-white bg-primary rounded-t-lg">
+		<div className="bg-primary-100 rounded-lg">
+			<h2 className="text-white font-bold p-4 bg-primary rounded-t-lg">
 				Daftar Misi
 			</h2>
-      <div className="p-4 pb-6 mt-2 flex flex-col gap-2">
+      <div className="flex flex-col gap-2 p-4 pb-6 mt-2">
         {dummyData.map(({id, kegiatan, isCompleted}) => (
-          <div key={id} className="bg-white p-2 flex gap-2 items-center rounded-md">
+          <div key={id} className="flex gap-2 items-center p-2 bg-white rounded-md">
             <input type="checkbox" name="" id={id} disabled checked={isCompleted}/>
             <label htmlFor={id} className={isCompleted ? 'text-gray-500' : ''}>{kegiatan}</label>
           </div>

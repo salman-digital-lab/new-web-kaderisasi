@@ -16,13 +16,12 @@ export default function Profile() {
 	}
 
 	function onMouseOverHandler(element: HTMLElement, switcher: string) {
-		section !== switcher ? element.style.color = 'white' : '';
+		section !== switcher ? (element.style.color = 'white') : '';
 	}
 
 	function onMouseLeaveHandler(element: HTMLElement, switcher: string) {
-		section !== switcher ? element.style.color = 'black' : '';
+		section !== switcher ? (element.style.color = 'black') : '';
 	}
-
 
 	return (
 		<>
@@ -57,8 +56,12 @@ export default function Profile() {
 								<div className="flex justify-center items-center gap-4 mb-8 lg:justify-start">
 									<Button
 										onClick={() => switchSection('profil')}
-										onMouseOver={(e: React.MouseEvent<HTMLElement>) => onMouseOverHandler(e.currentTarget, 'profil')}
-										onMouseLeave={(e: React.MouseEvent<HTMLElement>) => onMouseLeaveHandler(e.currentTarget, 'profil')}
+										onMouseOver={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseOverHandler(e.currentTarget, 'profil')
+										}
+										onMouseLeave={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseLeaveHandler(e.currentTarget, 'profil')
+										}
 										variant={
 											section === 'profil' ? 'primary' : 'transparant-primary'
 										}
@@ -69,8 +72,12 @@ export default function Profile() {
 									</Button>
 									<Button
 										onClick={() => switchSection('kegiatan')}
-										onMouseOver={(e: React.MouseEvent<HTMLElement>) => onMouseOverHandler(e.currentTarget, 'kegiatan')}
-										onMouseLeave={(e: React.MouseEvent<HTMLElement>) => onMouseLeaveHandler(e.currentTarget, 'kegiatan')}
+										onMouseOver={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseOverHandler(e.currentTarget, 'kegiatan')
+										}
+										onMouseLeave={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseLeaveHandler(e.currentTarget, 'kegiatan')
+										}
 										variant={
 											section === 'kegiatan' ? 'primary' : 'transparant-primary'
 										}
@@ -80,8 +87,12 @@ export default function Profile() {
 									</Button>
 									<Button
 										onClick={() => switchSection('buku aktivis')}
-										onMouseOver={(e: React.MouseEvent<HTMLElement>) => onMouseOverHandler(e.currentTarget, 'buku aktivis')}
-										onMouseLeave={(e: React.MouseEvent<HTMLElement>) => onMouseLeaveHandler(e.currentTarget, 'buku aktivis')}
+										onMouseOver={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseOverHandler(e.currentTarget, 'buku aktivis')
+										}
+										onMouseLeave={(e: React.MouseEvent<HTMLElement>) =>
+											onMouseLeaveHandler(e.currentTarget, 'buku aktivis')
+										}
 										variant={
 											section === 'buku aktivis'
 												? 'primary'
@@ -154,4 +165,4 @@ export default function Profile() {
 			<Footer />
 		</>
 	);
-}
+};

@@ -35,7 +35,7 @@ export default function BukuAktivis() {
       kegiatan: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, consequuntur!',
       isCompleted: false,
     },
-  ]
+  ];
 
 	return (
 		<div className="bg-primary-100 rounded-lg">
@@ -52,4 +52,4 @@ export default function BukuAktivis() {
       </div>
 		</div>
 	);
-}
+};

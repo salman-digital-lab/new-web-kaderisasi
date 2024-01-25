@@ -12,8 +12,9 @@ export default function Kegiatan() {
 			{value: 'data1', display: 'Kategori 1'},
 			{value: 'data2', display: 'Kategori 2'},
 			{value: 'data3', display: 'Kategori 3'},
-		]
-	}
+		],
+	};
+
 	return (
 		<div className="flex flex-col gap-6">
 			<div className="flex flex-col justify-between items-center md:flex-row">
@@ -27,16 +28,7 @@ export default function Kegiatan() {
 					<Search className="absolute top-1/2 left-2 -translate-y-1/2 text-primary peer-focus:hidden" />
 				</form>
 			</div>
-			{/* <form> */}
-				<InputSelect data={dummyData} className="w-[200px]" />
-				{/* <select
-					name="kegiatan"
-					id="kegiatan"
-					className="w-[15rem] p-2 border-2 border-primary/30 rounded-md focus:outline-none focus:border-primary"
-				>
-					<option value="semua">Semua</option>
-				</select>
-			</form> */}
+			<InputSelect data={dummyData} className="w-[200px]" />
 			<div className="flex flex-col gap-6">
 				<div className="flex flex-col justify-between gap-4 p-4 border border-primary rounded-lg md:flex-row">
 					<div className="md:self-start md:w-1/4">
@@ -110,4 +102,4 @@ export default function Kegiatan() {
 			</div>
 		</div>
 	);
-}
+};

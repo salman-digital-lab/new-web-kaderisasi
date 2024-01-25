@@ -31,11 +31,25 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
   }
 );
 
-export default function InputSelect({ data }: { data: { placeholder: string; kategori: string; options: Array<{ value: string | number; display: string; }> } }) {
+interface InputSelectProps {
+  data: {
+    placeholder?: string;
+    kategori: string;
+    options: Array<{
+      value: string | number;
+      display: string;
+    }>;
+  };
+  className?: string;
+}
+
+// export default function InputSelect({ data }: { data: { placeholder?: string; kategori: string; options: Array<{ value: string | number; display: string; }> }}) {
+// export default function InputSelect({ data }: { data: { placeholder?: string; kategori: string; options: Array<{ value: string | number; display: string; }> }}) {
+const InputSelect: React.FC<InputSelectProps> = ({ data, className }) => {
   return (
     <Select.Root>
     <Select.Trigger
-      className="inline-flex justify-between items-center text-black p-2 border-2 border-primary rounded-md focus:outline-none focus:border-primary/30"
+      className={`inline-flex justify-between items-center text-black p-2 border-2 border-primary rounded-md focus:outline-none focus:border-primary/30 ${className}`}
       aria-label={data.kategori}
     >
       <Select.Value placeholder={data.placeholder} />
@@ -44,7 +58,7 @@ export default function InputSelect({ data }: { data: { placeholder: string; kat
       </Select.Icon>
     </Select.Trigger>
     <Select.Portal>
-      <Select.Content className="overflow-hidden mt-[70px] bg-white border-2 border-gray-500/20 rounded-md shadow-lg">
+      <Select.Content className="overflow-hidden z-10 bg-white border-2 border-gray-500/20 rounded-md shadow-lg">
         <Select.ScrollUpButton className="flex justify-center items-center  h-[25px] bg-white text-black cursor-default">
           <ChevronUp />
         </Select.ScrollUpButton>
@@ -63,3 +77,5 @@ export default function InputSelect({ data }: { data: { placeholder: string; kat
   </Select.Root>
   )
 }
+
+export default InputSelect;

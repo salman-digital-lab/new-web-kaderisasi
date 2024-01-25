@@ -3,11 +3,11 @@ import { Button } from '@/components/common';
 export default function Profil() {
 	return (
 		<>
-			<h1 className="text-center lg:text-left font-bold text-xl mb-4">Data Profil</h1>
+			<h1 className="text-xl text-center font-bold mb-4 lg:text-left">Data Profil</h1>
 			<form className="flex flex-col gap-4">
-				<div className="flex flex-col md:flex-row lg:justify-between gap-4 lg:gap-32">
+				<div className="flex flex-col gap-4 md:flex-row md:gap-8 lg:justify-between lg:gap-32">
 					{/* Left section */}
-					<div className="md:w-1/2 flex flex-col gap-4">
+					<div className="flex flex-col gap-4 md:w-1/2">
 						{/* Fieldset personal */}
 						<fieldset className="flex flex-col gap-3">
 							<legend className="text-lg text-gray-500 mb-4">Personal</legend>
@@ -113,7 +113,7 @@ export default function Profil() {
 					</div>
 					{/* Left section end */}
 					{/* Right section */}
-					<div className="md:w-1/2 flex flex-col gap-4">
+					<div className="flex flex-col gap-4 md:w-1/2">
 						{/* Field kontak */}
 						<fieldset className="flex flex-col gap-3">
 							<legend className="text-lg text-gray-500 mb-4">Kontak</legend>
@@ -188,7 +188,7 @@ export default function Profil() {
 					</div>
 					{/* Right section end */}
 				</div>
-				<div className="mt-4 md:mt-0 md:self-end">
+				<div className="mt-4 md:self-end md:mt-0">
 					<Button variant="secondary" type="submit" className="w-full">
 						Update Data Profil
 					</Button>

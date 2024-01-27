@@ -5,7 +5,7 @@ export const MENUS = [
   },
   {
     label: "Kegiatan",
-    link: "/kegiatan",
+    link: "/activities",
   },
   {
     label: "Ruang Curhat",

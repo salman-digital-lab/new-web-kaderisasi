@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -6,7 +5,7 @@ import homepageIllustration from "../assets/images/homepage-1.svg";
 
 import { Footer, Navbar } from "@/components/layout";
 import { Button, Card } from "@/components/common";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react"
 
 export default function Home() {
   return (

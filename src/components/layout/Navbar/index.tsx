@@ -50,16 +50,16 @@ export default function Navbar() {
 
           <div className="hidden md:flex justify-center items-center">
             {!user ? (
-              <Link href="/login">
+              <Link href="/masuk">
                 <Button variant="secondary" outlined>
                   Masuk
                 </Button>
               </Link>
             ) : (
-              <Link href="/profile">
+              <Link href="/profil">
                 <div
                   className={`w-52 p-2 text-primary-100 truncate border-b-4 border-transparent hover:text-white ${
-                    pathname === "/profile" ? "text-white" : ""
+                    pathname === "/profil" ? "text-white" : ""
                   }`}
                 >
                   Hi, Naufal Zhafran Latif
@@ -103,16 +103,16 @@ export default function Navbar() {
               ))}
 
               {!user ? (
-                <Link href="/login">
+                <Link href="/masuk">
                   <Button variant="secondary" outlined>
                     Masuk
                   </Button>
                 </Link>
               ) : (
-                <Link href="/profile">
+                <Link href="/profil">
                   <div
                     className={`w-52 p-2 text-primary-100 truncate border-b-4 border-transparent hover:text-white ${
-                      pathname === "/profile" ? "text-white" : ""
+                      pathname === "/profil" ? "text-white" : ""
                     }`}
                   >
                     Hi, Naufal Zhafran Latif

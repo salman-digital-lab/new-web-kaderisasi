@@ -24,7 +24,7 @@ export default function Input({
     <input
       {...otherProps}
       className={
-        "py-2 md:py-4 px-4 md:px-8 lg:px-4 w-full rounded-lg text-black focus:outline-none focus:outline-offset-0 " +
+        "px-2.5 py-[6px] w-full rounded text-black focus:outline-none focus:outline-offset-0 " +
         INPUT_STYLE[inputStyle] +
         " " +
         className

@@ -1,15 +1,15 @@
 export const MENUS = [
   {
-    label: "Home",
+    label: "Beranda",
     link: "/",
   },
   {
     label: "Kegiatan",
-    link: "/activities",
+    link: "/kegiatan",
   },
   {
     label: "Ruang Curhat",
-    link: "/ruang-curhat",
+    link: "/",
   },
   {
     label: "Tentang Kami",

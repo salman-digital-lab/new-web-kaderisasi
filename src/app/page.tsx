@@ -5,14 +5,14 @@ import homepageIllustration from "../assets/images/homepage-1.svg";
 
 import { Footer, Navbar } from "@/components/layout";
 import { Button, Card } from "@/components/common";
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="w-full min-h-screen grid grid-rows-pageWrapper bg-white">
       <Navbar />
       <main>
-        <div className="w-full h-screen bg-primary pt-16 md:h-fit md:pt-32">
+        <div className="w-full h-screen bg-primary pt-16 md:h-fit md:pt-32 md:pb-16">
           <div className="w-full px-4 max-w-6xl mx-auto md:px-6">
             <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between">
               <div className="flex items-center">
@@ -20,7 +20,7 @@ export default function Home() {
                   <p className="text-white text-3xl text-center font-bold md:text-5xl">
                     Selamat Datang di <br /> Kaderisasi Salman
                   </p>
-                  <p className="text-white text-xl text-center md:text-left px-10">
+                  <p className="text-white text-xl text-center px-10">
                     Ayo mulai perjalanan kaderisasi mu disini
                   </p>
                   <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">

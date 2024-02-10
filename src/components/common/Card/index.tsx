@@ -22,7 +22,7 @@ export default function Card() {
           </p>
         </div>
       </div>
-      <Button variant="secondary" className="rounded-b-lg">
+      <Button variant="secondary" className="rounded-none rounded-b-lg">
         Daftar
       </Button>
     </div>

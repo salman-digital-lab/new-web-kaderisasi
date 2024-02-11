@@ -1,16 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Card } from "@/components/common";
+
+import { Button } from "@/components/common";
+import { ActivityCard } from "@/components/biz";
 import { Footer, Navbar } from "@/components/layout";
 
-import activitiespageIllustration from "../../assets/images/activitiespage-1.svg";
+import activitiespageIllustration from "@/assets/images/activitiespage-1.svg";
+import Select from "@/components/form/Select";
+import { Input } from "@/components/form";
 
 export default function Activities() {
   return (
-    <div className="w-full min-h-screen grid grid-rows-pageWrapper bg-white">
+    <div className="w-full min-h-screen bg-white">
       <Navbar />
       <main>
-        <div className="w-full h-screen bg-primary pt-16 md:h-fit md:pt-32 md:pb-16">
+        <div className="w-full h-[75vh] bg-primary pt-16 md:h-fit md:pt-32 md:pb-16">
           <div className="w-full px-4 max-w-6xl mx-auto md:px-6">
             <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between">
               <div className="flex items-center">
@@ -33,10 +37,9 @@ export default function Activities() {
                   </div>
                 </div>
               </div>
-
-              <div className="order-first md:block  md:order-last">
+              <div className="order-first h-fit md:order-last">
                 <Image
-                  className="-translate-x-6 p-10"
+                  className="-translate-x-6 p-10 max-h-[40vh]"
                   src={activitiespageIllustration}
                   alt="Selamat Datang di BMKA Salman ITB"
                 />
@@ -45,43 +48,39 @@ export default function Activities() {
           </div>
         </div>
 
-        <div className="w-full px-5 pt-12 md:px-6 max-w-6xl mx-auto">
-          <div className="flex gap-6">
-            <Button>All</Button>
-            <Button className="bg-[#DBDCDC] text-[#7B7C7E]">Pelatihan</Button>
-            <Button className="bg-[#DBDCDC] text-[#7B7C7E]">Seminar</Button>
-            <Button className="bg-[#DBDCDC] text-[#7B7C7E]">Kealumnian</Button>
+        <div className="flex flex-col gap-5 w-full px-5 pt-12 max-w-6xl mx-auto md:px-6">
+          <Input placeholder="Cari Kegiatan" inputStyle="outlined-primary" />
+          <div className="gap-3 hidden justify-center flex-wrap md:flex">
+            <Button>Semua</Button>
+            <Button>SSC</Button>
+            <Button>LMD</Button>
+            <Button>Spectra</Button>
           </div>
+
+          <Select
+            inputStyle="outlined-primary"
+            className="md:hidden"
+            placeholder="Pilih Kategori"
+            isClearable
+            options={[{ label: "Pelatihan", value: "pelatihan" }]}
+          />
         </div>
 
-        {/* 
-
-        <div className="w-full px-5 py-12 md:px-6 max-w-6xl mx-auto">
-          <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center mb-10">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
-          <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center mb-10">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
-          <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center mb-10">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </div>
+        <div className="w-full px-5 py-12 max-w-6xl mx-auto grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4 md:px-6">
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
         </div>
 
         <div className="w-full px-5 py-12 md:px-6 max-w-6xl mx-auto">
           <div className="flex justify-center">
             <Button variant="secondary">Lebih Banyak</Button>
           </div>
-        </div> */}
+        </div>
       </main>
 
       <Footer />

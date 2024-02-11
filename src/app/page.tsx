@@ -4,7 +4,8 @@ import Image from "next/image";
 import homepageIllustration from "../assets/images/homepage-1.svg";
 
 import { Footer, Navbar } from "@/components/layout";
-import { Button, Card } from "@/components/common";
+import { Button } from "@/components/common";
+import { ActivityCard } from "@/components/biz";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -50,7 +51,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full px-5 py-12 md:px-6 max-w-6xl mx-auto">
+        <div className="w-full px-5 py-12 max-w-6xl mx-auto">
           <div className="flex flex-col gap-4 text-center">
             <h1 className="font-bold text-3xl">Kegiatan Baru</h1>
             <p className="text-xl">
@@ -66,17 +67,16 @@ export default function Home() {
               </Button>
             </div>
             <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <ActivityCard />
+              <ActivityCard />
+              <ActivityCard />
+              <ActivityCard />
             </div>
           </div>
         </div>
 
-        <div className="w-full mt-20 mb-20 bg-primary py-16 md:py-6 px-16 md:px-6 max-w-6xl mx-auto md:rounded-xl">
+        <div className="w-full my-20 bg-primary py-6 px-16 max-w-6xl mx-auto lg:rounded-xl">
           <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-10">
-            <div></div>
             <div className="flex flex-col gap-6">
               <h1 className="font-bold text-white text-2xl md:text-left text-center">
                 Kembalikan Senyum Bahagiamu

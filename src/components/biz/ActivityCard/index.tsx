@@ -1,14 +1,15 @@
 import { CalendarClock } from "lucide-react";
-import { Button } from "..";
+import { Button } from "../../common";
+import Image from "next/image";
 
 export default function Card() {
   return (
-    <div className="flex flex-col justify-between bg-white cursor-default rounded-xl shadow">
+    <div className="flex flex-col flex-none justify-between bg-white cursor-default rounded-xl shadow">
       <div className="flex flex-col p-2">
-        <img
+        <Image
           src="https://admin-api-kaderisasi.salmanitb.com/activity_pic/1704528106622.jpeg"
           alt="Activity Banner"
-          className="w-full object-cover rounded"
+          className="object-cover self-center rounded"
           width={230}
           height={288}
         />

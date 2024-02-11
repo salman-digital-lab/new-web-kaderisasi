@@ -25,3 +25,13 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.carousel-fix > :first-child {
+  overflow-x: auto;
+}
+
+.rendered-description {
+  p {
+    margin: 1rem 0rem;
+  }
+}

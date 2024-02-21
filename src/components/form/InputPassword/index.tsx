@@ -7,11 +7,11 @@ import { Input } from "..";
 import { InputProps } from "../Input";
 
 type InputPasswordProps = {
-  labelClasses?: string;
+  eyeClassname?: string;
 } & InputProps;
 
 export default function InputPassword({
-  id,
+  eyeClassname,
   ...otherProps
 }: InputPasswordProps) {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -31,7 +31,7 @@ export default function InputPassword({
         type="button"
         onClick={passwordViewToggle}
         title={passwordVisible ? "Hide password" : "Show password"}
-        className={`absolute right-4 bottom-1/4 md:bottom-1/3 cursor-pointer hover:opacity-50 active:opacity-60 text-primary-600 ${
+        className={`absolute right-4 bottom-[.5rem] cursor-pointer hover:opacity-50 active:opacity-60 text-primary-600 ${eyeClassname} ${
           passwordVisible ? "opacity-80" : "opacity-30"
         }`}
       >

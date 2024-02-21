@@ -1,5 +1,5 @@
 import BMKAWelcomeIcon from "./BMKAWelcome";
-import BMKAFullIcon from "./BMKAFullIcon";
+import BMKAFullIcon from "./BMKAIcon";
 import ArrowRightIcon from "./arrowRight";
 import ArrowLeftIcon from "./arrowLeft";
 import InstagramIcon from "./instagram";

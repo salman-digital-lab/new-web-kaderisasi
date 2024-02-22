@@ -7,59 +7,15 @@ import Cookies from "js-cookie";
 import { Input } from "@/components/form";
 import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
+import login from "../actions/login";
 
 export default function LoginForm() {
   const router = useRouter();
 
   const loginUser = async (formData: FormData) => {
-    const rawFormData = {
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
-
-    try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_BE_API + "/auth/login",
-        {
-          method: "POST",
-          body: JSON.stringify(rawFormData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        toast.success(parsedResponse?.message);
-        Cookies.set(
-          "kaderisasi-web-token",
-          parsedResponse?.data?.token?.token,
-          { expires: 7 }
-        );
-        router.push("/");
-      } else {
-        toast.error(
-          parsedResponse?.message ||
-            "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi."
-        );
-      }
-    } catch (error: unknown) {
-      let message: string;
-
-      if (error instanceof Error) {
-        message = error.message;
-      } else if (error && typeof error === "object" && "message" in error) {
-        message = String(error.message);
-      } else if (typeof error === "string") {
-        message = error;
-      } else {
-        message = "Something when wrong";
-      }
-
-      toast.error(message);
-    }
+    const message = await login(formData);
+    if (message) toast(message);
+    router.push("/");
   };
 
   return (
@@ -73,7 +29,7 @@ export default function LoginForm() {
           name="email"
           type="email"
           placeholder="Masukkan Email Anda"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4"
+          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0 focus:outline-primary-600 md:focus:outline-2"
           required
         />
       </div>

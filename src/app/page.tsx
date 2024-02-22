@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { cookies } from "next/headers";
 
 import homepageIllustration from "../assets/images/homepage-1.svg";
 
@@ -45,6 +46,7 @@ export default function Home() {
                   className="-translate-x-6 p-10"
                   src={homepageIllustration}
                   alt="Selamat Datang di BMKA Salman ITB"
+                  priority
                 />
               </div>
             </div>

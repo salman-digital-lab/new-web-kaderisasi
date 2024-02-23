@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { cookies } from "next/headers";
 
 import homepageIllustration from "../assets/images/homepage-1.svg";
 
 import { Footer, Navbar } from "@/components/layout";
 import { Button } from "@/components/common";
-import { ActivityCard } from "@/components/biz";
-import { ArrowRight } from "lucide-react";
+import ActivitySection from "@/features/Home/components/ActivitySection";
 
 export default function Home() {
   return (
@@ -26,15 +24,9 @@ export default function Home() {
                     Ayo mulai perjalanan kaderisasi mu disini
                   </p>
                   <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">
-                    <Link href="/regeneration-flow">
+                    <Link href="/kegiatan">
                       <Button variant="secondary" outlined={true}>
                         Daftar Kegiatan
-                      </Button>
-                    </Link>
-                    <p className="text-white">atau</p>
-                    <Link href="/regeneration-flow">
-                      <Button variant="transparant-secondary" outlined={true}>
-                        Lihat Alur Kaderisasi
                       </Button>
                     </Link>
                   </div>
@@ -62,19 +54,7 @@ export default function Home() {
               mendukung.
             </p>
           </div>
-          <div className="flex flex-col gap-4 mt-12">
-            <div className="flex flex-row-reverse">
-              <Button className="flex ">
-                Lihat semua <ArrowRight className="w-[1rem]" />
-              </Button>
-            </div>
-            <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center">
-              <ActivityCard />
-              <ActivityCard />
-              <ActivityCard />
-              <ActivityCard />
-            </div>
-          </div>
+          <ActivitySection />
         </div>
 
         <div className="w-full my-20 bg-primary py-6 px-16 max-w-6xl mx-auto lg:rounded-xl">

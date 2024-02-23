@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + " " + "bg-white"}>
         {children}
-        <Toaster position="top-center" closeButton richColors/>
+        <Toaster position="top-center" richColors/>
       </body>
     </html>
   );

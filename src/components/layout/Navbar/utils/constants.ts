@@ -11,8 +11,4 @@ export const MENUS = [
     label: "Ruang Curhat",
     link: "/",
   },
-  {
-    label: "Tentang Kami",
-    link: "/tentang-kami",
-  },
 ] as const;

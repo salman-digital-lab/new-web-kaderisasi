@@ -1,24 +1,11 @@
 import { ActivityCard } from "@/components/biz";
 import { Button } from "@/components/common";
-import { GetActivitiesResp } from "@/types/service/activity";
+import { getActivities } from "@/services/activity";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default async function ActivitySection() {
-  const response = await fetch(
-    process.env.NEXT_PUBLIC_BE_API + "/activities?per_page=4",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-
-  const { data: parsedResponse }: { data: GetActivitiesResp } =
-    await response.json();
-
-  console.log(parsedResponse);
+  const { data: activities } = await getActivities({ per_page: "4" });
 
   return (
     <div className="flex flex-col gap-4 mt-12">
@@ -30,11 +17,12 @@ export default async function ActivitySection() {
         </Link>
       </div>
       <div className="flex flex-wrap md:flex-nowrap gap-6 justify-center">
-        {parsedResponse.data?.map((data) => (
+        {activities?.map((activity) => (
           <ActivityCard
-            key={data.id}
-            activityName={data.name}
-            registrationEnd={data.registration_end}
+            key={activity.id}
+            activityName={activity.name}
+            registrationEnd={activity.registration_end}
+            slug={activity.slug}
           />
         ))}
       </div>

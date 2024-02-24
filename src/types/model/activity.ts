@@ -1,4 +1,4 @@
-import { USER_LEVEL_ENUM } from "@/constants/biz";
+import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
 
 export type Activity = {
   id: number;

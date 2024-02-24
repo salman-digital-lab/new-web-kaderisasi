@@ -1,15 +1,18 @@
 import { CalendarClock } from "lucide-react";
 import { Button } from "../../common";
 import Image from "next/image";
+import Link from "next/link";
 
 type ActivityCardProps = {
   activityName: string;
   registrationEnd: string;
+  slug: string;
 };
 
 export default function ActivityCard({
   activityName,
   registrationEnd,
+  slug,
 }: ActivityCardProps) {
   return (
     <div className="flex flex-col flex-none justify-between bg-white cursor-default rounded-xl shadow">
@@ -31,9 +34,11 @@ export default function ActivityCard({
           </p>
         </div>
       </div>
-      <Button variant="secondary" className="rounded-none rounded-b-lg">
-        Daftar
-      </Button>
+      <Link href={"/kegiatan/" + slug}>
+        <Button variant="secondary" className="w-full rounded-none rounded-b-lg">
+          Daftar
+        </Button>
+      </Link>
     </div>
   );
 }

@@ -1,12 +1,20 @@
-"use client";
-
-import { Button } from "@/components/common";
-import { Footer, Navbar } from "@/components/layout";
 import { Carousel } from "flowbite-react";
 import { CalendarClock } from "lucide-react";
 import Image from "next/image";
 
-export default function Activities() {
+import { Button } from "@/components/common";
+import { Footer, Navbar } from "@/components/layout";
+import { getActivity } from "@/services/activity";
+import { USER_LEVEL_RENDER } from "@/constants/render/activity";
+import Link from "next/link";
+
+export default async function Activities({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const activity = await getActivity(params);
+
   return (
     <>
       <Navbar />
@@ -39,20 +47,21 @@ export default function Activities() {
         <div className="flex flex-col w-full items-center p-6 md:flex-row md:p-0">
           <div className="my-6 md:w-4/5">
             <h1 className="text-3xl font-bold text-center md:text-left md:text-4xl">
-              Latihan Mujtahid Dakwah 255
+              {activity.name}
             </h1>
             <div className="flex gap-2 flex-wrap">
               <p className="flex text-xs w-fit rounded-full py-1 pl-2 pr-2 bg-secondary text-white mt-5 md:text-sm md:py-2 md:pl-3 md:pr-3">
-                <CalendarClock className="h-[.9rem] md:h-[1.2rem]" /> 12/08/2023
+                <CalendarClock className="h-[.9rem] md:h-[1.2rem]" />{" "}
+                {activity.registration_end}
               </p>
               <p className="flex text-xs w-fit rounded-full px-2 py-1 bg-primary text-white mt-5 md:text-sm md:px-4 md:py-2">
-                Kaderisasi
+                {USER_LEVEL_RENDER[activity.minimum_role]}
               </p>
             </div>
           </div>
-          <Button className="md:w-1/5" variant="secondary">
-            Daftar Sekarang
-          </Button>
+          <Link className="md:w-1/5" href={"/kegiatan/daftar/" + activity.slug}>
+            <Button variant="secondary">Daftar Sekarang</Button>
+          </Link>
         </div>
         <div className="bg-primary flex flex-col items-center p-6 gap-6 md:rounded-lg md:mb-10">
           <h2 className="text-white w-fit border-b-2 border-secondary text-2xl pb-2">

@@ -34,7 +34,7 @@ const DUMMY_OPTIONS = [
 
 export default function ActivityRegistration() {
   const [activeForm, setActiveForm] = useState(0);
-  // min-h-[80vh] flex flex-col justify-center
+  
   return (
     <>
       <Navbar />

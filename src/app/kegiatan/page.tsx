@@ -2,14 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/common";
-import { ActivityCard } from "@/components/biz";
 import { Footer, Navbar } from "@/components/layout";
 
 import activitiespageIllustration from "@/assets/images/activitiespage-1.svg";
-import Select from "@/components/form/Select";
-import { Input } from "@/components/form";
+import ActivityList from "@/features/Activities/components/ActivityList";
 
-export default function Activities() {
+export default function Activities({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <div className="w-full min-h-screen bg-white">
       <Navbar />
@@ -47,40 +49,7 @@ export default function Activities() {
             </div>
           </div>
         </div>
-
-        <div className="flex flex-col gap-5 w-full px-5 pt-12 max-w-6xl mx-auto md:px-6">
-          <Input placeholder="Cari Kegiatan" inputStyle="outlined-primary" />
-          <div className="gap-3 hidden justify-center flex-wrap md:flex">
-            <Button>Semua</Button>
-            <Button>SSC</Button>
-            <Button>LMD</Button>
-            <Button>Spectra</Button>
-          </div>
-
-          <Select
-            inputStyle="outlined-primary"
-            className="md:hidden"
-            placeholder="Pilih Kategori"
-            isClearable
-            options={[{ label: "Pelatihan", value: "pelatihan" }]}
-          />
-        </div>
-
-        <div className="w-full px-5 py-12 max-w-6xl mx-auto grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4 md:px-6">
-          <ActivityCard />
-          <ActivityCard />
-          <ActivityCard />
-          <ActivityCard />
-          <ActivityCard />
-          <ActivityCard />
-          <ActivityCard />
-        </div>
-
-        <div className="w-full px-5 py-12 md:px-6 max-w-6xl mx-auto">
-          <div className="flex justify-center">
-            <Button variant="secondary">Lebih Banyak</Button>
-          </div>
-        </div>
+        <ActivityList searchParams={searchParams} />
       </main>
 
       <Footer />

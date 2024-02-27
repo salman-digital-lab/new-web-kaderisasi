@@ -1,4 +1,5 @@
 "use client";
+import { useIsClient } from "@/hooks";
 import SelectComponent from "react-select";
 
 export type SelectProps = {
@@ -39,7 +40,9 @@ export default function Select({
       border: undefined,
     },
   };
-  return (
+
+  const isClient = useIsClient();
+  return isClient ? (
     <SelectComponent
       styles={{
         control: (baseStyles, state) => ({
@@ -64,5 +67,5 @@ export default function Select({
       }}
       {...props}
     />
-  );
+  ) : undefined;
 }

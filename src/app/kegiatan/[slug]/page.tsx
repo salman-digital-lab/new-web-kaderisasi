@@ -14,7 +14,6 @@ export default async function Activities({
   params: { slug: string };
 }) {
   const activity = await getActivity(params);
-
   return (
     <>
       <Navbar />
@@ -68,27 +67,7 @@ export default async function Activities({
             Deskripsi
           </h2>
           <div className="bg-white p-4 rounded rendered-description">
-            <p>[OPEN STUDIO HADIR KEMBALI]</p>
-            <p></p>
-            <p>
-              Siapa nih yang udah gasabar nunggu Open Studio semester ini? Open
-              Studio kali ini bawa topik yang seru banget lho! Topik Open Studio
-              Semester ini adalah 3D Design &amp; Printing untuk membuat alat
-              dan membuat karya seni, serta simulasi medan elektromagnetik untuk
-              keperluan RnD dan Penelitian.
-            </p>
-            <p></p>
-            <p>*Ga daftar Open Studio? Yang bener aja! Rugi Dong!*</p>
-            <p></p>
-            <p>
-              Buruan daftar Open Studio sekarang juga lewat website
-              kaderisasi.salmanitb.com
-            </p>
-            <p></p>
-            <p>
-              Apabila ada yang ingin ditanyakan, silakan langsung tanyakan pada
-              akang ini Kalsani (wa.me/628987025795)
-            </p>
+            <div dangerouslySetInnerHTML={{ __html: activity.description }} />
           </div>
         </div>
       </main>

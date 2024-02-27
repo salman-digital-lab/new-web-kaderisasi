@@ -35,42 +35,18 @@ export default function Profile() {
             </section>
 
             <section className="flex flex-col gap-4 px-4 lg:w-2/3">
-              <div className="hidden lg:block">
-                <div className="flex justify-center items-center gap-4 mb-8 lg:justify-start">
-                  <Link href="/anggota/profil">
-                    <Button
-                      variant="transparant-primary"
-                      className="hover:text-white"
-                    >
-                      Profil
-                    </Button>
-                  </Link>
-                  <Link href="/anggota/kegiatan">
-                    <Button variant="primary">Kegiatan</Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="lg:hidden">
-                <div className="lg:none flex justify-center lg:justify-start items-center gap-4 mb-8">
-                  <Link href="/anggota/profil">
-                    <Button
-                      variant="transparant-primary"
-                      className="px-2 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 border-gray-300"
-                      style={{ color: "black" }}
-                    >
-                      Profil
-                    </Button>
-                  </Link>
-                  <Link href="/anggota/kegiatan">
-                    <Button
-                      variant="primary"
-                      className="px-2 bg-transparent border-t-0 border-x-0 border-b-4 rounded-none hover:bg-transparent md:px-8 border-primary"
-                      style={{ color: "black" }}
-                    >
-                      Kegiatan
-                    </Button>
-                  </Link>
-                </div>
+              <div className="lg:none flex justify-center lg:justify-start items-center gap-4 mb-8">
+                <Link href="/anggota/profil">
+                  <Button
+                    variant="transparant-primary"
+                    className="!text-black hover:!text-white"
+                  >
+                    Profil
+                  </Button>
+                </Link>
+                <Link href="/anggota/kegiatan">
+                  <Button variant="primary">Kegiatan</Button>
+                </Link>
               </div>
 
               <div>

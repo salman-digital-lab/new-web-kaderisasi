@@ -1,5 +1,20 @@
 import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
 
+export type QuestionnaireSchema =
+  | {
+      type: "text" | "number";
+      label: string;
+      name: string;
+      required: string;
+    }
+  | {
+      type: "dropdown";
+      label: string;
+      name: string;
+      required: string;
+      data: { label: string; value: string }[];
+    };
+
 export type Activity = {
   id: number;
   name: string;
@@ -12,6 +27,6 @@ export type Activity = {
   selection_start: string;
   selection_end: string;
   minimum_role: USER_LEVEL_ENUM;
-  additional_questionnaire: any;
+  additional_questionnaire: QuestionnaireSchema[];
   additional_config: any;
 };

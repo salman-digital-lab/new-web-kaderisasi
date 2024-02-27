@@ -14,6 +14,7 @@ export const getActivities = async (props: GetActivitiesReq) => {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: 'no-store'
     }
   );
 
@@ -31,6 +32,7 @@ export const getActivity = async (props: GetActivityReq) => {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: 'no-store'
     }
   );
 

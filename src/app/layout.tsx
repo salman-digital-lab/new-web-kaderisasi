@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import NextTopLoader from "nextjs-toploader";
 
 import "./globals.css";
 
@@ -19,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " " + "bg-white"}>
+        <NextTopLoader showSpinner={false} color="#f7622e" height={4}/>
         {children}
-        <Toaster position="top-center" richColors/>
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

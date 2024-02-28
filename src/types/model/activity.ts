@@ -26,7 +26,7 @@ export type Activity = {
   registration_end: string;
   selection_start: string;
   selection_end: string;
-  minimum_role: USER_LEVEL_ENUM;
+  minimum_level: USER_LEVEL_ENUM;
   additional_questionnaire: QuestionnaireSchema[];
   additional_config: any;
 };

@@ -1,7 +1,7 @@
 import { getProfileResp } from "@/types/service/user";
+import { redirect } from "next/navigation";
 
 export const getProfile = async (token: string) => {
-  console.log(token);
   const response = await fetch(process.env.NEXT_PUBLIC_BE_API + "/profiles", {
     method: "GET",
     headers: {
@@ -11,10 +11,16 @@ export const getProfile = async (token: string) => {
     cache: "no-store",
   });
 
-  const { data: parsedResponse }: { data: getProfileResp } =
-    await response.json();
+  if (response.ok) {
+    console.log(response.status);
 
-  console.log(parsedResponse);
+    const { data: parsedResponse }: { data: getProfileResp } =
+      await response.json();
 
-  return parsedResponse;
+    console.log(parsedResponse);
+
+    return parsedResponse;
+  } else {
+    throw new Error(String(response.status));
+  }
 };

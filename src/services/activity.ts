@@ -14,14 +14,19 @@ export const getActivities = async (props: GetActivitiesReq) => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: 'no-store'
+      cache: "no-store",
     }
   );
 
-  const { data: parsedResponse }: { data: GetActivitiesResp } =
-    await response.json();
+  if (response.ok) {
+    const { data: parsedResponse }: { data: GetActivitiesResp } =
+      await response.json();
 
-  return parsedResponse;
+    return parsedResponse;
+  } else {
+    if (response.status === 500) throw new Error("500, internal server error");
+    throw new Error(String(response.status));
+  }
 };
 
 export const getActivity = async (props: GetActivityReq) => {
@@ -32,7 +37,7 @@ export const getActivity = async (props: GetActivityReq) => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: 'no-store'
+      cache: "no-store",
     }
   );
 

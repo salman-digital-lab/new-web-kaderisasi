@@ -3,8 +3,12 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export default async function logout() {
+export default async function logout(redirectionUrl?: string) {
   cookies().delete("kaderisasi-web-session");
   cookies().delete("kaderisasi-web-name");
-  redirect(`/`);
+  if (redirectionUrl) {
+    redirect(redirectionUrl);
+  } else {
+    redirect("/");
+  }
 }

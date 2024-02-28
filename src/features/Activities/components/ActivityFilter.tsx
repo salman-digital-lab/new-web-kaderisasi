@@ -15,14 +15,15 @@ export default function ActivityFilter() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
+  const category = searchParams.get("category");
 
   const onChangeCategory = (category?: ACTIVITY_CATEGORY_ENUM) => {
     const params = new URLSearchParams(searchParams.toString());
 
     if (category !== undefined) {
-      params.set("catergory", String(category));
+      params.set("category", String(category));
     } else {
-      params.delete("catergory");
+      params.delete("category");
     }
     router.push("/kegiatan?" + params, { scroll: false });
   };
@@ -35,7 +36,7 @@ export default function ActivityFilter() {
       params.delete("search");
     }
 
-    router.push("/kegiatan?" + params);
+    router.push("/kegiatan?" + params, { scroll: false });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
@@ -48,9 +49,21 @@ export default function ActivityFilter() {
         onChange={(e) => setSearch(e.target.value)}
       />
       <div className="gap-3 hidden justify-center flex-wrap md:flex">
-        <Button onClick={() => onChangeCategory()}>Semua</Button>
+        <Button
+          outlined
+          variant={category ? "outlined-primary" : "primary"}
+          onClick={() => onChangeCategory()}
+        >
+          Semua
+        </Button>
         {ACTIVITY_CATEGORY_OPTIONS.map((option) => (
           <Button
+            variant={
+              category === String(option.value)
+                ? "primary"
+                : "outlined-primary"
+            }
+            outlined
             key={option.value}
             onClick={() => onChangeCategory(option.value)}
           >

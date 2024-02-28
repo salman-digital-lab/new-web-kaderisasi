@@ -12,7 +12,7 @@ export default function Navbar() {
   const fullnameCookie = cookies().get("kaderisasi-web-name");
 
   return (
-    <nav className="fixed left-0 top-0 w-full py-4 bg-primary z-10 drop-shadow">
+    <nav className="left-0 top-0 w-full py-4 bg-primary z-10 drop-shadow">
       <div className="w-full px-4 md:px-6 max-w-6xl mx-auto">
         <div className="flex justify-between items-center">
           <Link href="/">

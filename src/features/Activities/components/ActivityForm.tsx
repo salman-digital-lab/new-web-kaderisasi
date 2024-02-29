@@ -136,7 +136,6 @@ export default function ActivityForm({ formSchemas }: ActivityFormProps) {
           <Button
             onClick={() => setActiveForm(1)}
             variant="transparant-secondary"
-            outlined
             type="button"
           >
             Kembali

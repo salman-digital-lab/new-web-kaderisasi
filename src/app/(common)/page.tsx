@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import homepageIllustration from "../../assets/images/homepage-1.svg";
 
-import { Footer, Navbar } from "@/components/layout";
 import { Button } from "@/components/common";
 import ActivitySection from "@/features/Home/components/ActivitySection";
 
@@ -23,7 +22,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">
                   <Link href="/kegiatan">
-                    <Button variant="secondary" outlined={true}>
+                    <Button variant="secondary">
                       Daftar Kegiatan
                     </Button>
                   </Link>
@@ -68,7 +67,7 @@ export default function Home() {
               psikologi praktis untuk menjadi seorang konselor lho.
             </p>
             <div>
-              <Button variant="secondary" outlined={true}>
+              <Button variant="secondary">
                 Ruang Curhat
               </Button>
             </div>

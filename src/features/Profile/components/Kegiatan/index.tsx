@@ -1,31 +1,22 @@
 import Image from "next/image";
-import { Search, NotebookPen } from "lucide-react";
+import { NotebookPen } from "lucide-react";
 import { Button } from "@/components/common";
 import placeholderPosterKegiatan from "@/assets/images/poster-kegiatan-placeholder.jpeg";
-import Select from "@/components/form/Select";
+import { Input } from "@/components/form";
 
 export default function Kegiatan() {
-  const dummyData = [
-    { value: "semua", label: "Semua" },
-    { value: "data1", label: "Kategori 1" },
-    { value: "data2", label: "Kategori 2" },
-    { value: "data3", label: "Kategori 3" },
-  ];
-
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col justify-between items-center md:flex-row">
         <h1 className="text-xl font-bold mb-4">Daftar Kegiatan</h1>
         <form className="relative self-start md:w-72">
-          <input
+          <Input
+            inputStyle="outlined-primary"
             type="text"
-            placeholder="Cari kegiatan..."
-            className="w-full p-2 pl-8 border-2 border-primary rounded-md peer focus:pl-2 focus:outline-none focus:border-primary/30"
+            placeholder="Cari kegiatan"
           />
-          <Search className="absolute top-1/2 left-2 -translate-y-1/2 text-primary peer-focus:hidden" />
         </form>
       </div>
-      <Select options={dummyData} />
       <div className="flex flex-col gap-6">
         <div className="flex flex-col justify-between gap-4 p-4 border border-primary rounded-lg md:flex-row">
           <div className="md:self-start md:w-1/4">

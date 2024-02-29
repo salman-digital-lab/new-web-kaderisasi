@@ -6,13 +6,16 @@ import { Button } from "@/components/common";
 import { Profil } from "@/features/Profile/components";
 import placeholderImage from "@/assets/images/profile-image-placeholder.jpg";
 import LogoutButton from "@/features/Auth/components/LogoutButton";
-import { getProfile } from "@/services/profile";
+import { getProfile, getProvinces, getUniversities } from "@/services/profile";
 import { cookies } from "next/headers";
+import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 
 export default async function Profile() {
   const tokenCookie = cookies().get("kaderisasi-web-session");
 
   const profileData = await getProfile(tokenCookie?.value || "");
+  const provinceData = await getProvinces();
+  const universityData = await getUniversities();
 
   return (
     <main className="mt-[65px] pb-6 text-black bg-white lg:mt-[84px] lg:py-16">
@@ -32,7 +35,11 @@ export default async function Profile() {
                 <h2 className="text-lg font-bold">
                   {profileData?.profile?.name}
                 </h2>
-                <p className="text-md text-gray-500">Kader</p>
+                <p className="text-md text-gray-500">
+                  {profileData?.profile?.level
+                    ? USER_LEVEL_RENDER[profileData.profile.level]
+                    : "Jamaah"}
+                </p>
                 <LogoutButton />
               </div>
             </div>
@@ -45,8 +52,8 @@ export default async function Profile() {
               </Link>
               <Link href="/anggota/kegiatan">
                 <Button
-                  variant="transparant-primary"
-                  className="!text-black hover:!text-white"
+                  variant="outlined-primary"
+                  className="hover:!text-white"
                 >
                   Kegiatan
                 </Button>
@@ -54,7 +61,11 @@ export default async function Profile() {
             </div>
 
             <div>
-              <Profil data={profileData} />
+              <Profil
+                data={profileData}
+                provinces={provinceData}
+                universities={universityData?.data}
+              />
             </div>
           </section>
         </div>

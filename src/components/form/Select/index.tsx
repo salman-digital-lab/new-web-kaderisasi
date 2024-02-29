@@ -50,7 +50,9 @@ export default function Select({
           cursor: "text",
           outline: undefined,
           boxShadow: "none",
-          borderColor: INPUT_STYLE[inputStyle].borderColor,
+          borderColor: state.isDisabled
+            ? "#e2e8f0"
+            : INPUT_STYLE[inputStyle].borderColor,
           outlineWidth: state.isFocused
             ? INPUT_STYLE[inputStyle].outlineWidth
             : undefined,
@@ -60,9 +62,17 @@ export default function Select({
           outlineOffset: "0px",
           outlineStyle: state.isFocused ? "solid" : "none",
           border: INPUT_STYLE[inputStyle].border,
+          color: state.isDisabled ? "#9ca3af" : baseStyles.color,
+          backgroundColor: state.isDisabled
+            ? "#e2e8f0"
+            : baseStyles.backgroundColor,
           ":hover": {
             borderColor: INPUT_STYLE[inputStyle].borderColor,
           },
+        }),
+        singleValue: (baseStyles, state) => ({
+          ...baseStyles,
+          color: state.isDisabled ? "#9ca3af" : baseStyles.color,
         }),
       }}
       {...props}

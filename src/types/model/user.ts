@@ -27,3 +27,14 @@ export type Profile = {
   city: string;
   province: string;
 };
+
+export type Province = {
+  id: number;
+  name: string;
+};
+
+
+export type University = {
+  id: number;
+  name: string;
+};

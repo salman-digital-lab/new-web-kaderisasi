@@ -3,47 +3,21 @@
 import { Button } from "@/components/common";
 import Select from "@/components/form/Select";
 import { Input } from "@/components/form";
-import { Profile, User } from "@/types/model/user";
+import { Profile, Province, University, User } from "@/types/model/user";
 import { GENDER_OPTION } from "@/constants/form/profile";
 
-const DUMMY_OPTIONS = [
-  { value: "data1", label: "Data 1" },
-  { value: "data2", label: "Data 2" },
-  { value: "data3", label: "Data 3" },
-  { value: "data4", label: "Data 4" },
-  { value: "data5", label: "Data 5" },
-  { value: "data6", label: "Data 6" },
-  { value: "data7", label: "Data 7" },
-  { value: "data8", label: "Data 8" },
-  { value: "data8", label: "Data 8" },
-  { value: "data9", label: "Data 9" },
-  { value: "data10", label: "Data 10" },
-  { value: "data11", label: "Data 11" },
-  { value: "data12", label: "Data 12" },
-  { value: "data13", label: "Data 13" },
-  { value: "data14", label: "Data 14" },
-  { value: "data15", label: "Data 15" },
-  { value: "data16", label: "Data 16" },
-  { value: "data17", label: "Data 17" },
-  { value: "data18", label: "Data 18" },
-  { value: "data19", label: "Data 19" },
-  { value: "data20", label: "Data 20" },
-  { value: "data21", label: "Data 21" },
-  { value: "data22", label: "Data 22" },
-];
+import changeProfile from "../../actions/changeProfile";
 
 type ProfilProps = {
   data: {
     userData: User;
     profile: Profile;
   };
+  provinces: Province[];
+  universities: University[];
 };
 
-const changeProfile = (formData: FormData) => {
-  console.log(formData.get("gender"));
-};
-
-export default function Profil({ data }: ProfilProps) {
+export default function Profil({ data, provinces, universities }: ProfilProps) {
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">
@@ -122,8 +96,11 @@ export default function Profil({ data }: ProfilProps) {
                   id="province_id"
                   name="province_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
+                  placeholder="Masukkan Provinsi"
+                  options={provinces?.map((province) => ({
+                    label: province.name,
+                    value: province.id,
+                  }))}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -134,8 +111,8 @@ export default function Profil({ data }: ProfilProps) {
                   id="city_id"
                   name="city_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
+                  placeholder="Masukkan Kota"
+                  isDisabled
                 />
               </div>
             </fieldset>
@@ -152,8 +129,11 @@ export default function Profil({ data }: ProfilProps) {
                   id="university_id"
                   name="university_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
+                  placeholder="Masukkan Kampus"
+                  options={universities?.map((university) => ({
+                    label: university.name,
+                    value: university.id,
+                  }))}
                   defaultValue={data?.profile.university_id}
                 />
               </div>
@@ -180,7 +160,7 @@ export default function Profil({ data }: ProfilProps) {
                   type="number"
                   inputStyle="outlined-primary"
                   id="major"
-                  placeholder="Masukkan Angkatan/Tahun Masuk"
+                  placeholder="Masukkan Angkatan"
                   defaultValue={data?.profile.major}
                 />
               </div>

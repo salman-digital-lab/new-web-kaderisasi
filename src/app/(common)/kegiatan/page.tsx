@@ -29,7 +29,7 @@ export default function Activities({
                 </p>
                 <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">
                   <Link href="/regeneration-flow">
-                    <Button variant="transparant-secondary" outlined={true}>
+                    <Button variant="transparant-secondary">
                       Lihat Alur Kaderisasi
                     </Button>
                   </Link>

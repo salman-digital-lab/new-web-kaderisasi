@@ -8,7 +8,6 @@ export type ButtonProps = {
     | "transparant-secondary"
     | "outlined-primary"
     | "outlined-secondary";
-  outlined?: boolean;
   loading?: boolean;
 } & React.ComponentPropsWithoutRef<"button">;
 
@@ -17,7 +16,6 @@ export default function Button({
   disabled,
   children,
   variant = "primary",
-  outlined = false,
   loading = false,
   ...buttonProps
 }: ButtonProps) {

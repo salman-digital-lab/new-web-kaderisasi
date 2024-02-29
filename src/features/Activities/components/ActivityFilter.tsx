@@ -50,7 +50,6 @@ export default function ActivityFilter() {
       />
       <div className="gap-3 hidden justify-center flex-wrap md:flex">
         <Button
-          outlined
           variant={category ? "outlined-primary" : "primary"}
           onClick={() => onChangeCategory()}
         >
@@ -59,11 +58,8 @@ export default function ActivityFilter() {
         {ACTIVITY_CATEGORY_OPTIONS.map((option) => (
           <Button
             variant={
-              category === String(option.value)
-                ? "primary"
-                : "outlined-primary"
+              category === String(option.value) ? "primary" : "outlined-primary"
             }
-            outlined
             key={option.value}
             onClick={() => onChangeCategory(option.value)}
           >

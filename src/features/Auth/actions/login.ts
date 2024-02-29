@@ -34,9 +34,9 @@ export default async function login(formData: FormData) {
 
       return parsedResponse?.message;
     } else {
-      return (
+      throw new Error(
         parsedResponse?.message ||
-        "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi."
+          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi."
       );
     }
   } catch (error: unknown) {
@@ -52,6 +52,6 @@ export default async function login(formData: FormData) {
       message = "Something when wrong";
     }
 
-    return message;
+    throw new Error(message);
   }
 }

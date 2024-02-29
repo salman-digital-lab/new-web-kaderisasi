@@ -13,9 +13,13 @@ export default function LoginForm() {
   const router = useRouter();
 
   const loginUser = async (formData: FormData) => {
-    const message = await login(formData);
-    if (message) toast(message);
-    router.push("/");
+    try {
+      const message = await login(formData);
+      if (message) toast(message);
+      router.push("/");
+    } catch (error) {
+      if (error instanceof Error) toast.error(error?.message);
+    }
   };
 
   return (

@@ -54,7 +54,7 @@ export default async function Profile() {
             </div>
 
             <div>
-              <Profil />
+              <Profil data={profileData} />
             </div>
           </section>
         </div>

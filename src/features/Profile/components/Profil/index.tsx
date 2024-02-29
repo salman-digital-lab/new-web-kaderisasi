@@ -1,6 +1,10 @@
+"use client";
+
 import { Button } from "@/components/common";
 import Select from "@/components/form/Select";
 import { Input } from "@/components/form";
+import { Profile, User } from "@/types/model/user";
+import { GENDER_OPTION } from "@/constants/form/profile";
 
 const DUMMY_OPTIONS = [
   { value: "data1", label: "Data 1" },
@@ -28,76 +32,43 @@ const DUMMY_OPTIONS = [
   { value: "data22", label: "Data 22" },
 ];
 
-export default function Profil() {
+type ProfilProps = {
+  data: {
+    userData: User;
+    profile: Profile;
+  };
+};
 
+const changeProfile = (formData: FormData) => {
+  console.log(formData.get("gender"));
+};
+
+export default function Profil({ data }: ProfilProps) {
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">
         Data Profil
       </h1>
-      <form className="flex flex-col gap-4">
+      <form className="flex flex-col gap-4" action={changeProfile}>
         <div className="flex flex-col gap-4 md:flex-row md:gap-8 lg:justify-between lg:gap-32">
           <div className="flex flex-col gap-4 md:w-1/2">
             <fieldset className="flex flex-col gap-3">
               <legend className="text-lg text-gray-500 mb-4">Personal</legend>
               <div className="flex flex-col gap-2">
-                <label htmlFor="jenis-kelamin" className="font-bold">
+                <label htmlFor="gender" className="font-bold">
                   Jenis Kelamin
                 </label>
                 <Select
+                  id="gender"
+                  name="gender"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="tanggal-lahir" className="font-bold">
-                  Tanggal Lahir
-                </label>
-                <Input
-                  type="date"
-                  inputStyle="outlined-primary"
-                  id="tanggal-lahir"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="tempat-lahir" className="font-bold">
-                  Tempat Lahir
-                </label>
-                <Input
-                  inputStyle="outlined-primary"
-                  type="text"
-                  id="tempat-lahir"
-                  placeholder="Tempat lahir"
+                  placeholder="Masukkan Jenis Kelamin"
+                  options={GENDER_OPTION}
+                  defaultValue={data?.profile.gender}
                 />
               </div>
             </fieldset>
-            <fieldset className="flex flex-col gap-3">
-              <legend className="text-lg text-gray-500 mb-4">Domisili</legend>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="" className="font-bold">
-                  Provinsi
-                </label>
-                <Select
-                  inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="" className="font-bold">
-                  Kota/Kabupaten
-                </label>
-                <Select
-                  inputStyle="outlined-primary"
-                  placeholder="Masukkan Data"
-                  options={DUMMY_OPTIONS}
-                />
-              </div>
-            </fieldset>
-          </div>
-          <div className="flex flex-col gap-4 md:w-1/2">
-            {/* Field kontak */}
+
             <fieldset className="flex flex-col gap-3">
               <legend className="text-lg text-gray-500 mb-4">Kontak</legend>
               <div className="flex flex-col gap-2">
@@ -109,6 +80,8 @@ export default function Profil() {
                   inputStyle="outlined-primary"
                   id="email"
                   placeholder="Masukkan alamat Email"
+                  defaultValue={data?.userData.email}
+                  disabled
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -120,6 +93,7 @@ export default function Profil() {
                   inputStyle="outlined-primary"
                   id="whatsapp"
                   placeholder="Masukkan Nomor WhatsApp"
+                  defaultValue={data?.profile.whatsapp}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -127,36 +101,87 @@ export default function Profil() {
                   ID Line
                 </label>
                 <Input
+                  id="id-line"
+                  name="line"
                   type="text"
                   inputStyle="outlined-primary"
-                  id="id-line"
                   placeholder="Masukkan ID Line"
+                  defaultValue={data?.profile.line}
                 />
               </div>
             </fieldset>
+          </div>
+          <div className="flex flex-col gap-4 md:w-1/2">
             <fieldset className="flex flex-col gap-3">
-              <legend className="text-lg text-gray-500 mb-4">
-                Data Kampus
-              </legend>
+              <legend className="text-lg text-gray-500 mb-4">Domisili</legend>
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="font-bold">
-                  Nama Kampus
+                <label htmlFor="province_id" className="font-bold">
+                  Provinsi
                 </label>
                 <Select
+                  id="province_id"
+                  name="province_id"
                   inputStyle="outlined-primary"
                   placeholder="Masukkan Data"
                   options={DUMMY_OPTIONS}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="jurusan" className="font-bold">
+                <label htmlFor="city_id" className="font-bold">
+                  Kota/Kabupaten
+                </label>
+                <Select
+                  id="city_id"
+                  name="city_id"
+                  inputStyle="outlined-primary"
+                  placeholder="Masukkan Data"
+                  options={DUMMY_OPTIONS}
+                />
+              </div>
+            </fieldset>
+
+            <fieldset className="flex flex-col gap-3">
+              <legend className="text-lg text-gray-500 mb-4">
+                Data Kampus
+              </legend>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="university_id" className="font-bold">
+                  Nama Kampus
+                </label>
+                <Select
+                  id="university_id"
+                  name="university_id"
+                  inputStyle="outlined-primary"
+                  placeholder="Masukkan Data"
+                  options={DUMMY_OPTIONS}
+                  defaultValue={data?.profile.university_id}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="major" className="font-bold">
                   Jurusan
                 </label>
                 <Input
+                  name="major"
                   type="text"
                   inputStyle="outlined-primary"
-                  id="jurusan"
+                  id="major"
                   placeholder="Masukkan Jurusan"
+                  defaultValue={data?.profile.major}
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="major" className="font-bold">
+                  Angkatan/Tahun Masuk
+                </label>
+                <Input
+                  name="major"
+                  type="number"
+                  inputStyle="outlined-primary"
+                  id="major"
+                  placeholder="Masukkan Angkatan/Tahun Masuk"
+                  defaultValue={data?.profile.major}
                 />
               </div>
             </fieldset>

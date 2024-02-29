@@ -67,5 +67,7 @@ export default function Select({
       }}
       {...props}
     />
-  ) : undefined;
+  ) : (
+    <div className="bg-slate-200 h-[2.375rem] w-full animate-pulse rounded" />
+  );
 }

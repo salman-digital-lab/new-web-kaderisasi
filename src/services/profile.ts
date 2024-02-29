@@ -1,5 +1,4 @@
 import { getProfileResp } from "@/types/service/user";
-import { redirect } from "next/navigation";
 
 export const getProfile = async (token: string) => {
   const response = await fetch(process.env.NEXT_PUBLIC_BE_API + "/profiles", {

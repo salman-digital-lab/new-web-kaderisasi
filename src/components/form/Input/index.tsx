@@ -27,6 +27,7 @@ export default function Input({
         "px-2.5 py-[6px] w-full rounded text-black focus:outline-none focus:outline-offset-0 " +
         INPUT_STYLE[inputStyle] +
         " " +
+        " disabled:bg-slate-200 disabled:hover:bg-slate-200 disabled:border-slate-200 disabled:text-slate-400 " +
         className
       }
     />

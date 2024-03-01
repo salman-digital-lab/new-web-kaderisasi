@@ -3,6 +3,7 @@ import {
   getProvincesResp,
   getUniversitiesResp,
   putProfileReq,
+  putProfileResp,
 } from "@/types/service/user";
 
 export const getProfile = async (token: string) => {
@@ -36,8 +37,7 @@ export const putUpdate = async (token: string, data: putProfileReq) => {
   });
 
   if (response.ok) {
-    const { data: parsedResponse }: { data: getProfileResp } =
-      await response.json();
+    const parsedResponse = (await response.json()) as putProfileResp;
 
     return parsedResponse;
   } else {

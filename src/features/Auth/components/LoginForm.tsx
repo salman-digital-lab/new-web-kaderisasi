@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import Cookies from "js-cookie";
 
 import { Input } from "@/components/form";
 import InputPassword from "@/components/form/InputPassword";

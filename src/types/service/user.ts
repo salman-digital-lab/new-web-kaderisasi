@@ -14,3 +14,8 @@ export type getUniversitiesResp = {
 };
 
 export type putProfileReq = Partial<Profile>;
+
+export type putProfileResp = {
+  message: string;
+  data: Profile;
+};

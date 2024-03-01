@@ -1,12 +1,13 @@
 "use client";
 
-import { Button } from "@/components/common";
 import Select from "@/components/form/Select";
 import { Input } from "@/components/form";
+import SubmitButton from "@/components/form/SubmitButton";
 import { Profile, Province, University, User } from "@/types/model/user";
 import { GENDER_OPTION } from "@/constants/form/profile";
 
 import changeProfile from "../../actions/changeProfile";
+import { toast } from "sonner";
 
 type ProfilProps = {
   data: {
@@ -18,12 +19,22 @@ type ProfilProps = {
 };
 
 export default function Profil({ data, provinces, universities }: ProfilProps) {
+  const changeUserProfile = async (formData: FormData) => {
+    try {
+      const respData = await changeProfile(formData);
+      console.log(respData);
+      if (respData) toast(respData.message);
+    } catch (error) {
+      if (error instanceof Error) toast.error(error?.message);
+    }
+  };
+
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">
         Data Profil
       </h1>
-      <form className="flex flex-col gap-4" action={changeProfile}>
+      <form className="flex flex-col gap-4" action={changeUserProfile}>
         <div className="flex flex-col gap-4 md:flex-row md:gap-8 lg:justify-between lg:gap-32">
           <div className="flex flex-col gap-4 md:w-1/2">
             <fieldset className="flex flex-col gap-3">
@@ -38,7 +49,9 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   inputStyle="outlined-primary"
                   placeholder="Masukkan Jenis Kelamin"
                   options={GENDER_OPTION}
-                  defaultValue={data?.profile.gender}
+                  defaultValue={GENDER_OPTION.find(
+                    (option) => option.value === data?.profile.gender
+                  )}
                 />
               </div>
             </fieldset>
@@ -101,6 +114,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                     label: province.name,
                     value: province.id,
                   }))}
+                  defaultValue={{
+                    value: data?.profile.province_id,
+                    label: provinces?.find(
+                      (option) => option.id === data?.profile.province_id
+                    )?.name,
+                  }}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -134,7 +153,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                     label: university.name,
                     value: university.id,
                   }))}
-                  defaultValue={data?.profile.university_id}
+                  defaultValue={{
+                    value: data?.profile.university_id,
+                    label: universities?.find(
+                      (option) => option.id === data?.profile.province_id
+                    )?.name,
+                  }}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -152,25 +176,25 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="major" className="font-bold">
+                <label htmlFor="intake_year" className="font-bold">
                   Angkatan/Tahun Masuk
                 </label>
                 <Input
-                  name="major"
+                  name="intake_year"
                   type="number"
                   inputStyle="outlined-primary"
-                  id="major"
+                  id="intake_year"
                   placeholder="Masukkan Angkatan"
-                  defaultValue={data?.profile.major}
+                  defaultValue={data?.profile.intake_year}
                 />
               </div>
             </fieldset>
           </div>
         </div>
         <div className="md:self-end mt-4">
-          <Button variant="secondary" type="submit" className="w-full">
+          <SubmitButton variant="secondary" type="submit" className="w-full">
             Update Data Profil
-          </Button>
+          </SubmitButton>
         </div>
       </form>
     </>

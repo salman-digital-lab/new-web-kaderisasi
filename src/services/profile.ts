@@ -1,4 +1,5 @@
 import {
+  getProfileActivityResp,
   getProfileResp,
   getProvincesResp,
   getUniversitiesResp,
@@ -81,6 +82,29 @@ export const getUniversities = async () => {
 
   if (response.ok) {
     const { data: parsedResponse }: { data: getUniversitiesResp } =
+      await response.json();
+
+    return parsedResponse;
+  } else {
+    throw new Error(String(response.status));
+  }
+};
+
+export const getProfileActivity = async (token: string) => {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_BE_API + "/profiles/activities",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      cache: "no-store",
+    }
+  );
+
+  if (response.ok) {
+    const { data: parsedResponse }: { data: getProfileActivityResp } =
       await response.json();
 
     return parsedResponse;

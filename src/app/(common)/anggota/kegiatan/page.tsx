@@ -6,8 +6,16 @@ import { Button } from "@/components/common";
 import { Kegiatan } from "@/features/Profile/components";
 import placeholderImage from "@/assets/images/profile-image-placeholder.jpg";
 import LogoutButton from "@/features/Auth/components/LogoutButton";
+import { cookies } from "next/headers";
+import { getProfile, getProfileActivity } from "@/services/profile";
+import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 
-export default function Profile() {
+export default async function Profile() {
+  const tokenCookie = cookies().get("kaderisasi-web-session");
+
+  const profileData = await getProfile(tokenCookie?.value || "");
+  const profileActivities = await getProfileActivity(tokenCookie?.value || "");
+
   return (
     <main className="mt-[65px] pb-6 text-black bg-white lg:mt-[84px] lg:py-16">
       <div className="max-w-6xl lg:px-6 lg:mx-auto">
@@ -23,8 +31,14 @@ export default function Profile() {
                 />
               </div>
               <div className="flex flex-col justify-end items-center gap-2 h-[75%] pb-4 bg-white rounded-b-lg lg:justify-center lg:h-[60%] lg:pb-0">
-                <h2 className="text-lg font-bold">Khabib Nurmagomedov</h2>
-                <p className="text-md text-gray-500">Kader</p>
+                <h2 className="text-lg font-bold">
+                  {profileData?.profile?.name}
+                </h2>
+                <p className="text-md text-gray-500">
+                  {profileData?.profile?.level
+                    ? USER_LEVEL_RENDER[profileData.profile.level]
+                    : "Jamaah"}
+                </p>
                 <LogoutButton />
               </div>
             </div>
@@ -34,19 +48,24 @@ export default function Profile() {
             <div className="lg:none flex justify-center lg:justify-start items-center gap-4 mb-8">
               <Link href="/anggota/profil">
                 <Button
-                  variant="transparant-primary"
-                  className="!text-black hover:!text-white"
+                  variant="outlined-primary"
+                  className="hover:!text-white"
                 >
                   Profil
                 </Button>
               </Link>
               <Link href="/anggota/kegiatan">
-                <Button variant="primary">Kegiatan</Button>
+                <Button
+                  className="border-2 border-solid border-primary"
+                  variant="primary"
+                >
+                  Kegiatan
+                </Button>
               </Link>
             </div>
 
             <div>
-              <Kegiatan />
+              <Kegiatan activities={profileActivities} />
             </div>
           </section>
         </div>

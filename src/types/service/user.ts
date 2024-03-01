@@ -1,3 +1,4 @@
+import { Activity } from "../model/activity";
 import { Profile, Province, University, User } from "../model/user";
 import { Pagination } from "./base";
 
@@ -19,3 +20,5 @@ export type putProfileResp = {
   message: string;
   data: Profile;
 };
+
+export type getProfileActivityResp = Activity[];

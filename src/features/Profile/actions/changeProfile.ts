@@ -20,6 +20,8 @@ export default async function changeProfile(formData: FormData) {
 
   const response = await putUpdate(token?.value || "", data);
 
+  console.log(response);
+
   revalidatePath("/anggota/profil");
 
   return response;

@@ -5,13 +5,13 @@ export type QuestionnaireSchema =
       type: "text" | "number";
       label: string;
       name: string;
-      required: string;
+      required: boolean;
     }
   | {
       type: "dropdown";
       label: string;
       name: string;
-      required: string;
+      required: boolean;
       data: { label: string; value: string }[];
     };
 

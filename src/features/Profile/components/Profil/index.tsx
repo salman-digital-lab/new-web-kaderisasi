@@ -22,13 +22,13 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
   const changeUserProfile = async (formData: FormData) => {
     try {
       const respData = await changeProfile(formData);
-      console.log(respData);
       if (respData) toast(respData.message);
     } catch (error) {
       if (error instanceof Error) toast.error(error?.message);
     }
   };
 
+  console.log(data.profile);
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">
@@ -76,9 +76,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   WhatsApp
                 </label>
                 <Input
-                  type="text"
+                  required
+                  name="whatsapp"
+                  type="tel"
                   inputStyle="outlined-primary"
                   id="whatsapp"
+                  pattern="^[0-9]*$"
                   placeholder="Masukkan Nomor WhatsApp"
                   defaultValue={data?.profile.whatsapp}
                 />

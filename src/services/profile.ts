@@ -23,7 +23,7 @@ export const getProfile = async (token: string) => {
 
     return parsedResponse;
   } else {
-    throw new Error(String(response.status));
+    throw new Error(String(response.statusText));
   }
 };
 
@@ -37,12 +37,14 @@ export const putUpdate = async (token: string, data: putProfileReq) => {
     },
   });
 
-  if (response.ok) {
-    const parsedResponse = (await response.json()) as putProfileResp;
+  const parsedResponse = (await response.json()) as putProfileResp;
 
+  if (response.ok) {
     return parsedResponse;
   } else {
-    throw new Error(String(response.status));
+    if (parsedResponse.message) throw new Error(String(parsedResponse.message));
+
+    throw new Error(String(response.statusText));
   }
 };
 
@@ -64,7 +66,7 @@ export const getProvinces = async () => {
 
     return parsedResponse;
   } else {
-    throw new Error(String(response.status));
+    throw new Error(String(response.statusText));
   }
 };
 
@@ -86,7 +88,7 @@ export const getUniversities = async () => {
 
     return parsedResponse;
   } else {
-    throw new Error(String(response.status));
+    throw new Error(String(response.statusText));
   }
 };
 
@@ -109,6 +111,6 @@ export const getProfileActivity = async (token: string) => {
 
     return parsedResponse;
   } else {
-    throw new Error(String(response.status));
+    throw new Error(String(response.statusText));
   }
 };

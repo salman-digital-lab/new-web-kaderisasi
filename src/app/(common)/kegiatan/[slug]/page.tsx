@@ -63,7 +63,7 @@ export default async function Activities({
           <p className="text-sm">
             {dayjs(activity.registration_end).format("DD MMMM YYYY")}
           </p>
-          <Link className="w-fit" href={"/kegiatan/daftar/" + activity.slug}>
+          <Link className="w-fit" href={"/kegiatan/daftar/" + activity.slug + "/pertama"}>
             <Button variant="secondary">Daftar Sekarang</Button>
           </Link>
         </div>

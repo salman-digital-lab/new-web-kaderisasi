@@ -14,7 +14,10 @@ export default async function ActivityRegistration({
         Form Pendaftaran
       </h1>
       <div className="bg-primary p-6 gap-6 md:rounded-lg md:mb-14">
-        <ActivityForm formSchemas={activity.additional_questionnaire} />
+        <ActivityForm
+          formSchemas={activity.additional_questionnaire}
+          slug={params.slug}
+        />
       </div>
     </main>
   );

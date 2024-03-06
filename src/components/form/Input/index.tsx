@@ -4,11 +4,13 @@ export type InputProps = {
     | "default-secondary"
     | "outlined-primary"
     | "outlined-secondary";
+  customErrorMessage?: string;
 } & React.ComponentPropsWithoutRef<"input">;
 
 export default function Input({
   className,
   inputStyle = "default-primary",
+  customErrorMessage,
   ...otherProps
 }: InputProps) {
   const INPUT_STYLE = {
@@ -22,6 +24,12 @@ export default function Input({
 
   return (
     <input
+      onInvalid={(e) =>
+        (e.target as HTMLInputElement).setCustomValidity(
+          customErrorMessage || "Silahkan masukkan data yang sesuai"
+        )
+      }
+      onInput={(e) => (e.target as HTMLInputElement).setCustomValidity("")}
       {...otherProps}
       className={
         "px-2.5 py-[6px] w-full rounded text-black focus:outline-none focus:outline-offset-0 " +

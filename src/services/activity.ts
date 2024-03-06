@@ -44,7 +44,35 @@ export const getActivity = async (props: GetActivityReq) => {
   const { data: parsedResponse }: { data: GetActivityResp } =
     await response.json();
 
-  console.log(parsedResponse);
-
   return parsedResponse;
+};
+
+export const postRegisterActivity = async (
+  token: string,
+  answer: Record<string, unknown>,
+  slug: string
+) => {
+  const data = { questionnaire_answer: answer };
+
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_BE_API + `/activities/${slug}/register`,
+    {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+    }
+  );
+
+  const parsedResponse = await response.json();
+
+  if (response.ok) {
+    return parsedResponse;
+  } else {
+    if (parsedResponse.message) throw new Error(String(parsedResponse.message));
+
+    throw new Error(String(response.statusText));
+  }
 };

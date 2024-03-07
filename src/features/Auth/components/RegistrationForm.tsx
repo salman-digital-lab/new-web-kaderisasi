@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/form";
 import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
+import { NotifyUser } from "@/functions/notification";
 
 export default function RegistrationForm() {
   const [password, setPassword] = useState("");
@@ -37,10 +38,10 @@ export default function RegistrationForm() {
       const parsedResponse = await response.json();
 
       if (response.ok) {
-        toast.success(parsedResponse?.message);
+        NotifyUser("SUCCESS", parsedResponse?.message);
         router.push("/masuk");
       } else {
-        toast.error(parsedResponse?.message);
+        NotifyUser("ERROR",parsedResponse?.message);
       }
     } catch (error: unknown) {
       let message: string;
@@ -55,7 +56,7 @@ export default function RegistrationForm() {
         message = "Something when wrong";
       }
 
-      toast.error(message);
+      NotifyUser("ERROR",message);
     }
   };
 

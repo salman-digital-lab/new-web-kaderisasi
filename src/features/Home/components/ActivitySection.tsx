@@ -23,6 +23,7 @@ export default async function ActivitySection() {
             activityName={activity.name}
             registrationEnd={activity.registration_end}
             slug={activity.slug}
+            minimumLevel={activity.minimum_level}
           />
         ))}
       </div>

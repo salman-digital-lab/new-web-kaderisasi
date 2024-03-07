@@ -1,12 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 import { Input } from "@/components/form";
 import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
 import login from "../actions/login";
+import { NotifyUser } from "@/functions/notification";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -14,10 +14,10 @@ export default function LoginForm() {
   const loginUser = async (formData: FormData) => {
     try {
       const message = await login(formData);
-      if (message) toast(message);
+      if (message) NotifyUser("SUCCESS", message);
       router.push("/");
     } catch (error) {
-      if (error instanceof Error) toast.error(error?.message);
+      if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
   };
 

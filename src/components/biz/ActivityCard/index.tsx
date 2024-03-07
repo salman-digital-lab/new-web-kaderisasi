@@ -2,17 +2,21 @@ import { CalendarClock } from "lucide-react";
 import { Button } from "../../common";
 import Image from "next/image";
 import Link from "next/link";
+import { USER_LEVEL_RENDER } from "@/constants/render/activity";
+import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
 
 type ActivityCardProps = {
   activityName: string;
   registrationEnd: string;
   slug: string;
+  minimumLevel: USER_LEVEL_ENUM;
 };
 
 export default function ActivityCard({
   activityName,
   registrationEnd,
   slug,
+  minimumLevel,
 }: ActivityCardProps) {
   return (
     <div className="flex flex-col flex-none justify-between bg-white cursor-default rounded-xl shadow">
@@ -27,7 +31,10 @@ export default function ActivityCard({
 
         <div className="flex flex-col pt-2">
           <h5 className="font-bold w-60 truncate">{activityName}</h5>
-          <p className="text-sm text-gray-500"> Minimun Kader</p>
+          <p className="text-sm text-gray-500">
+            {" "}
+            Minimum {USER_LEVEL_RENDER[minimumLevel]}
+          </p>
 
           <p className="flex text-xs w-fit rounded-full py-1 pl-1 pr-2 bg-secondary text-white mt-5">
             <CalendarClock className="h-[.9rem]" /> {registrationEnd}
@@ -35,7 +42,10 @@ export default function ActivityCard({
         </div>
       </div>
       <Link href={"/kegiatan/" + slug}>
-        <Button variant="secondary" className="w-full rounded-none rounded-b-lg">
+        <Button
+          variant="secondary"
+          className="w-full rounded-none rounded-b-lg"
+        >
           Daftar
         </Button>
       </Link>

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import registerActivity from "../actions/registerActivity";
 import SubmitButton from "@/components/form/SubmitButton";
+import { NotifyUser } from "@/functions/notification";
 
 type ActivityFormProps = {
   formSchemas: QuestionnaireSchema[];
@@ -82,11 +83,11 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
     try {
       const respData = await registerActivity(formData, formSchemas, slug);
       if (respData) {
-        toast(respData.message);
+        NotifyUser("SUCCESS", respData.message);
         router.push("/kegiatan/" + slug);
       }
     } catch (error) {
-      if (error instanceof Error) toast.error(error?.message);
+      if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
   };
 

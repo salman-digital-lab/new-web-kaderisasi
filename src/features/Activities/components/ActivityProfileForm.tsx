@@ -6,10 +6,10 @@ import Select from "@/components/form/Select";
 import SubmitButton from "@/components/form/SubmitButton";
 import { GENDER_OPTION } from "@/constants/form/profile";
 import changeProfile from "@/features/Profile/actions/changeProfile";
+import { NotifyUser } from "@/functions/notification";
 import { Profile, Province, University } from "@/types/model/user";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 type ActivityProfileFormProps = {
   profileData: Profile;
@@ -32,11 +32,11 @@ export default function ActivityForm({
     try {
       const respData = await changeProfile(formData);
       if (respData) {
-        toast(respData.message);
+        NotifyUser("SUCCESS", respData.message);
         router.push("/kegiatan/daftar/" + slug + "/kedua");
       }
     } catch (error) {
-      if (error instanceof Error) toast.error(error?.message);
+      if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
   };
 
@@ -49,6 +49,7 @@ export default function ActivityForm({
               Jenis Kelamin
             </label>
             <Select
+              required
               inputStyle="outlined-primary"
               placeholder="Masukkan Data"
               options={GENDER_OPTION}
@@ -66,6 +67,7 @@ export default function ActivityForm({
               WhatsApp
             </label>
             <Input
+              required
               name="whatsapp"
               type="text"
               inputStyle="outlined-primary"
@@ -84,6 +86,7 @@ export default function ActivityForm({
               ID Line
             </label>
             <Input
+              required
               id="id-line"
               name="line"
               type="text"
@@ -101,6 +104,7 @@ export default function ActivityForm({
               Provinsi
             </label>
             <Select
+              required
               id="province_id"
               name="province_id"
               inputStyle="outlined-primary"
@@ -126,6 +130,7 @@ export default function ActivityForm({
               Nama Kampus
             </label>
             <Select
+              required
               id="university_id"
               name="university_id"
               inputStyle="outlined-primary"
@@ -151,6 +156,7 @@ export default function ActivityForm({
               Jurusan
             </label>
             <Input
+              required
               name="major"
               type="text"
               inputStyle="outlined-primary"
@@ -168,6 +174,7 @@ export default function ActivityForm({
               Angkatan/Tahun Masuk
             </label>
             <Input
+              required
               name="intake_year"
               type="number"
               inputStyle="outlined-primary"

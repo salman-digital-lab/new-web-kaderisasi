@@ -41,6 +41,7 @@ export default async function ActivityList({
             activityName={activity.name}
             registrationEnd={activity.registration_end}
             slug={activity.slug}
+            minimumLevel={activity.minimum_level}
           />
         ))}
       </div>

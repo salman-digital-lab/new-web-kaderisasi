@@ -7,7 +7,7 @@ import { getActivity } from "@/services/activity";
 import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 import Link from "next/link";
 import dayjs from "dayjs";
-import { getProfileActivity } from "@/services/profile";
+import { getProfile, getProfileActivity } from "@/services/profile";
 import { cookies } from "next/headers";
 
 export default async function Activities({
@@ -15,7 +15,7 @@ export default async function Activities({
 }: {
   params: { slug: string };
 }) {
-  let registration;
+  let registration, profileData;
   const tokenCookie = cookies().get("kaderisasi-web-session");
 
   const activity = await getActivity(params);
@@ -23,6 +23,7 @@ export default async function Activities({
   try {
     if (tokenCookie?.value) {
       registration = await getProfileActivity(tokenCookie?.value, params.slug);
+      profileData = await getProfile(tokenCookie?.value);
     }
   } catch (error) {
     if (!(error instanceof Error && error.message === "Unauthorized")) {
@@ -75,7 +76,7 @@ export default async function Activities({
         </div>
 
         <div className="p-6 bg-white rounded-xl shadow flex flex-col justify-center items-center gap-2 lg:w-3/12">
-          {registration?.status ? (
+          {registration?.status && registration?.status !== "UNREGISTERED" ? (
             <>
               <h1 className="text-primary-800 font-bold">Status Pendaftaran</h1>
               <p className="flex text-xs w-fit rounded-full px-2 py-1 bg-secondary text-white mt-5 md:text-sm md:px-4 md:py-2">
@@ -88,12 +89,28 @@ export default async function Activities({
               <p className="text-sm">
                 {dayjs(activity.registration_end).format("DD MMMM YYYY")}
               </p>
-              <Link
-                className="w-fit"
-                href={"/kegiatan/daftar/" + activity.slug + "/pertama"}
-              >
-                <Button variant="secondary">Daftar Sekarang</Button>
-              </Link>{" "}
+
+              {profileData?.profile ? (
+                profileData?.profile.level < activity.minimum_level ? (
+                  <p className="font-bold text-primary-500">Jenjang anda tidak cukup</p>
+                ) : (
+                  <Link
+                    className="w-fit"
+                    href={"/kegiatan/daftar/" + activity.slug + "/pertama"}
+                  >
+                    <Button variant="secondary">Daftar Sekarang</Button>
+                  </Link>
+                )
+              ) : (
+                <>
+                  <p className="text-sm text-primary-500">
+                    Silahkan masuk terlebih dahulu
+                  </p>
+                  <Link className="w-fit" href={"/masuk"}>
+                    <Button variant="secondary">Masuk</Button>
+                  </Link>
+                </>
+              )}
             </>
           )}
         </div>

@@ -12,7 +12,7 @@ export default function Error({
 }) {
   const renderError = () => {
     switch (error.message) {
-      case "401":
+      case "Unauthorized":
         return (
           <>
             <h1 className="text-xl">

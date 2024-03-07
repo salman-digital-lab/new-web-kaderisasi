@@ -7,14 +7,15 @@ import { Kegiatan } from "@/features/Profile/components";
 import placeholderImage from "@/assets/images/profile-image-placeholder.jpg";
 import LogoutButton from "@/features/Auth/components/LogoutButton";
 import { cookies } from "next/headers";
-import { getProfile, getProfileActivity } from "@/services/profile";
+import { getProfile, getProfileActivities } from "@/services/profile";
 import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 
 export default async function Profile() {
   const tokenCookie = cookies().get("kaderisasi-web-session");
 
   const profileData = await getProfile(tokenCookie?.value || "");
-  const profileActivities = await getProfileActivity(tokenCookie?.value || "");
+  const profileActivities = await getProfileActivities(tokenCookie?.value || "");
+
 
   return (
     <main className="mt-[65px] pb-6 text-black bg-white lg:mt-[84px] lg:py-16">

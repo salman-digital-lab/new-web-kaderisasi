@@ -1,4 +1,5 @@
 import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
+import { Activity } from "./activity";
 
 export type User = {
   id: number;
@@ -38,3 +39,11 @@ export type University = {
   id: number;
   name: string;
 };
+
+export type ActivityRegistration = {
+  id: number
+  user_id: number
+  status: string
+  questionnaire_answer: string
+  activity: Activity
+}

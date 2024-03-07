@@ -7,13 +7,29 @@ import { getActivity } from "@/services/activity";
 import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 import Link from "next/link";
 import dayjs from "dayjs";
+import { getProfileActivity } from "@/services/profile";
+import { cookies } from "next/headers";
 
 export default async function Activities({
   params,
 }: {
   params: { slug: string };
 }) {
+  let registration;
+  const tokenCookie = cookies().get("kaderisasi-web-session");
+
   const activity = await getActivity(params);
+
+  try {
+    if (tokenCookie?.value) {
+      registration = await getProfileActivity(tokenCookie?.value, params.slug);
+    }
+  } catch (error) {
+    if (!(error instanceof Error && error.message === "Unauthorized")) {
+      throw error;
+    }
+  }
+
   return (
     <main className="bg-white w-full mt-24 max-w-[80rem] md:px-10 xl:mx-auto">
       <div className="w-full flex justify-center">
@@ -42,7 +58,7 @@ export default async function Activities({
         </Carousel>
       </div>
 
-      <div className="flex flex-col w-full items-center p-6 lg:flex-row lg:p-0 ">
+      <div className="flex flex-col w-full items-center p-6 gap-4 mt-4 lg:flex-row lg:p-0 ">
         <div className="my-6 lg:w-9/12">
           <h1 className="text-3xl font-bold text-center md:text-left md:text-4xl">
             {activity.name}
@@ -59,17 +75,31 @@ export default async function Activities({
         </div>
 
         <div className="p-6 bg-white rounded-xl shadow flex flex-col justify-center items-center gap-2 lg:w-3/12">
-          <h1 className="text-primary-800 font-bold">Tutup Pendaftaran</h1>
-          <p className="text-sm">
-            {dayjs(activity.registration_end).format("DD MMMM YYYY")}
-          </p>
-          <Link className="w-fit" href={"/kegiatan/daftar/" + activity.slug + "/pertama"}>
-            <Button variant="secondary">Daftar Sekarang</Button>
-          </Link>
+          {registration?.status ? (
+            <>
+              <h1 className="text-primary-800 font-bold">Status Pendaftaran</h1>
+              <p className="flex text-xs w-fit rounded-full px-2 py-1 bg-secondary text-white mt-5 md:text-sm md:px-4 md:py-2">
+                {registration?.status}
+              </p>
+            </>
+          ) : (
+            <>
+              <h1 className="text-primary-800 font-bold">Tutup Pendaftaran</h1>
+              <p className="text-sm">
+                {dayjs(activity.registration_end).format("DD MMMM YYYY")}
+              </p>
+              <Link
+                className="w-fit"
+                href={"/kegiatan/daftar/" + activity.slug + "/pertama"}
+              >
+                <Button variant="secondary">Daftar Sekarang</Button>
+              </Link>{" "}
+            </>
+          )}
         </div>
       </div>
 
-      <div className="bg-primary flex flex-col items-center p-6 gap-6 md:rounded-lg md:mb-10">
+      <div className="bg-primary flex flex-col items-center p-6 gap-6 mt-4 md:rounded-lg md:mb-10">
         <h2 className="text-white w-fit border-b-2 border-secondary text-2xl pb-2">
           Deskripsi
         </h2>

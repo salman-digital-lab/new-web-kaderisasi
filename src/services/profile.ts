@@ -92,7 +92,7 @@ export const getUniversities = async () => {
   }
 };
 
-export const getProfileActivity = async (token: string) => {
+export const getProfileActivities = async (token: string) => {
   const response = await fetch(
     process.env.NEXT_PUBLIC_BE_API + "/profiles/activities",
     {
@@ -107,6 +107,29 @@ export const getProfileActivity = async (token: string) => {
 
   if (response.ok) {
     const { data: parsedResponse }: { data: getProfileActivityResp } =
+      await response.json();
+
+    return parsedResponse;
+  } else {
+    throw new Error(String(response.statusText));
+  }
+};
+
+export const getProfileActivity = async (token: string, slug: string) => {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_BE_API + "/profiles/activities/" + slug,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      cache: "no-store",
+    }
+  );
+
+  if (response.ok) {
+    const { data: parsedResponse }: { data: { status: string } } =
       await response.json();
 
     return parsedResponse;

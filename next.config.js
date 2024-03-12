@@ -16,7 +16,7 @@ const nextConfig = {
   },
   experimental: {
     serverActions: {
-      allowedOrigins: ["localhost:3010"],
+      allowedOrigins: ["kaderisasi-dev.salmanitb.com"],
     },
   },
 };

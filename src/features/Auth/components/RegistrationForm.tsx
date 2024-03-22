@@ -9,6 +9,7 @@ import { Input } from "@/components/form";
 import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
 import { NotifyUser } from "@/functions/notification";
+import register from "../actions/register";
 
 export default function RegistrationForm() {
   const [password, setPassword] = useState("");
@@ -17,46 +18,12 @@ export default function RegistrationForm() {
   const router = useRouter();
 
   const registerUser = async (formData: FormData) => {
-    const rawFormData = {
-      fullname: formData.get("fullname"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
-
     try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_BE_API + "/auth/register",
-        {
-          method: "POST",
-          body: JSON.stringify(rawFormData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const parsedResponse = await response.json();
-
-      if (response.ok) {
-        NotifyUser("SUCCESS", parsedResponse?.message);
-        router.push("/masuk");
-      } else {
-        NotifyUser("ERROR",parsedResponse?.message);
-      }
-    } catch (error: unknown) {
-      let message: string;
-
-      if (error instanceof Error) {
-        message = error.message;
-      } else if (error && typeof error === "object" && "message" in error) {
-        message = String(error.message);
-      } else if (typeof error === "string") {
-        message = error;
-      } else {
-        message = "Something when wrong";
-      }
-
-      NotifyUser("ERROR",message);
+      const message = await register(formData);
+      if (message) NotifyUser("SUCCESS", message);
+      router.push("/masuk");
+    } catch (error) {
+      if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
   };
 

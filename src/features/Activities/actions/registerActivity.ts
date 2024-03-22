@@ -19,7 +19,5 @@ export default async function registerActivity(
 
   const response = await postRegisterActivity(token?.value || "", data, slug);
 
-  console.log(response);
-
   return response;
 }

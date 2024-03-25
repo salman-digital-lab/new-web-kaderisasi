@@ -19,6 +19,7 @@ const nextConfig = {
       allowedOrigins: ["kaderisasi-dev.salmanitb.com"],
     },
   },
+  output: "standalone",
 };
 
 module.exports = withBundleAnalyzer(nextConfig);

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/common";
 import logout from "../actions/logout";

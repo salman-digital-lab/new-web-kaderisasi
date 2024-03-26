@@ -18,7 +18,7 @@ export default function Error({
             <h1 className="text-xl">
               Sesi anda sudah kadarluarsa. Silahkan masuk kembali.
             </h1>
-            <Button variant="secondary" onClick={() => logout('/masuk')}>
+            <Button variant="secondary" onClick={() => logout("/masuk")}>
               Masuk
             </Button>
           </>

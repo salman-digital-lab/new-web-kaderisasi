@@ -34,16 +34,15 @@ export type Province = {
   name: string;
 };
 
-
 export type University = {
   id: number;
   name: string;
 };
 
 export type ActivityRegistration = {
-  id: number
-  user_id: number
-  status: string
-  questionnaire_answer: string
-  activity: Activity
-}
+  id: number;
+  user_id: number;
+  status: string;
+  questionnaire_answer: string;
+  activity: Activity;
+};

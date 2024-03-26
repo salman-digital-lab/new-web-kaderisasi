@@ -50,7 +50,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   placeholder="Masukkan Jenis Kelamin"
                   options={GENDER_OPTION}
                   defaultValue={GENDER_OPTION.find(
-                    (option) => option.value === data?.profile.gender
+                    (option) => option.value === data?.profile.gender,
                   )}
                 />
               </div>
@@ -120,7 +120,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   defaultValue={{
                     value: data?.profile.province_id,
                     label: provinces?.find(
-                      (option) => option.id === data?.profile.province_id
+                      (option) => option.id === data?.profile.province_id,
                     )?.name,
                   }}
                 />
@@ -159,7 +159,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   defaultValue={{
                     value: data?.profile.university_id,
                     label: universities?.find(
-                      (option) => option.id === data?.profile.province_id
+                      (option) => option.id === data?.profile.province_id,
                     )?.name,
                   }}
                 />

@@ -7,4 +7,13 @@ import PhoneIcon from "./phone";
 import MailIcon from "./mail";
 import MenuIcon from "./menu";
 
-export { BMKAWelcomeIcon, BMKAFullIcon, ArrowRightIcon, ArrowLeftIcon, InstagramIcon, PhoneIcon, MailIcon, MenuIcon };
+export {
+  BMKAWelcomeIcon,
+  BMKAFullIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
+  InstagramIcon,
+  PhoneIcon,
+  MailIcon,
+  MenuIcon,
+};

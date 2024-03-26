@@ -28,7 +28,7 @@ export default function Input({
     <input
       onInvalid={(e) =>
         (e.target as HTMLInputElement).setCustomValidity(
-          customErrorMessage || "Silahkan masukkan data yang sesuai"
+          customErrorMessage || "Silahkan masukkan data yang sesuai",
         )
       }
       onInput={(e) => (e.target as HTMLInputElement).setCustomValidity("")}

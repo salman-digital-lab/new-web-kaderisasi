@@ -22,9 +22,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">
                   <Link href="/kegiatan">
-                    <Button variant="secondary">
-                      Daftar Kegiatan
-                    </Button>
+                    <Button variant="secondary">Daftar Kegiatan</Button>
                   </Link>
                 </div>
               </div>
@@ -67,9 +65,7 @@ export default function Home() {
               psikologi praktis untuk menjadi seorang konselor lho.
             </p>
             <div>
-              <Button variant="secondary">
-                Ruang Curhat
-              </Button>
+              <Button variant="secondary">Ruang Curhat</Button>
             </div>
           </div>
         </div>

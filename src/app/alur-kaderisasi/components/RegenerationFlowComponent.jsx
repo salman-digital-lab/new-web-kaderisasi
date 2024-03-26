@@ -23,11 +23,7 @@ const RegenerationFlowTimelineContent = ({ title, description }) => {
   );
 };
 
-const RegenerationFlowTimelinePoint = ({
-  title,
-  number,
-  description,
-}) => {
+const RegenerationFlowTimelinePoint = ({ title, number, description }) => {
   return (
     <div className="grid items-center grid-rows-timeline md:grid-rows-none md:grid-cols-timeline md:gap-16">
       <div className="hidden md:block">
@@ -40,7 +36,7 @@ const RegenerationFlowTimelinePoint = ({
       </div>
       <div
         className="h-full grid grid-flow-row justify-center"
-        style={{ gridTemplateRows: '1fr auto 1fr' }}
+        style={{ gridTemplateRows: "1fr auto 1fr" }}
       >
         <div className="w-1 h-full mx-auto bg-bmka-accent-orange" />
         <div className="w-12 h-12 flex items-center justify-center my-4 bg-blue-400 text-white font-bold rounded-full">
@@ -68,4 +64,8 @@ const RegenerationFlowTimelinePoint = ({
   );
 };
 
-export { RegenerationFlowTimelineSection, RegenerationFlowTimelineLine, RegenerationFlowTimelinePoint };
+export {
+  RegenerationFlowTimelineSection,
+  RegenerationFlowTimelineLine,
+  RegenerationFlowTimelinePoint,
+};

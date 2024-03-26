@@ -28,7 +28,7 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-4 text-white text-xs font-bold">
-            © Copyright BMKA Salman 2024
+              © Copyright BMKA Salman 2024
             </p>
           </div>
           <div className="flex gap-10 flex-col">
@@ -69,10 +69,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
-
-
- 
     </footer>
   );
 }

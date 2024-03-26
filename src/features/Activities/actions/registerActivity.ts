@@ -7,7 +7,7 @@ import { cookies } from "next/headers";
 export default async function registerActivity(
   formData: FormData,
   questionnaires: QuestionnaireSchema[],
-  slug: string
+  slug: string,
 ) {
   const token = cookies().get("kaderisasi-web-session");
 

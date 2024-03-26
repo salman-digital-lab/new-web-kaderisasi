@@ -16,7 +16,7 @@ export default async function register(formData: FormData) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     const parsedResponse = await response.json();
@@ -26,7 +26,7 @@ export default async function register(formData: FormData) {
     } else {
       throw new Error(
         parsedResponse?.message ||
-          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi."
+          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
       );
     }
   } catch (error: unknown) {

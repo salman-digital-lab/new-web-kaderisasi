@@ -54,7 +54,7 @@ export default function ActivityForm({
               placeholder="Masukkan Data"
               options={GENDER_OPTION}
               defaultValue={GENDER_OPTION.find(
-                (option) => option.value === profileData?.gender
+                (option) => option.value === profileData?.gender,
               )}
             />
           </div>
@@ -116,7 +116,7 @@ export default function ActivityForm({
               defaultValue={{
                 value: profileData?.province_id,
                 label: provinces?.find(
-                  (option) => option.id === profileData?.province_id
+                  (option) => option.id === profileData?.province_id,
                 )?.name,
               }}
             />
@@ -142,7 +142,7 @@ export default function ActivityForm({
               defaultValue={{
                 value: profileData.university_id,
                 label: universities?.find(
-                  (option) => option.id === profileData.province_id
+                  (option) => option.id === profileData.province_id,
                 )?.name,
               }}
             />

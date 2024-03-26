@@ -15,7 +15,7 @@ export const getActivities = async (props: GetActivitiesReq) => {
         "Content-Type": "application/json",
       },
       cache: "no-store",
-    }
+    },
   );
 
   if (response.ok) {
@@ -38,7 +38,7 @@ export const getActivity = async (props: GetActivityReq) => {
         "Content-Type": "application/json",
       },
       cache: "no-store",
-    }
+    },
   );
 
   const { data: parsedResponse }: { data: GetActivityResp } =
@@ -50,7 +50,7 @@ export const getActivity = async (props: GetActivityReq) => {
 export const postRegisterActivity = async (
   token: string,
   answer: Record<string, unknown>,
-  slug: string
+  slug: string,
 ) => {
   const data = { questionnaire_answer: answer };
 
@@ -63,7 +63,7 @@ export const postRegisterActivity = async (
         "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-    }
+    },
   );
 
   const parsedResponse = await response.json();

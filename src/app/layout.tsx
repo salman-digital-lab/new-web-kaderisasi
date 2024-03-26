@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + " " + "bg-white"}>
-        <NextTopLoader showSpinner={false} color="#f7622e" height={4}/>
+        <NextTopLoader showSpinner={false} color="#f7622e" height={4} />
         {children}
         <Toaster position="top-center" richColors />
       </body>

@@ -20,7 +20,7 @@ export default async function login(formData: FormData) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     const parsedResponse = await response.json();
@@ -28,7 +28,7 @@ export default async function login(formData: FormData) {
     if (response.ok) {
       cookies().set(
         "kaderisasi-web-session",
-        parsedResponse?.data?.token?.token
+        parsedResponse?.data?.token?.token,
       );
       cookies().set("kaderisasi-web-name", parsedResponse?.data?.data?.name);
 
@@ -36,7 +36,7 @@ export default async function login(formData: FormData) {
     } else {
       throw new Error(
         parsedResponse?.message ||
-          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi."
+          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
       );
     }
   } catch (error: unknown) {

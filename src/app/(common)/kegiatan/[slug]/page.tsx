@@ -92,7 +92,9 @@ export default async function Activities({
 
               {profileData?.profile ? (
                 profileData?.profile.level < activity.minimum_level ? (
-                  <p className="font-bold text-primary-500">Jenjang anda tidak cukup</p>
+                  <p className="font-bold text-primary-500">
+                    Jenjang anda tidak cukup
+                  </p>
                 ) : (
                   <Link
                     className="w-fit"

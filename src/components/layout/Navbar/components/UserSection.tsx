@@ -13,9 +13,7 @@ export default function UserSection({ fullname }: UserSectionProps) {
 
   return !fullname ? (
     <Link href="/masuk">
-      <Button variant="secondary">
-        Masuk
-      </Button>
+      <Button variant="secondary">Masuk</Button>
     </Link>
   ) : (
     <Link

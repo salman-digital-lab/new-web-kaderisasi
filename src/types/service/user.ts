@@ -1,4 +1,10 @@
-import { ActivityRegistration, Profile, Province, University, User } from "../model/user";
+import {
+  ActivityRegistration,
+  Profile,
+  Province,
+  University,
+  User,
+} from "../model/user";
 import { Pagination } from "./base";
 
 export type getProfileResp = {

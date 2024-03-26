@@ -48,7 +48,12 @@ export default async function Profile() {
           <section className="flex flex-col gap-4 px-4 lg:w-2/3">
             <div className="lg:none flex justify-center lg:justify-start items-center gap-4 mb-8">
               <Link href="/anggota/profil">
-                <Button className="border-2 border-solid border-primary" variant="primary">Profil</Button>
+                <Button
+                  className="border-2 border-solid border-primary"
+                  variant="primary"
+                >
+                  Profil
+                </Button>
               </Link>
               <Link href="/anggota/kegiatan">
                 <Button

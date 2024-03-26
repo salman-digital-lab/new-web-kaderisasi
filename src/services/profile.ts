@@ -57,7 +57,7 @@ export const getProvinces = async () => {
         "Content-Type": "application/json",
       },
       cache: "no-store",
-    }
+    },
   );
 
   if (response.ok) {
@@ -79,7 +79,7 @@ export const getUniversities = async () => {
         "Content-Type": "application/json",
       },
       cache: "no-store",
-    }
+    },
   );
 
   if (response.ok) {
@@ -102,7 +102,7 @@ export const getProfileActivities = async (token: string) => {
         Authorization: "Bearer " + token,
       },
       cache: "no-store",
-    }
+    },
   );
 
   if (response.ok) {
@@ -125,7 +125,7 @@ export const getProfileActivity = async (token: string, slug: string) => {
         Authorization: "Bearer " + token,
       },
       cache: "no-store",
-    }
+    },
   );
 
   if (response.ok) {

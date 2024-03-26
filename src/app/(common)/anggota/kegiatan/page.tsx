@@ -14,8 +14,9 @@ export default async function Profile() {
   const tokenCookie = cookies().get("kaderisasi-web-session");
 
   const profileData = await getProfile(tokenCookie?.value || "");
-  const profileActivities = await getProfileActivities(tokenCookie?.value || "");
-
+  const profileActivities = await getProfileActivities(
+    tokenCookie?.value || "",
+  );
 
   return (
     <main className="mt-[65px] pb-6 text-black bg-white lg:mt-[84px] lg:py-16">

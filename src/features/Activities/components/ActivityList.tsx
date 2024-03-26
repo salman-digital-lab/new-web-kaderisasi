@@ -13,21 +13,21 @@ export default async function ActivityList({
   const activities = await getActivities({ per_page: "8", ...searchParams });
 
   const currentSearchParamNext = new URLSearchParams(
-    searchParams as Record<string, string>
+    searchParams as Record<string, string>,
   );
 
   currentSearchParamNext.set(
     "page",
-    String(Number(searchParams.page || 1) + 1)
+    String(Number(searchParams.page || 1) + 1),
   );
 
   const currentSearchParamPrev = new URLSearchParams(
-    searchParams as Record<string, string>
+    searchParams as Record<string, string>,
   );
 
   currentSearchParamPrev.set(
     "page",
-    String(Number(searchParams.page || 1) - 1)
+    String(Number(searchParams.page || 1) - 1),
   );
 
   return (

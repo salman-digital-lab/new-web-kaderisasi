@@ -12,8 +12,8 @@ export default function UserSection({ fullname }: UserSectionProps) {
   const pathname = usePathname();
 
   return !fullname ? (
-    <Link href="/masuk">
-      <Button variant="secondary">Masuk</Button>
+    <Link href="/login">
+      <Button variant="secondary">Login</Button>
     </Link>
   ) : (
     <Link

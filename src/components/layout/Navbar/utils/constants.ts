@@ -1,14 +1,10 @@
 export const MENUS = [
   {
-    label: "Beranda",
+    label: "Home",
     link: "/",
   },
   {
-    label: "Kegiatan",
-    link: "/kegiatan",
-  },
-  {
-    label: "Ruang Curhat",
-    link: "/",
+    label: "Activity",
+    link: "/activity",
   },
 ] as const;

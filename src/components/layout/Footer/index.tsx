@@ -9,7 +9,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="py-16 bg-primary-800">
+    <footer className="py-16 bg-gray-800">
       <div className="w-full px-4 md:px-6 max-w-6xl mx-auto">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:gap-4">
           {/* InfoSection */}

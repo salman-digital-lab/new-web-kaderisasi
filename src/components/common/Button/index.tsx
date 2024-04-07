@@ -21,16 +21,16 @@ export default function Button({
 }: ButtonProps) {
   const TYPE_STYLE = {
     primary:
-      "text-white bg-primary hover:bg-primary-600 disabled:hover:bg-primary",
-    secondary: "text-white bg-secondary hover:bg-secondary-600",
+      "text-white bg-lmdi-primary hover:bg-lmdi-primary-darken disabled:hover:bg-lmdi-primary",
+    secondary: "text-white bg-lmdi-secondary hover:bg-lmdi-secondary-darken",
     "transparant-primary":
-      "text-white border-2 border-solid border-white bg-transparant border border-gray-500 hover:bg-primary-600 disabled:hover:bg-transparant",
+      "text-white border-2 border-solid border-white bg-transparant border border-gray-500 hover:bg-lmdi-primary-darken disabled:hover:bg-transparant",
     "transparant-secondary":
-      "text-white border-2 border-solid border-white bg-transparant hover:bg-secondary-600 disabled:hover:bg-transparant",
+      "text-white border-2 border-solid border-white bg-transparant hover:bg-lmdi-secondary-darken disabled:hover:bg-transparant",
     "outlined-primary":
-      "text-primary border-2 border-solid border-primary bg-transparant border border-gray-500 hover:bg-primary hover:text-white disabled:hover:bg-transparant",
+      "text-lmdi-primary border-2 border-solid border-lmdi-primary bg-transparant border border-gray-500 hover:bg-lmdi-primary hover:text-white disabled:hover:bg-transparant",
     "outlined-secondary":
-      "text-secondary border-2 border-solid border-secondary bg-transparant hover:bg-secondary hover:text-white disabled:hover:bg-transparant",
+      "text-lmdi-secondary border-2 border-solid border-lmdi-secondary bg-transparant hover:bg-lmdi-secondary hover:text-white disabled:hover:bg-transparant",
   };
 
   return (

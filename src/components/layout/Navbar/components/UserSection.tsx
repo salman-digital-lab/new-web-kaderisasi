@@ -17,8 +17,8 @@ export default function UserSection({ fullname }: UserSectionProps) {
     </Link>
   ) : (
     <Link
-      className={`w-52 p-2 text-primary-100 truncate border-b-4 border-transparent text-right hover:text-white ${
-        pathname === "/profil" ? "text-white" : ""
+      className={`w-52 p-2 text-lmdi-primary font-semibold truncate border-b-4 border-transparent text-right hover:text-lmdi-primary-lighten hover:underline underline-offset-8 ${
+        pathname === "/profil" ? "text-lmdi-primary-lighten underline" : ""
       }`}
       href="/anggota/profil"
     >

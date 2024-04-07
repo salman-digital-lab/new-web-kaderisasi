@@ -4,7 +4,7 @@ export const MENUS = [
     link: "/",
   },
   {
-    label: "Activity",
-    link: "/activity",
+    label: "Program",
+    link: "/program",
   },
 ] as const;

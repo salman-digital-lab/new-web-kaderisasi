@@ -17,10 +17,12 @@ export default function UserSection({ fullname }: UserSectionProps) {
     </Link>
   ) : (
     <Link
-      className={`w-52 p-2 text-lmdi-primary font-semibold truncate border-b-4 border-transparent text-right hover:text-lmdi-primary-lighten hover:underline underline-offset-8 ${
-        pathname === "/profil" ? "text-lmdi-primary-lighten underline" : ""
+      className={`w-52 md:p-2 text-lmdi-primary font-semibold truncate border-b-4 border-transparent md:text-right hover:text-lmdi-primary-lighten hover:underline underline-offset-8 ${
+        pathname === "/account/profile"
+          ? "text-lmdi-primary-lighten underline"
+          : ""
       }`}
-      href="/anggota/profil"
+      href="/account/profile"
     >
       Hi, {fullname}
     </Link>

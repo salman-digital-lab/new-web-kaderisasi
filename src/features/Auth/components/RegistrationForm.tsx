@@ -21,7 +21,7 @@ export default function RegistrationForm() {
     try {
       const message = await register(formData);
       if (message) NotifyUser("SUCCESS", message);
-      router.push("/masuk");
+      router.push("/login");
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }

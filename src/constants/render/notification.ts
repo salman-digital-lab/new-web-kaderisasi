@@ -1,4 +1,5 @@
 export const NOTIFICATION_TEXT_RENDER = {
+  REGISTER_SUCCESS: "Registration Success",
   LOGIN_SUCCESS: "Anda berhasil masuk",
   UPDATE_DATA_SUCCESS: "Data anda berhasil diubah",
   ACTIVITY_REGISTER_SUCCESS: "Anda berhasil mendaftar",

@@ -31,8 +31,8 @@ export default function LoginForm() {
           id="email"
           name="email"
           type="email"
-          placeholder="Masukkan Email Anda"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0 focus:outline-primary-600 md:focus:outline-2"
+          placeholder="Input Your Email"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-primary-600 lg:focus:outline-2"
           required
         />
       </div>
@@ -43,8 +43,8 @@ export default function LoginForm() {
         <InputPassword
           id="password"
           name="password"
-          placeholder="Masukkan Kata Sandi"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0  focus:outline-primary-600 md:focus:outline-2"
+          placeholder="Input Your Password"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-primary-600 lg:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
           required
         />
@@ -55,7 +55,7 @@ export default function LoginForm() {
           type="submit"
           className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white"
         >
-          Masuk
+          Login
         </SubmitButton>
       </div>
     </form>

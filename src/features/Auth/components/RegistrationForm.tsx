@@ -39,7 +39,7 @@ export default function RegistrationForm() {
           type="text"
           placeholder="Isikan Nama Anda"
           inputStyle="outlined-primary"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0 focus:outline-primary-600 md:focus:outline-2"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-lmdi-primary lg:focus:outline-2"
           required
         />
       </div>
@@ -53,7 +53,7 @@ export default function RegistrationForm() {
           type="email"
           placeholder="Masukkan Email Anda"
           inputStyle="outlined-primary"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0 focus:outline-primary-600 md:focus:outline-2"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-lmdi-primary lg:focus:outline-2"
           required
         />
       </div>
@@ -66,7 +66,7 @@ export default function RegistrationForm() {
           name="password"
           placeholder="Kata Sandi"
           inputStyle="outlined-primary"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0  focus:outline-primary-600 md:focus:outline-2"
+          className="py-2 md:py-4 px-4 lg:border-0  focus:outline-lmdi-primary md:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
           minLength={8}
           onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +82,7 @@ export default function RegistrationForm() {
           name="confirmedpassword"
           placeholder="Konfirmasi Kata Sandi"
           inputStyle="outlined-primary"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0  focus:outline-primary-600 md:focus:outline-2"
+          className="py-2 md:py-4 px-4 lg:border-0  focus:outline-lmdi-primary md:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
           minLength={8}
           onChange={(e) => setIsPasswordCorrect(e.target.value !== password)}
@@ -90,7 +90,7 @@ export default function RegistrationForm() {
         />
         {isPasswordCorrect ? (
           <p className="text-red-500 flex py-1 gap-1">
-            <XCircle /> Konfirmasi kata sandi harus sama
+            <XCircle /> Password must be same!
           </p>
         ) : undefined}
       </div>
@@ -100,7 +100,7 @@ export default function RegistrationForm() {
           type="submit"
           className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white"
         >
-          Daftar
+          Register
         </SubmitButton>
       </div>
     </form>

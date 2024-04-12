@@ -95,10 +95,10 @@ export default function Activities({
               What Our Alumni Said
             </h1>
             <p className="text-white text-center">
-              The LMDI International Leadership Development Program isn't just
-              an opportunity—it's a calling. A chance to forge lifelong
-              connections, to challenge your limits, and to emerge as a leader
-              poised to build a better civilization for Indonesia and beyond.
+              The LMDI International Leadership Development Program isnt just an
+              opportunity—its a calling. A chance to forge lifelong connections,
+              to challenge your limits, and to emerge as a leader poised to
+              build a better civilization for Indonesia and beyond.
             </p>
             <p className="text-white text-center">
               Dare to lead. Dare to inspire. Your journey begins here.

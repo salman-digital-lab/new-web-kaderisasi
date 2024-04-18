@@ -31,14 +31,14 @@ export default async function login(formData: FormData) {
         parsedResponse?.data?.token?.token,
       );
       cookies().set("kaderisasi-web-name", parsedResponse?.data?.data?.name);
-
-      return parsedResponse?.message;
-    } else {
-      throw new Error(
-        parsedResponse?.message ||
-          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
-      );
     }
+
+    return {
+      ok: response.ok,
+      message:
+        parsedResponse?.message ||
+        "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
+    };
   } catch (error: unknown) {
     let message: string;
 
@@ -52,6 +52,6 @@ export default async function login(formData: FormData) {
       message = "Something when wrong";
     }
 
-    throw new Error(message);
+    return { ok: false, message };
   }
 }

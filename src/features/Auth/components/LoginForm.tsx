@@ -13,9 +13,9 @@ export default function LoginForm() {
 
   const loginUser = async (formData: FormData) => {
     try {
-      const message = await login(formData);
-      if (message) NotifyUser("SUCCESS", message);
-      router.push("/");
+      const resp = await login(formData);
+      NotifyUser(resp.ok ? "SUCCESS" : "ERROR", resp.message);
+      if (resp.ok) router.push("/");
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }

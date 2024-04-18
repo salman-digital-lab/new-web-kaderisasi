@@ -19,9 +19,9 @@ export default function RegistrationForm() {
 
   const registerUser = async (formData: FormData) => {
     try {
-      const message = await register(formData);
-      if (message) NotifyUser("SUCCESS", message);
-      router.push("/login");
+      const resp = await register(formData);
+      NotifyUser(resp.ok ? "SUCCESS" : "ERROR", resp.message);
+      if (resp.ok) router.push("/login");
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }

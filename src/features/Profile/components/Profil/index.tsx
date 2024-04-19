@@ -55,12 +55,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="id-line" className="font-bold">
+                <label htmlFor="personal-id" className="font-bold">
                   Personal ID
                 </label>
                 <Input
-                  id="id-line"
-                  name="line"
+                  id="personal-id"
+                  name="personal_id"
                   type="text"
                   inputStyle="outlined-primary"
                   placeholder="Enter your personal id"
@@ -87,12 +87,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="id-line" className="font-bold">
+                <label htmlFor="linkedin" className="font-bold">
                   Linkedin
                 </label>
                 <Input
-                  id="id-line"
-                  name="line"
+                  id="linkedin"
+                  name="linkedin"
                   type="text"
                   inputStyle="outlined-primary"
                   placeholder="Enter your Linkedin profile"
@@ -101,12 +101,12 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="id-line" className="font-bold">
+                <label htmlFor="tiktok" className="font-bold">
                   Tiktok
                 </label>
                 <Input
-                  id="id-line"
-                  name="line"
+                  id="tiktok"
+                  name="tiktok"
                   type="text"
                   inputStyle="outlined-primary"
                   placeholder="Enter your Tiktok profile"
@@ -126,7 +126,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   id="province_id"
                   name="province_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Provinsi"
+                  placeholder="Enter your province"
                   options={provinces?.map((province) => ({
                     label: province.name,
                     value: province.id,

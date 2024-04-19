@@ -35,7 +35,7 @@ export default function Home() {
             participants into impactful innovators and leaders.
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
-            <Link href="/">
+            <Link href="/program/register/open-registration-ilias/first">
               <Button variant="secondary">Register Now</Button>
             </Link>
             <p className="text-white">Or</p>

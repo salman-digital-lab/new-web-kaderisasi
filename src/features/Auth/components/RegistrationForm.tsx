@@ -10,6 +10,8 @@ import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
 import { NotifyUser } from "@/functions/notification";
 import register from "../actions/register";
+import Link from "next/link";
+import { Button } from "@/components/common";
 
 export default function RegistrationForm() {
   const [password, setPassword] = useState("");
@@ -31,13 +33,13 @@ export default function RegistrationForm() {
     <form action={registerUser} className="flex flex-col gap-2 pr-1">
       <div className="md:text-xl lg:text-base">
         <label htmlFor="fullname" className="block mb-2">
-          Nama
+          Fullname
         </label>
         <Input
           id="fullname"
           name="fullname"
           type="text"
-          placeholder="Isikan Nama Anda"
+          placeholder="Input Your Fullname"
           inputStyle="outlined-primary"
           className="py-2 md:py-4 px-4 lg:border-0 focus:outline-lmdi-primary lg:focus:outline-2"
           required
@@ -45,13 +47,13 @@ export default function RegistrationForm() {
       </div>
       <div className="md:text-xl lg:text-base">
         <label htmlFor="email" className="block  mb-2">
-          Alamat Email
+          Email
         </label>
         <Input
           id="email"
           name="email"
           type="email"
-          placeholder="Masukkan Email Anda"
+          placeholder="Input Your Email"
           inputStyle="outlined-primary"
           className="py-2 md:py-4 px-4 lg:border-0 focus:outline-lmdi-primary lg:focus:outline-2"
           required
@@ -59,12 +61,12 @@ export default function RegistrationForm() {
       </div>
       <div className="md:text-xl lg:text-base">
         <label htmlFor="password" className="block mb-2">
-          Kata Sandi
+          Password
         </label>
         <InputPassword
           id="password"
           name="password"
-          placeholder="Kata Sandi"
+          placeholder="Input Your Password"
           inputStyle="outlined-primary"
           className="py-2 md:py-4 px-4 lg:border-0  focus:outline-lmdi-primary md:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
@@ -75,12 +77,12 @@ export default function RegistrationForm() {
       </div>
       <div className="md:text-xl lg:text-base">
         <label htmlFor="confirmedpassword" className="block mb-2">
-          Konfirmasi Kata Sandi
+          Password Confirmation
         </label>
         <InputPassword
           id="confirmedpassword"
           name="confirmedpassword"
-          placeholder="Konfirmasi Kata Sandi"
+          placeholder="Input Your Password Again"
           inputStyle="outlined-primary"
           className="py-2 md:py-4 px-4 lg:border-0  focus:outline-lmdi-primary md:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
@@ -94,7 +96,7 @@ export default function RegistrationForm() {
           </p>
         ) : undefined}
       </div>
-      <div className="mt-4 md:text-xl lg:text-base">
+      <div className="mt-4 flex flex-col gap-4 md:text-xl lg:text-base">
         <SubmitButton
           variant="secondary"
           type="submit"
@@ -102,6 +104,11 @@ export default function RegistrationForm() {
         >
           Register
         </SubmitButton>
+        <Link href={"/"}>
+          <Button className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white">
+            Back to Homepage
+          </Button>
+        </Link>
       </div>
     </form>
   );

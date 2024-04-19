@@ -7,6 +7,8 @@ import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
 import login from "../actions/login";
 import { NotifyUser } from "@/functions/notification";
+import Link from "next/link";
+import { Button } from "@/components/common";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -49,7 +51,7 @@ export default function LoginForm() {
           required
         />
       </div>
-      <div className="mt-4 md:text-xl lg:text-base">
+      <div className="mt-4 flex flex-col gap-4 md:text-xl lg:text-base">
         <SubmitButton
           variant="secondary"
           type="submit"
@@ -57,6 +59,11 @@ export default function LoginForm() {
         >
           Login
         </SubmitButton>
+        <Link href={"/"}>
+          <Button className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white">
+            Back to Homepage
+          </Button>
+        </Link>
       </div>
     </form>
   );

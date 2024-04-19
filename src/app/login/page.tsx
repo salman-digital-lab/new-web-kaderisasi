@@ -5,6 +5,7 @@ import LoginImage from "@/assets/images/login-illustration.png";
 import LogoLMDIFull from "@/assets/images/logo-full.png";
 
 import LoginForm from "@/features/Auth/components/LoginForm";
+import { Button } from "@/components/common";
 
 export default function Login() {
   return (
@@ -25,8 +26,8 @@ export default function Login() {
               alt="Logo BMKA image"
               className="lg:hidden w-64 object-cover h-64"
             />
-            <h1 className="font-bold text-lg md:text-4xl lg:text-2xl">
-              Selamat Datang Kembali
+            <h1 className="font-bold hidden md:text-4xl lg:inline lg:text-4xl">
+              Welcome Back
             </h1>
           </div>
 

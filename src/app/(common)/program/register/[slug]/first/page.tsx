@@ -13,7 +13,7 @@ export default async function ActivityRegistration({
   const profileData = await getProfile(tokenCookie?.value || "");
   const provinceData = await getProvinces();
   const universityData = await getUniversities();
-  console.log(activity.additional_config.mandatory_profile_data);
+
   return (
     <main className="bg-white min-h-[50vh] w-full mt-24 md:w-2/3 md:mx-auto md:mt-32">
       <h1 className="text-3xl font-bold text-lmdi-primary text-center mb-8 md:mb-12 md:text-4xl">

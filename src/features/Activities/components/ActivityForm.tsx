@@ -30,7 +30,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
             id={schema.name}
             name={schema.name}
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
             required={schema.required}
           />
         </div>
@@ -47,7 +47,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
             name={schema.name}
             type="number"
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
             required={schema.required}
           />
         </div>
@@ -63,7 +63,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
             id={schema.name}
             name={schema.name}
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
             options={schema.data}
             required={schema.required}
           />
@@ -84,7 +84,7 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
       const respData = await registerActivity(formData, formSchemas, slug);
       if (respData) {
         NotifyUser("SUCCESS", respData.message);
-        router.push("/kegiatan/" + slug);
+        router.push("/program");
       }
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
@@ -106,21 +106,18 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
             value="Bike"
           />
           <label className="text-white" htmlFor="vehicle1">
-            Saya sudah mengisi seluruh formulir dengan baik dan benar
+            I have filled out all forms properly and correctly
           </label>
         </div>
 
         <div className="flex gap-4 justify-center">
-          <Link
-            className="w-fit"
-            href={"/kegiatan/daftar/" + slug + "/pertama"}
-          >
+          <Link className="w-fit" href={"/program/register/" + slug + "/first"}>
             <Button variant="secondary" type="button">
-              Kembali
+              Back
             </Button>
           </Link>
           <SubmitButton disabled={!canSubmit} variant="secondary" type="submit">
-            Daftar
+            Register
           </SubmitButton>
         </div>
       </div>

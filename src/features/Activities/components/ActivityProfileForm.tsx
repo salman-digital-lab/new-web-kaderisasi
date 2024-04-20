@@ -33,7 +33,7 @@ export default function ActivityForm({
       const respData = await changeProfile(formData);
       if (respData) {
         NotifyUser("SUCCESS", respData.message);
-        router.push("/kegiatan/daftar/" + slug + "/kedua");
+        router.push("/program/register/" + slug + "/second");
       }
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);

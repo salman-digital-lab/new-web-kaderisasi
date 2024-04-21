@@ -2,11 +2,12 @@
 import { ArrowRightIcon, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuLink from "./MenuLink";
 import UserSection from "./UserSection";
 import { MENUS } from "../utils/constants";
 import logo from "../../../../assets/images/logo-lmdi.png";
+import { usePathname } from "next/navigation";
 
 type NavbarMobile = {
   fullname?: string;
@@ -14,6 +15,12 @@ type NavbarMobile = {
 
 export default function NavbarMobile({ fullname }: NavbarMobile) {
   const [isActive, setIsActive] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsActive(false);
+  }, [pathname]);
 
   return (
     <>

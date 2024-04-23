@@ -5,7 +5,6 @@ import { Button } from "@/components/common";
 
 import activitiespageIllustration from "@/assets/images/poster_web_1.png";
 import ActivityList from "@/features/Activities/components/ActivityList";
-import { ActivityCard } from "@/components/biz";
 import { cookies } from "next/headers";
 import { getProfileActivity } from "@/services/profile";
 
@@ -17,7 +16,7 @@ export default async function Activities() {
     if (tokenCookie?.value) {
       registration = await getProfileActivity(
         tokenCookie?.value,
-        "open-registration-ilias",
+        "call-for-participants",
       );
     }
   } catch (error) {
@@ -54,7 +53,7 @@ export default async function Activities() {
             <Link
               href={
                 tokenCookie
-                  ? "/program/register/open-registration-ilias/first"
+                  ? "/program/register/call-for-participants/first"
                   : "/login"
               }
             >

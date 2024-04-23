@@ -17,7 +17,7 @@ export default async function Home() {
     if (tokenCookie?.value) {
       registration = await getProfileActivity(
         tokenCookie?.value,
-        "open-registration-ilias",
+        "call-for-participants",
       );
     }
   } catch (error) {
@@ -57,7 +57,7 @@ export default async function Home() {
             <Link
               href={
                 tokenCookie
-                  ? "/program/register/open-registration-ilias/first"
+                  ? "/program/register/call-for-participants/first"
                   : "/login"
               }
             >
@@ -82,8 +82,8 @@ export default async function Home() {
         <h1 className="font-bold text-3xl mb-10">On Going Activity</h1>
         <ActivityCard
           key={1}
-          activityName="Registration Leadership in Summit"
-          registrationEnd="13-05-2024"
+          activityName="Call For Participants"
+          registrationEnd="2024-05-31"
           slug="registration"
           minimumLevel={0}
         />

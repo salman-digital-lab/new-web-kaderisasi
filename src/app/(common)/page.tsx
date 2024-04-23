@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import homepageIllustration from "../../assets/images/homepage-1.svg";
+import homepageIllustration from "../../assets/images/poster_web_2.png";
 
 import { Button } from "@/components/common";
 import { ActivityCard } from "@/components/biz";
@@ -32,6 +32,7 @@ export default async function Home() {
           <Image
             src={homepageIllustration}
             alt="Mascot Leadership In Action Summit 2024"
+            width={500}
             priority
           />
         </div>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/common";
 
-import activitiespageIllustration from "@/assets/images/activitiespage-1.svg";
+import activitiespageIllustration from "@/assets/images/poster_web_1.png";
 import ActivityList from "@/features/Activities/components/ActivityList";
 import { ActivityCard } from "@/components/biz";
 import { cookies } from "next/headers";
@@ -19,7 +19,6 @@ export default async function Activities() {
         tokenCookie?.value,
         "open-registration-ilias",
       );
-      console.log(registration);
     }
   } catch (error) {
     if (!(error instanceof Error && error.message === "Unauthorized")) {
@@ -34,6 +33,7 @@ export default async function Activities() {
           <Image
             src={activitiespageIllustration}
             alt="Mascot Leadership In Action Summit 2024"
+            width={500}
             priority
           />
         </div>
@@ -73,43 +73,7 @@ export default async function Activities() {
 
       <div className="w-full my-14 flex flex-col items-center">
         <h1 className="font-bold text-3xl mb-10">Program Highlight</h1>
-        <div className="flex p-6 w-full flex-wrap gap-5 items-center justify-center">
-          <ActivityCard
-            key={1}
-            activityName="Registration"
-            registrationEnd="13-05-2024"
-            slug="registration"
-            minimumLevel={0}
-          />
-          <ActivityCard
-            key={1}
-            activityName="Basic Training"
-            registrationEnd="13-05-2024"
-            slug="registration"
-            minimumLevel={0}
-          />
-          <ActivityCard
-            key={1}
-            activityName="Mentoring"
-            registrationEnd="13-05-2024"
-            slug="registration"
-            minimumLevel={0}
-          />
-          <ActivityCard
-            key={1}
-            activityName="Proposal Training"
-            registrationEnd="13-05-2024"
-            slug="registration"
-            minimumLevel={0}
-          />
-          <ActivityCard
-            key={1}
-            activityName="Leadership in Summit"
-            registrationEnd="13-05-2024"
-            slug="registration"
-            minimumLevel={0}
-          />
-        </div>
+        <ActivityList searchParams={{}} />
       </div>
 
       <div className="w-full my-10 mx-auto bg-lmdi-secondary-darken py-6 px-16 lg:rounded-xl lg:max-w-[72rem]">

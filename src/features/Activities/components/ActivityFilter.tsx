@@ -74,7 +74,6 @@ export default function ActivityFilter() {
           placeholder="Pilih Kategori"
           isClearable
           onChange={(newValue) => {
-            console.log(newValue);
             if (newValue && typeof newValue === "object" && "value" in newValue)
               onChangeCategory(newValue.value as ACTIVITY_CATEGORY_ENUM);
 

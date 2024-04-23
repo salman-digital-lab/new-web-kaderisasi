@@ -28,7 +28,6 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
     }
   };
 
-  console.log(data.profile);
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">

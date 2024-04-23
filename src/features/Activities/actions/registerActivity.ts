@@ -17,7 +17,6 @@ export default async function registerActivity(
     data[questionnaire.name] = formData.get(questionnaire.name);
   });
 
-  console.log(data)
   const response = await postRegisterActivity(token?.value || "", data, slug);
 
   return response;

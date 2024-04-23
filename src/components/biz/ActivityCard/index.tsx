@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { USER_LEVEL_RENDER } from "@/constants/render/activity";
 import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
+import dayjs from "dayjs";
 
 type ActivityCardProps = {
   activityName: string;
@@ -32,7 +33,8 @@ export default function ActivityCard({
           <h5 className="font-bold w-60">{activityName}</h5>
 
           <p className="flex text-xs w-fit rounded-full py-1 pl-1 pr-2 bg-secondary text-white mt-5">
-            <CalendarClock className="h-[.9rem]" /> {registrationEnd}
+            <CalendarClock className="h-[.9rem]" />{" "}
+            {dayjs(registrationEnd).format("DD MMMM YYYY")}
           </p>
         </div>
       </div>

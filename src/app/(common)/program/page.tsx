@@ -6,12 +6,27 @@ import { Button } from "@/components/common";
 import activitiespageIllustration from "@/assets/images/activitiespage-1.svg";
 import ActivityList from "@/features/Activities/components/ActivityList";
 import { ActivityCard } from "@/components/biz";
+import { cookies } from "next/headers";
+import { getProfileActivity } from "@/services/profile";
 
-export default function Activities({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Activities() {
+  let registration;
+  const tokenCookie = cookies().get("kaderisasi-web-session");
+
+  try {
+    if (tokenCookie?.value) {
+      registration = await getProfileActivity(
+        tokenCookie?.value,
+        "open-registration-ilias",
+      );
+      console.log(registration);
+    }
+  } catch (error) {
+    if (!(error instanceof Error && error.message === "Unauthorized")) {
+      throw error;
+    }
+  }
+
   return (
     <main>
       <div className="w-full bg-lmdi-primary pb-8 flex flex-col items-center md:pt-8 lg:flex-row-reverse lg:justify-center">
@@ -36,8 +51,21 @@ export default function Activities({
             singkat tentang program
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
-            <Link href="/program/register/open-registration-ilias/first">
-              <Button variant="secondary">Register Now</Button>
+            <Link
+              href={
+                tokenCookie
+                  ? "/program/register/open-registration-ilias/first"
+                  : "/login"
+              }
+            >
+              <Button
+                disabled={!(registration?.status === "BELUM TERDAFTAR")}
+                variant="secondary"
+              >
+                {registration?.status === "BELUM TERDAFTAR"
+                  ? "Register Now"
+                  : "Registered"}
+              </Button>
             </Link>
           </div>
         </div>
@@ -91,17 +119,14 @@ export default function Activities({
               What Our Alumni Said
             </h1>
             <p className="text-white text-center">
-              The LMDI International Leadership Development Program isnt just an
-              opportunity—its a calling. A chance to forge lifelong connections,
-              to challenge your limits, and to emerge as a leader poised to
-              build a better civilization for Indonesia and beyond.
+              The Leadership in Action Summit 2024 isnt just an opportunity—its
+              a calling. A chance to forge lifelong connections, to challenge
+              your limits, and to emerge as a leader poised to build a better
+              civilization for Indonesia and beyond.
             </p>
             <p className="text-white text-center">
               Dare to lead. Dare to inspire. Your journey begins here.
             </p>
-            <div className="flex item-center justify-center">
-              <Button variant="secondary">Learn More</Button>
-            </div>
           </div>
         </div>
       </div>

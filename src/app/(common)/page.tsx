@@ -6,8 +6,25 @@ import homepageIllustration from "../../assets/images/homepage-1.svg";
 
 import { Button } from "@/components/common";
 import { ActivityCard } from "@/components/biz";
+import { cookies } from "next/headers";
+import { getProfileActivity } from "@/services/profile";
 
-export default function Home() {
+export default async function Home() {
+  let registration;
+  const tokenCookie = cookies().get("kaderisasi-web-session");
+
+  try {
+    if (tokenCookie?.value) {
+      registration = await getProfileActivity(
+        tokenCookie?.value,
+        "open-registration-ilias",
+      );
+    }
+  } catch (error) {
+    if (!(error instanceof Error && error.message === "Unauthorized")) {
+      throw error;
+    }
+  }
   return (
     <main>
       <div className="w-full bg-lmdi-primary pb-8 flex flex-col items-center md:pt-8 lg:flex-row-reverse lg:justify-center">
@@ -20,23 +37,37 @@ export default function Home() {
         </div>
         <div className="flex max-w-xl items-center flex-col gap-6">
           <p className="text-white text-4xl px-10 text-center font-bold md:text-4xl">
-            WELCOMING WORDS
+            Welcome to ILiAS 2024
           </p>
           <p className="text-white text-xl px-10 text-center font-bold md:text-2xl">
-            Leadership In Action Summit 2024
+            International Leadership in Action Summit 2024
           </p>
           <p className="text-white text-md text-center px-10">
-            The LMDI International Leadership Development Program is a 5-day
-            intensive journey through Bandung, Singapore, and Malaysia, designed
-            to equip aspiring Indonesian leaders with critical thinking,
-            leadership, and entrepreneurial skills. Participants will delve into
-            cultural exchanges and innovation, preparing them to tackle global
-            challenges and foster startup growth. This program aims to transform
-            participants into impactful innovators and leaders.
+            The International Leadership in Action Summit (ILiAS) Chapter
+            Malaysia and Singapore is a comprehensive leadership training
+            program designed for students across Indonesia. The summit aims to
+            cultivate a new generation of leaders committed to advancing their
+            nation's progress. Central to the program is the development of
+            social innovation plans in the form of startup initiatives. ILiAS is
+            centered on empowering participants with essential leadership skills
+            and fostering a deep-seated commitment to national advancement.
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
-            <Link href="/program/register/open-registration-ilias/first">
-              <Button variant="secondary">Register Now</Button>
+            <Link
+              href={
+                tokenCookie
+                  ? "/program/register/open-registration-ilias/first"
+                  : "/login"
+              }
+            >
+              <Button
+                disabled={!(registration?.status === "BELUM TERDAFTAR")}
+                variant="secondary"
+              >
+                {registration?.status === "BELUM TERDAFTAR"
+                  ? "Register Now"
+                  : "Registered"}
+              </Button>
             </Link>
             <p className="text-white">Or</p>
             <Link href="/program">

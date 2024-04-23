@@ -16,11 +16,12 @@ export default async function changeProfile(formData: FormData) {
     university_id: formData.get("university_id"),
     major: formData.get("major"),
     intake_year: formData.get("intake_year"),
+    personal_id: formData.get("personal_id"),
+    linkedin: formData.get("linkedin"),
+    tiktok: formData.get("tiktok"),
   } as unknown as Profile;
 
   const response = await putUpdate(token?.value || "", data);
-
-  console.log(response);
 
   revalidatePath("/anggota/profil");
 

@@ -1,8 +1,8 @@
 export const NOTIFICATION_TEXT_RENDER = {
   REGISTER_SUCCESS: "Registration Success",
-  LOGIN_SUCCESS: "Anda berhasil masuk",
-  UPDATE_DATA_SUCCESS: "Data anda berhasil diubah",
-  ACTIVITY_REGISTER_SUCCESS: "Anda berhasil mendaftar",
-  WRONG_PASSWORD: "Password yang dimasukkan salah!",
-  UNMATCHED_LEVEL: "Jenjang anda belum cukup!",
+  LOGIN_SUCCESS: "You have logged in",
+  UPDATE_DATA_SUCCESS: "Your data has been successfully updated",
+  ACTIVITY_REGISTER_SUCCESS: "You have successfully registered",
+  WRONG_PASSWORD: "The password entered is incorrect.!",
+  UNMATCHED_LEVEL: "Your level is not sufficient!",
 } as Record<string, string>;

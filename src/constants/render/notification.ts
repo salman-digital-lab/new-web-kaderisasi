@@ -5,4 +5,5 @@ export const NOTIFICATION_TEXT_RENDER = {
   ACTIVITY_REGISTER_SUCCESS: "You have successfully registered",
   WRONG_PASSWORD: "The password entered is incorrect.!",
   UNMATCHED_LEVEL: "Your level is not sufficient!",
+  USER_NOT_FOUND: "Email is not found, Please register first!",
 } as Record<string, string>;

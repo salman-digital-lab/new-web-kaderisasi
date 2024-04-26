@@ -1,10 +1,8 @@
 "use client";
 
 import { Button } from "@/components/common";
-import { useEffect } from "react";
 
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
@@ -13,10 +11,10 @@ export default function Error({
   return (
     <div className="w-full min-h-screen flex items-center justify-center gap-6  flex-col bg-white">
       <h1 className="text-xl">
-        Web sedang dalam masalah, silahkan coba kembali beberapa saat lagi!
+        The website is experiencing issues, please try again later!
       </h1>
       <Button variant="secondary" onClick={() => reset()}>
-        Coba Lagi
+        Try Again
       </Button>
     </div>
   );

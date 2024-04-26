@@ -83,7 +83,11 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
     try {
       const respData = await registerActivity(formData, formSchemas, slug);
       if (respData) {
-        NotifyUser("SUCCESS", respData.message);
+        NotifyUser(
+          respData.ok ? "SUCCESS" : "ERROR",
+          respData.response.message,
+        );
+
         router.push("/program");
       }
     } catch (error) {

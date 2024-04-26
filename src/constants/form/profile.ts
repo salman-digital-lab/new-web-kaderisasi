@@ -1,10 +1,10 @@
 export const GENDER_OPTION = [
   {
-    label: "Laki-Laki",
+    label: "Male",
     value: "M",
   },
   {
-    label: "Perempuan",
+    label: "Female",
     value: "F",
   },
 ];

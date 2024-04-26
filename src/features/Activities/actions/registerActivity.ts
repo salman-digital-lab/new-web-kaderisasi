@@ -17,7 +17,10 @@ export default async function registerActivity(
     data[questionnaire.name] = formData.get(questionnaire.name);
   });
 
-  const response = await postRegisterActivity(token?.value || "", data, slug);
-
-  return response;
+  try {
+    const response = await postRegisterActivity(token?.value || "", data, slug);
+    return { ok: true, response };
+  } catch (error) {
+    return { ok: false, response: { message: error } };
+  }
 }

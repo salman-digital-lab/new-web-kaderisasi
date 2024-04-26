@@ -58,10 +58,12 @@ export default async function Activities() {
               }
             >
               <Button
-                disabled={!(registration?.status === "BELUM TERDAFTAR")}
+                disabled={
+                  !!tokenCookie && registration?.status !== "BELUM TERDAFTAR"
+                }
                 variant="secondary"
               >
-                {registration?.status === "BELUM TERDAFTAR"
+                {!tokenCookie || registration?.status === "BELUM TERDAFTAR"
                   ? "Register Now"
                   : "Registered"}
               </Button>

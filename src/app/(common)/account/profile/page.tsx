@@ -6,11 +6,22 @@ import { Profil } from "@/features/Profile/components";
 import LogoutButton from "@/features/Auth/components/LogoutButton";
 import { getProfile, getProvinces, getUniversities } from "@/services/profile";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function Profile() {
   const tokenCookie = cookies().get("kaderisasi-web-session");
+  let profileData;
 
-  const profileData = await getProfile(tokenCookie?.value || "");
+  try {
+    profileData = await getProfile(tokenCookie?.value || "");
+  } catch (error) {
+    if (!(error instanceof Error && error.message === "Unauthorized")) {
+      throw error;
+    } else {
+      redirect("utils/remove-session");
+    }
+  }
+
   const provinceData = await getProvinces();
   const universityData = await getUniversities();
 

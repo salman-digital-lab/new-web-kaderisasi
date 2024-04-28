@@ -15,7 +15,7 @@ export default async function ActivityRegistration({
       </h1>
       <div className="bg-lmdi-primary mx-auto p-6 gap-6 mb-32 md:rounded-lg md:mb-32 md:max-w-screen-md">
         <ActivityForm
-          formSchemas={activity.additional_questionnaire}
+          formSchemas={activity.additional_config.additional_questionnaire}
           slug={params.slug}
         />
       </div>

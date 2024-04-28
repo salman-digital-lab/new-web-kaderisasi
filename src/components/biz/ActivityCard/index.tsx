@@ -1,10 +1,10 @@
-import { CalendarClock } from "lucide-react";
-import { Button } from "../../common";
 import Image from "next/image";
-import Link from "next/link";
-import { USER_LEVEL_RENDER } from "@/constants/render/activity";
-import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
+import { CalendarClock } from "lucide-react";
 import dayjs from "dayjs";
+
+import lmdiPoster from "../../../assets/images/lmdi_poster.png";
+
+import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
 
 type ActivityCardProps = {
   activityName: string;
@@ -22,7 +22,7 @@ export default function ActivityCard({
     <div className="flex flex-col flex-none w-64 justify-between bg-white cursor-default rounded-xl shadow">
       <div className="flex flex-col p-2">
         <Image
-          src="https://admin-api-kaderisasi.salmanitb.com/activity_pic/1704528106622.jpeg"
+          src={lmdiPoster}
           alt="Activity Banner"
           className="object-cover self-center rounded"
           width={230}

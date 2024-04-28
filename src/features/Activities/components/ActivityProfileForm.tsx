@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/common";
 import { Input } from "@/components/form";
 import Select from "@/components/form/Select";
 import SubmitButton from "@/components/form/SubmitButton";
@@ -8,12 +7,11 @@ import { GENDER_OPTION } from "@/constants/form/profile";
 import changeProfile from "@/features/Profile/actions/changeProfile";
 import { NotifyUser } from "@/functions/notification";
 import { Profile, Province, University } from "@/types/model/user";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 type ActivityProfileFormProps = {
   profileData: Profile;
-  mandatoryProfileData: string[];
+  mandatoryProfileData: { name: string; required: boolean }[];
   provinces: Province[];
   universities: University[];
   slug: string;
@@ -27,29 +25,34 @@ export default function ActivityForm({
   slug,
 }: ActivityProfileFormProps) {
   const router = useRouter();
+  console.log(profileData);
 
   const changeUserProfile = async (formData: FormData) => {
     try {
       const respData = await changeProfile(formData);
-      if (respData) {
+      if (respData?.ok) {
         NotifyUser("SUCCESS", respData.message);
         router.push("/program/register/" + slug + "/second");
+      } else {
+        NotifyUser("ERROR", respData.message);
       }
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
   };
 
-  const RenderForm = (profileKey: string) => {
+  const RenderForm = (profileKey: string, isRequired: boolean) => {
     switch (profileKey) {
       case "gender":
         return (
           <div key={profileKey} className="flex flex-col gap-2">
-            <label htmlFor="jenis-kelamin" className="text-white font-bold">
+            <label htmlFor="gender" className="text-white font-bold">
               Gender
             </label>
             <Select
-              required
+              required={isRequired}
+              id="gender"
+              name="gender"
               inputStyle="outlined-primary"
               placeholder="Enter your gender"
               options={GENDER_OPTION}
@@ -64,10 +67,10 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="personal-id" className="text-white font-bold">
-              Personal ID
+              Personal ID (NIK)
             </label>
             <Input
-              required
+              required={isRequired}
               id="personal-id"
               name="personal_id"
               type="text"
@@ -85,7 +88,7 @@ export default function ActivityForm({
               WhatsApp
             </label>
             <Input
-              required
+              required={isRequired}
               name="whatsapp"
               type="text"
               inputStyle="outlined-primary"
@@ -103,7 +106,7 @@ export default function ActivityForm({
               Linkedin
             </label>
             <Input
-              required
+              required={isRequired}
               name="linkedin"
               type="text"
               inputStyle="outlined-primary"
@@ -121,7 +124,7 @@ export default function ActivityForm({
               ID Line
             </label>
             <Input
-              required
+              required={isRequired}
               id="id-line"
               name="line"
               type="text"
@@ -139,13 +142,31 @@ export default function ActivityForm({
               Tiktok
             </label>
             <Input
-              required
+              required={isRequired}
               id="tiktok"
               name="tiktok"
               type="text"
               inputStyle="outlined-primary"
               placeholder="Enter your tiktok account"
               defaultValue={profileData?.tiktok}
+            />
+          </div>
+        );
+
+      case "university_temp":
+        return (
+          <div key={profileKey} className="flex flex-col gap-2">
+            <label htmlFor="university_temp" className="text-white font-bold">
+              University
+            </label>
+            <Input
+              required={isRequired}
+              id="university_temp"
+              name="university_temp"
+              type="text"
+              inputStyle="outlined-primary"
+              placeholder="Enter your university name"
+              defaultValue={profileData?.university_temp}
             />
           </div>
         );
@@ -157,7 +178,7 @@ export default function ActivityForm({
               Province
             </label>
             <Select
-              required
+              required={isRequired}
               id="province_id"
               name="province_id"
               inputStyle="outlined-primary"
@@ -180,14 +201,14 @@ export default function ActivityForm({
           </div>
         );
 
-      case "university":
+      case "university_id":
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="university_id" className="text-white font-bold">
               University Name
             </label>
             <Select
-              required
+              required={isRequired}
               id="university_id"
               name="university_id"
               inputStyle="outlined-primary"
@@ -217,7 +238,7 @@ export default function ActivityForm({
               Major
             </label>
             <Input
-              required
+              required={isRequired}
               name="major"
               type="text"
               inputStyle="outlined-primary"
@@ -235,7 +256,7 @@ export default function ActivityForm({
               Intake Year
             </label>
             <Input
-              required
+              required={isRequired}
               name="intake_year"
               type="number"
               inputStyle="outlined-primary"
@@ -254,7 +275,10 @@ export default function ActivityForm({
   return (
     <form action={changeUserProfile}>
       <div className="flex-col gap-6 flex">
-        {mandatoryProfileData.map((profileKey) => RenderForm(profileKey))}
+        {mandatoryProfileData.map(
+          ({ name: profileKey, required: isRequired }) =>
+            RenderForm(profileKey, isRequired),
+        )}
         <div className="flex gap-4 justify-center">
           <SubmitButton variant="secondary" type="submit">
             Next

@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import registerActivity from "../actions/registerActivity";
 import SubmitButton from "@/components/form/SubmitButton";
 import { NotifyUser } from "@/functions/notification";
+import TextArea from "@/components/form/TextArea";
 
 type ActivityFormProps = {
   formSchemas: QuestionnaireSchema[];
@@ -27,6 +28,22 @@ const RenderForm = (schema: QuestionnaireSchema) => {
             {schema.label}
           </label>
           <Input
+            id={schema.name}
+            name={schema.name}
+            inputStyle="outlined-primary"
+            placeholder="Enter your answer here"
+            required={schema.required}
+          />
+        </div>
+      );
+
+    case "textarea":
+      return (
+        <div key={schema.name} className="flex flex-col gap-2">
+          <label htmlFor={schema.name} className="text-white font-bold">
+            {schema.label}
+          </label>
+          <TextArea
             id={schema.name}
             name={schema.name}
             inputStyle="outlined-primary"

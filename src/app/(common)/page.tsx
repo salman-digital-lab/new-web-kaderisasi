@@ -8,6 +8,7 @@ import { Button } from "@/components/common";
 import { ActivityCard } from "@/components/biz";
 import { cookies } from "next/headers";
 import { getProfileActivity } from "@/services/profile";
+import { redirect, useRouter } from "next/navigation";
 
 export default async function Home() {
   let registration;
@@ -23,6 +24,8 @@ export default async function Home() {
   } catch (error) {
     if (!(error instanceof Error && error.message === "Unauthorized")) {
       throw error;
+    } else {
+      redirect("utils/remove-session");
     }
   }
   return (

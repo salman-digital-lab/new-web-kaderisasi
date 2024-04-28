@@ -30,6 +30,7 @@ export type Profile = {
   university: string;
   city: string;
   province: string;
+  university_temp: string;
 };
 
 export type Province = {

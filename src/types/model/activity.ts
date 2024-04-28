@@ -2,7 +2,7 @@ import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
 
 export type QuestionnaireSchema =
   | {
-      type: "text" | "number";
+      type: "text" | "number" | "textarea";
       label: string;
       name: string;
       required: boolean;
@@ -27,6 +27,9 @@ export type Activity = {
   selection_start: string;
   selection_end: string;
   minimum_level: USER_LEVEL_ENUM;
-  additional_questionnaire: QuestionnaireSchema[];
-  additional_config: any;
+  additional_config: {
+    images: string[];
+    mandatory_profile_data: { name: string; required: boolean }[];
+    additional_questionnaire: QuestionnaireSchema[];
+  };
 };

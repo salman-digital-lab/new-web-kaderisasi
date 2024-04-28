@@ -7,6 +7,7 @@ import activitiespageIllustration from "@/assets/images/poster_web_1.png";
 import ActivityList from "@/features/Activities/components/ActivityList";
 import { cookies } from "next/headers";
 import { getProfileActivity } from "@/services/profile";
+import { redirect } from "next/navigation";
 
 export default async function Activities() {
   let registration;
@@ -22,6 +23,8 @@ export default async function Activities() {
   } catch (error) {
     if (!(error instanceof Error && error.message === "Unauthorized")) {
       throw error;
+    } else {
+      redirect("utils/remove-session");
     }
   }
 

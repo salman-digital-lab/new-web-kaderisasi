@@ -148,7 +148,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
               <legend className="text-lg text-gray-500 mb-4">
                 University Data
               </legend>
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <label htmlFor="university_id" className="font-bold">
                   University Name
                 </label>
@@ -171,6 +171,19 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                         }
                       : undefined
                   }
+                />
+              </div> */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="university_temp" className="font-bold">
+                  University Name
+                </label>
+                <Input
+                  name="university_temp"
+                  type="text"
+                  inputStyle="outlined-primary"
+                  id="university_temp"
+                  placeholder="Enter your major"
+                  defaultValue={data?.profile.university_temp}
                 />
               </div>
               <div className="flex flex-col gap-2">

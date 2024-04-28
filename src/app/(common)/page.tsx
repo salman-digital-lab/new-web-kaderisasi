@@ -89,7 +89,7 @@ export default async function Home() {
           key={1}
           activityName="Call For Participants"
           registrationEnd="2024-05-31"
-          slug="registration"
+          slug="call-for-participants"
           minimumLevel={0}
         />
       </div>

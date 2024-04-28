@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import lmdiPoster from "@/assets/images/lmdi_poster.png";
+import oprecPoster from "@/assets/images/oprec-poster.png";
 
 import { ActivityRegistration } from "@/types/model/user";
 
@@ -29,7 +29,7 @@ export default function MyActivityList({ activities }: ActivityProps) {
           >
             <div className="md:self-start md:w-1/4">
               <Image
-                src={lmdiPoster}
+                src={oprecPoster}
                 alt="Poster kegiatan"
                 className="w-full h-48 object-cover md:h-auto"
               />

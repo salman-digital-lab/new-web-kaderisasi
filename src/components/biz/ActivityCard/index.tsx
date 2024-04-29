@@ -6,6 +6,8 @@ import lmdiPoster from "@/assets/images/lmdi_poster.png";
 import oprecPoster from "@/assets/images/oprec-poster.png";
 
 import { USER_LEVEL_ENUM } from "@/constants/enum/activity";
+import Link from "next/link";
+import { Button } from "@/components/common";
 
 type ActivityCardProps = {
   activityName: string;
@@ -49,14 +51,14 @@ export default function ActivityCard({
           </p>
         </div>
       </div>
-      {/* <Link href={"/kegiatan/" + slug}>
+      <Link href={"/program/" + slug}>
         <Button
           variant="secondary"
           className="w-full rounded-none rounded-b-lg"
         >
           Detail
         </Button>
-      </Link> */}
+      </Link>
     </div>
   );
 }

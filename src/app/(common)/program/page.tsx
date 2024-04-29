@@ -47,10 +47,9 @@ export default async function Activities() {
             Chapter Singapore & Malaysia
           </p>
           <p className="text-white text-md text-center px-10">
-            Embark on a journey unlike any other with the LMDI International
-            Leadership Development Program, an immersive experience meticulously
-            designed to shape the future leaders of Indonesia. Keterangan
-            singkat tentang program
+            Embark on a journey unlike any other with the International
+            Leadership in Action Summit 2024, an immersive experience
+            meticulously designed to shape the future leaders of Indonesia
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
             <Link

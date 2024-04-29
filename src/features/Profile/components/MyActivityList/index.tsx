@@ -3,6 +3,7 @@ import Image from "next/image";
 import oprecPoster from "@/assets/images/oprec-poster.png";
 
 import { ActivityRegistration } from "@/types/model/user";
+import { TRANSLATION_TEMP } from "@/constants/render/activity";
 
 type ActivityProps = {
   activities: ActivityRegistration[];
@@ -54,7 +55,9 @@ export default function MyActivityList({ activities }: ActivityProps) {
             </div>
 
             <div className="hidden md:flex md:justify-end md:items-end md:w-1/4">
-              <p className="text-lmdi-primary">{activity.status}</p>
+              <p className="text-lmdi-primary">
+                {TRANSLATION_TEMP[activity.status]}
+              </p>
             </div>
           </div>
         ))}

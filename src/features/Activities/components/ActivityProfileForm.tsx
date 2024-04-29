@@ -47,7 +47,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="gender" className="text-white font-bold">
-              Gender
+              Gender {isRequired ? "*" : ""}
             </label>
             <Select
               required={isRequired}
@@ -67,7 +67,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="personal-id" className="text-white font-bold">
-              Personal ID (NIK)
+              Personal ID (NIK) {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -85,7 +85,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="whatsapp" className="text-white font-bold">
-              WhatsApp
+              WhatsApp {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -103,7 +103,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="linkedid" className="text-white font-bold">
-              Linkedin
+              Linkedin {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -121,7 +121,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="id-line" className="text-white font-bold">
-              ID Line
+              ID Line {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -139,7 +139,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="tiktok" className="text-white font-bold">
-              Tiktok
+              Tiktok {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -157,7 +157,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="university_temp" className="text-white font-bold">
-              University
+              University {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -175,7 +175,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="province_id" className="text-white font-bold">
-              Province
+              Province {isRequired ? "*" : ""}
             </label>
             <Select
               required={isRequired}
@@ -205,7 +205,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="university_id" className="text-white font-bold">
-              University Name
+              University Name {isRequired ? "*" : ""}
             </label>
             <Select
               required={isRequired}
@@ -235,7 +235,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="major" className="text-white font-bold">
-              Major
+              Major {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -253,7 +253,7 @@ export default function ActivityForm({
         return (
           <div key={profileKey} className="flex flex-col gap-2">
             <label htmlFor="intake_year" className="text-white font-bold">
-              Intake Year
+              Intake Year {isRequired ? "*" : ""}
             </label>
             <Input
               required={isRequired}
@@ -279,7 +279,8 @@ export default function ActivityForm({
           ({ name: profileKey, required: isRequired }) =>
             RenderForm(profileKey, isRequired),
         )}
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-col gap-4 justify-center">
+          <p className="text-white text-sm">* Required data</p>
           <SubmitButton variant="secondary" type="submit">
             Next
           </SubmitButton>

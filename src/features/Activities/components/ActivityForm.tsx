@@ -25,7 +25,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Input
             id={schema.name}
@@ -41,7 +41,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <TextArea
             id={schema.name}
@@ -57,7 +57,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Input
             id={schema.name}
@@ -74,7 +74,7 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Select
             id={schema.name}
@@ -117,6 +117,7 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
       <div className="flex-col gap-6 flex">
         {formSchemas?.map((schema) => RenderForm(schema))}
 
+        <p className="text-white text-sm">* Required data</p>
         <div className="flex gap-2 items-baseline justify-center">
           <input
             onChange={() => setCanSubmit((prev) => !prev)}

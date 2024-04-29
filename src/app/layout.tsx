@@ -8,16 +8,16 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Leadership in Action Summit",
+  title: "ILiAS 2024",
   metadataBase: process.env.NEXT_PUBLIC_HOST
     ? new URL(process.env.NEXT_PUBLIC_HOST)
     : null,
   description:
-    "With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!",
+    "Embark on a journey unlike any other with the International Leadership in Action Summit 2024, an immersive experience meticulously designed to shape the future leaders of Indonesia",
   openGraph: {
-    title: "Leadership in Action Summit",
+    title: "International Leadership in Action Summit 2024",
     description:
-      "With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!",
+      "Embark on a journey unlike any other with the International Leadership in Action Summit 2024, an immersive experience meticulously designed to shape the future leaders of Indonesia",
   },
 };
 

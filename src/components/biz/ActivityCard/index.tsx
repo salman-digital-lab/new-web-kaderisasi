@@ -51,14 +51,14 @@ export default function ActivityCard({
           </p>
         </div>
       </div>
-      <Link href={"/program/" + slug}>
+      {/* <Link href={"/program/" + slug}>
         <Button
           variant="secondary"
           className="w-full rounded-none rounded-b-lg"
         >
           Detail
         </Button>
-      </Link>
+      </Link> */}
     </div>
   );
 }

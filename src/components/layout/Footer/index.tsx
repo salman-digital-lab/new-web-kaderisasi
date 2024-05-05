@@ -1,6 +1,11 @@
 import React from "react";
 
-import { MailIcon, LinkedinIcon, InstagramIcon } from "lucide-react";
+import {
+  MailIcon,
+  LinkedinIcon,
+  InstagramIcon,
+  MessageSquareText,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -25,7 +30,11 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-6">
                   <LinkedinIcon className="w-6 h-6 text-white" />
-                  <p className="text-white text-sm">+62 821 1128 6037</p>
+                  <p className="text-white text-sm">interleadershipsummit</p>
+                </div>
+                <div className="flex items-center gap-6">
+                  <MessageSquareText className="w-6 h-6 text-white" />
+                  <p className="text-white text-sm">+6282129091809</p>
                 </div>
               </div>
             </div>

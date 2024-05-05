@@ -52,23 +52,8 @@ export default async function Activities() {
             meticulously designed to shape the future leaders of Indonesia
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
-            <Link
-              href={
-                tokenCookie
-                  ? "/program/register/call-for-participants/first"
-                  : "/login"
-              }
-            >
-              <Button
-                disabled={
-                  !!tokenCookie && registration?.status !== "BELUM TERDAFTAR"
-                }
-                variant="secondary"
-              >
-                {!tokenCookie || registration?.status === "BELUM TERDAFTAR"
-                  ? "Register Now"
-                  : "Registered"}
-              </Button>
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeJQUtMTMlhsxeaKxkwYajQaWyGc4-wd3hImwJAf4-Wvkr5gQ/formResponse">
+              <Button variant="secondary">Register Now</Button>
             </Link>
           </div>
         </div>
@@ -83,7 +68,7 @@ export default async function Activities() {
         <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-10">
           <div className="flex flex-col gap-6">
             <h1 className="font-bold text-white text-2xl text-center">
-              What Our Alumni Said
+              Calling Future Leaders!
             </h1>
             <p className="text-white text-center">
               The Leadership in Action Summit 2024 isnt just an opportunity—its

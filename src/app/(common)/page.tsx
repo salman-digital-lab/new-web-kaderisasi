@@ -57,23 +57,8 @@ export default async function Home() {
             and fostering a deep-seated commitment to national advancement.
           </p>
           <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
-            <Link
-              href={
-                tokenCookie
-                  ? "/program/register/call-for-participants/first"
-                  : "/login"
-              }
-            >
-              <Button
-                disabled={
-                  !!tokenCookie && registration?.status !== "BELUM TERDAFTAR"
-                }
-                variant="secondary"
-              >
-                {!tokenCookie || registration?.status === "BELUM TERDAFTAR"
-                  ? "Register Now"
-                  : "Registered"}
-              </Button>
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeJQUtMTMlhsxeaKxkwYajQaWyGc4-wd3hImwJAf4-Wvkr5gQ/formResponse">
+              <Button variant="secondary">Register Now</Button>
             </Link>
             <p className="text-white">Or</p>
             <Link href="/program">

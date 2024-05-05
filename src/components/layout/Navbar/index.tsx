@@ -28,9 +28,9 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="hidden md:flex justify-center items-center">
+          {/* <div className="hidden md:flex justify-center items-center">
             <UserSection fullname={fullnameCookie?.value} />
-          </div>
+          </div> */}
 
           <NavbarMobile fullname={fullnameCookie?.value} />
         </div>

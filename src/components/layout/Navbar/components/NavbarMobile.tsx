@@ -54,7 +54,7 @@ export default function NavbarMobile({ fullname }: NavbarMobile) {
             <MenuLink key={menu.label} menuData={menu} />
           ))}
 
-          <UserSection fullname={fullname} />
+          {/* <UserSection fullname={fullname} /> */}
         </div>
       </div>
     </>

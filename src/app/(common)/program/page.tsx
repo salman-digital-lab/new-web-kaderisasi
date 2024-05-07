@@ -55,6 +55,13 @@ export default async function Activities() {
             <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeJQUtMTMlhsxeaKxkwYajQaWyGc4-wd3hImwJAf4-Wvkr5gQ/formResponse">
               <Button variant="secondary">Register Now</Button>
             </Link>
+            <p className="text-white">Or</p>
+            <Link
+              href="https://drive.google.com/file/d/188VWQlFf6aPWIet7yff4KiGcj6pPDvk8/view"
+              target="_blank"
+            >
+              <Button variant="outlined-secondary">Download Guide Book</Button>
+            </Link>
           </div>
         </div>
       </div>

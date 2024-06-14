@@ -1,71 +1,101 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 import Image from "next/image";
 
-import homepageIllustration from "../../assets/images/homepage-1.svg";
+import homepageIllustration from "../../assets/images/poster_web_2.png";
 
 import { Button } from "@/components/common";
-import ActivitySection from "@/features/Home/components/ActivitySection";
+import { ActivityCard } from "@/components/biz";
+import { cookies } from "next/headers";
+import { getProfileActivity } from "@/services/profile";
+import { redirect, useRouter } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+  let registration;
+  const tokenCookie = cookies().get("kaderisasi-web-session");
+
+  try {
+    if (tokenCookie?.value) {
+      registration = await getProfileActivity(
+        tokenCookie?.value,
+        "call-for-participants",
+      );
+    }
+  } catch (error) {
+    if (!(error instanceof Error && error.message === "Unauthorized")) {
+      throw error;
+    } else {
+      redirect("utils/remove-session");
+    }
+  }
   return (
     <main>
-      <div className="w-full h-screen bg-primary pt-16 md:h-fit md:pt-32 md:pb-16">
-        <div className="w-full px-4 max-w-6xl mx-auto md:px-6">
-          <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between">
-            <div className="flex items-center">
-              <div className="max-w-xl flex flex-col gap-6">
-                <p className="text-white text-3xl text-center font-bold md:text-5xl">
-                  Selamat Datang di <br /> Kaderisasi Salman
-                </p>
-                <p className="text-white text-xl text-center px-10">
-                  Ayo mulai perjalanan kaderisasi mu disini
-                </p>
-                <div className="flex flex-col items-center gap-6 mx-auto md:mx-0">
-                  <Link href="/kegiatan">
-                    <Button variant="secondary">Daftar Kegiatan</Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-first md:block  md:order-last">
-              <Image
-                className="-translate-x-6 p-10"
-                src={homepageIllustration}
-                alt="Selamat Datang di BMKA Salman ITB"
-                priority
-              />
-            </div>
+      <div className="w-full bg-lmdi-primary pb-8 flex flex-col items-center md:pt-8 lg:flex-row-reverse lg:justify-center">
+        <div className="p-10">
+          <Image
+            src={homepageIllustration}
+            alt="Mascot Leadership In Action Summit 2024"
+            width={500}
+            priority
+          />
+        </div>
+        <div className="flex max-w-xl items-center flex-col gap-6">
+          <p className="text-white text-4xl px-10 text-center font-bold md:text-4xl">
+            Welcome to ILiAS 2024
+          </p>
+          <p className="text-white text-xl px-10 text-center font-bold md:text-2xl">
+            International Leadership in Action Summit 2024
+          </p>
+          <p className="text-white text-md text-center px-10">
+            The International Leadership in Action Summit (ILiAS) Chapter
+            Malaysia and Singapore is a comprehensive leadership training
+            program designed for students across Indonesia. The summit aims to
+            cultivate a new generation of leaders committed to advancing their
+            nation's progress. Central to the program is the development of
+            social innovation plans in the form of startup initiatives. ILiAS is
+            centered on empowering participants with essential leadership skills
+            and fostering a deep-seated commitment to national advancement.
+          </p>
+          <div className="flex flex-col items-center gap-6 mx-auto md:mx-0 md:flex-row">
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeJQUtMTMlhsxeaKxkwYajQaWyGc4-wd3hImwJAf4-Wvkr5gQ/formResponse">
+              <Button variant="secondary">Register Now</Button>
+            </Link>
+            <p className="text-white">Or</p>
+            <Link href="/program">
+              <Button variant="outlined-secondary">Learn more</Button>
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="w-full px-5 py-12 max-w-6xl mx-auto">
-        <div className="flex flex-col gap-4 text-center">
-          <h1 className="font-bold text-3xl">Kegiatan Baru</h1>
-          <p className="text-xl">
-            Jelajahi dan saksikan peluang kegiatan yang dapat membantu Anda
-            mengasah potensi dan kontribusi unik Anda dalam lingkungan yang
-            mendukung.
-          </p>
-        </div>
-        <ActivitySection />
+      <div className="w-full my-14 flex flex-col items-center">
+        <h1 className="font-bold text-3xl mb-10">On Going Activity</h1>
+        <ActivityCard
+          key={1}
+          activityName="Call For Participants"
+          registrationEnd="2024-05-31"
+          slug="call-for-participants"
+          minimumLevel={0}
+        />
       </div>
 
-      <div className="w-full my-20 bg-primary py-6 px-16 max-w-6xl mx-auto lg:rounded-xl">
+      <div className="w-full my-10 mx-auto bg-lmdi-secondary-darken py-6 px-16 lg:rounded-xl lg:max-w-[72rem]">
         <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-10">
           <div className="flex flex-col gap-6">
-            <h1 className="font-bold text-white text-2xl md:text-left text-center">
-              Kembalikan Senyum Bahagiamu
+            <h1 className="font-bold text-white text-2xl text-center">
+              Are You Ready to Make a Difference?
             </h1>
-            <p className="text-white">
-              Ruang Curhat merupakan layanan konseling sebaya yang diberikan
-              oleh sesama aktivis salman. Aktivis salman yang akan membersamai
-              kamu, sudah mendapatkan pelatihan dan bekal-bekal pengetahuan
-              psikologi praktis untuk menjadi seorang konselor lho.
+            <p className="text-white text-center">
+              The LMDI International Leadership Development Program isn't just
+              an opportunity—it's a calling. A chance to forge lifelong
+              connections, to challenge your limits, and to emerge as a leader
+              poised to build a better civilization for Indonesia and beyond.
             </p>
-            <div>
-              <Button variant="secondary">Ruang Curhat</Button>
+            <p className="text-white text-center">
+              Dare to lead. Dare to inspire. Your journey begins here.
+            </p>
+            <div className="flex item-center justify-center">
+              <Button variant="secondary">Learn More</Button>
             </div>
           </div>
         </div>

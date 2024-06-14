@@ -12,6 +12,7 @@ import { toast } from "sonner";
 import registerActivity from "../actions/registerActivity";
 import SubmitButton from "@/components/form/SubmitButton";
 import { NotifyUser } from "@/functions/notification";
+import TextArea from "@/components/form/TextArea";
 
 type ActivityFormProps = {
   formSchemas: QuestionnaireSchema[];
@@ -24,13 +25,29 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Input
             id={schema.name}
             name={schema.name}
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
+            required={schema.required}
+          />
+        </div>
+      );
+
+    case "textarea":
+      return (
+        <div key={schema.name} className="flex flex-col gap-2">
+          <label htmlFor={schema.name} className="text-white font-bold">
+            {schema.label} {schema.required ? "*" : ""}
+          </label>
+          <TextArea
+            id={schema.name}
+            name={schema.name}
+            inputStyle="outlined-primary"
+            placeholder="Enter your answer here"
             required={schema.required}
           />
         </div>
@@ -40,14 +57,14 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Input
             id={schema.name}
             name={schema.name}
             type="number"
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
             required={schema.required}
           />
         </div>
@@ -57,13 +74,13 @@ const RenderForm = (schema: QuestionnaireSchema) => {
       return (
         <div key={schema.name} className="flex flex-col gap-2">
           <label htmlFor={schema.name} className="text-white font-bold">
-            {schema.label}
+            {schema.label} {schema.required ? "*" : ""}
           </label>
           <Select
             id={schema.name}
             name={schema.name}
             inputStyle="outlined-primary"
-            placeholder="Masukkan Data"
+            placeholder="Enter your answer here"
             options={schema.data}
             required={schema.required}
           />
@@ -83,8 +100,12 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
     try {
       const respData = await registerActivity(formData, formSchemas, slug);
       if (respData) {
-        NotifyUser("SUCCESS", respData.message);
-        router.push("/kegiatan/" + slug);
+        NotifyUser(
+          respData.ok ? "SUCCESS" : "ERROR",
+          respData.response.message,
+        );
+
+        router.push("/program");
       }
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
@@ -96,6 +117,7 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
       <div className="flex-col gap-6 flex">
         {formSchemas?.map((schema) => RenderForm(schema))}
 
+        <p className="text-white text-sm">* Required data</p>
         <div className="flex gap-2 items-baseline justify-center">
           <input
             onChange={() => setCanSubmit((prev) => !prev)}
@@ -106,21 +128,18 @@ export default function ActivityForm({ formSchemas, slug }: ActivityFormProps) {
             value="Bike"
           />
           <label className="text-white" htmlFor="vehicle1">
-            Saya sudah mengisi seluruh formulir dengan baik dan benar
+            I have filled out all forms properly and correctly
           </label>
         </div>
 
         <div className="flex gap-4 justify-center">
-          <Link
-            className="w-fit"
-            href={"/kegiatan/daftar/" + slug + "/pertama"}
-          >
+          <Link className="w-fit" href={"/program/register/" + slug + "/first"}>
             <Button variant="secondary" type="button">
-              Kembali
+              Back
             </Button>
           </Link>
           <SubmitButton disabled={!canSubmit} variant="secondary" type="submit">
-            Daftar
+            Register
           </SubmitButton>
         </div>
       </div>

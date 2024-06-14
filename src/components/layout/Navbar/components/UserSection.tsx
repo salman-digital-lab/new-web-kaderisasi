@@ -12,15 +12,17 @@ export default function UserSection({ fullname }: UserSectionProps) {
   const pathname = usePathname();
 
   return !fullname ? (
-    <Link href="/masuk">
-      <Button variant="secondary">Masuk</Button>
+    <Link href="/login">
+      <Button variant="secondary">Login</Button>
     </Link>
   ) : (
     <Link
-      className={`w-52 p-2 text-primary-100 truncate border-b-4 border-transparent text-right hover:text-white ${
-        pathname === "/profil" ? "text-white" : ""
+      className={`w-52 md:p-2 text-lmdi-primary font-semibold truncate border-b-4 border-transparent md:text-right hover:text-lmdi-primary-lighten hover:underline underline-offset-8 ${
+        pathname === "/account/profile"
+          ? "text-lmdi-primary-lighten underline"
+          : ""
       }`}
-      href="/anggota/profil"
+      href="/account/profile"
     >
       Hi, {fullname}
     </Link>

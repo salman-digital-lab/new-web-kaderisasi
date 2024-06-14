@@ -16,18 +16,16 @@ export default function Register() {
         />
       </section>
 
-      <section className="bg-white text-primary h-full w-full px-5 flex flex-col justify-center gap-5 lg:bg-primary lg:text-white lg:px-20 lg:w-[45vw]">
-        <h1 className="font-bold text-2xl md:text-4xl lg:text-2xl">
-          Daftarkan Diri Anda
-        </h1>
+      <section className="bg-white text-lmdi-primary h-full w-full px-5 flex flex-col justify-center gap-5 lg:bg-lmdi-primary lg:text-white lg:px-20 lg:w-[45vw]">
+        <h1 className="font-bold text-2xl md:text-4xl">Registration Form</h1>
         <RegistrationForm />
         <p className="text-center mt-4 lg:mt-6 pr-1 md:text-xl lg:text-base">
-          Sudah Punya Akun?
+          Already have an account?
           <Link
-            href={"/masuk"}
-            className="font-bold hover:text-primary-500 active:bg-primary-400"
+            href={"/login"}
+            className="font-bold ml-1 hover:text-lmdi-primary-light active:bg-lmdi-primary-light"
           >
-            Masuk
+            Login Here!
           </Link>
         </p>
       </section>

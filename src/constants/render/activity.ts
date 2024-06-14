@@ -17,3 +17,8 @@ export const USER_LEVEL_RENDER = {
   [USER_LEVEL_ENUM.KADER_KOMPROF]: "Kader Komprof",
   [USER_LEVEL_ENUM.KADER_LANJUT]: "Kader Lanjut",
 } as const;
+
+export const TRANSLATION_TEMP = {
+  "BELUM TERDAFTAR": "Not Registered",
+  TERDAFTAR: "Registered",
+} as Record<string, string>;

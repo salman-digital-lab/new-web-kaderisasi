@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LoginImage from "@/assets/images/login-illustration.png";
-import LogoBMKA from "@/assets/images/bmka-main.svg";
+import LogoLMDIFull from "@/assets/images/logo-full.png";
 
 import LoginForm from "@/features/Auth/components/LoginForm";
+import { Button } from "@/components/common";
 
 export default function Login() {
   return (
@@ -17,28 +18,28 @@ export default function Login() {
           priority
         />
       </section>
-      <section className="bg-white text-primary h-full w-full px-5 flex flex-col justify-center gap-5 lg:bg-primary lg:text-white lg:px-20 lg:w-[45vw]">
+      <section className="bg-white text-lmdi-primary h-full w-full px-5 flex flex-col justify-center gap-5 lg:bg-lmdi-primary lg:text-white lg:px-20 lg:w-[45vw]">
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex flex-col items-center">
             <Image
-              src={LogoBMKA}
+              src={LogoLMDIFull}
               alt="Logo BMKA image"
-              className="lg:hidden w-54"
+              className="lg:hidden w-64 object-cover h-64"
             />
-            <h1 className="font-bold text-lg md:text-4xl lg:text-2xl">
-              Selamat Datang Kembali
+            <h1 className="font-bold hidden md:text-4xl lg:inline lg:text-4xl">
+              Welcome Back
             </h1>
           </div>
 
           <LoginForm />
 
           <p className="text-center mt-4 lg:mt-6 pr-1 md:text-xl lg:text-base">
-            Belum Punya Akun?{" "}
+            Doesnt have an account?
             <Link
-              href={"/daftar"}
-              className="font-bold hover:text-primary-500 active:bg-primary-400"
+              href={"/register"}
+              className="font-bold ml-1 hover:text-lmdi-primary-light active:bg-lmdi-primary-light"
             >
-              Daftar
+              Register here!
             </Link>
           </p>
         </div>

@@ -16,8 +16,8 @@ export default function MenuLink({ menuData }: MenuLinkProps) {
   return (
     <Link href={menuData.link}>
       <div
-        className={`text-primary-100 transition-colors hover:text-white ${
-          pathname === menuData.link ? "text-white" : ""
+        className={`text-lmdi-primary font-semibold transition-colors hover:text-lmdi-lighten hover:underline underline-offset-8 ${
+          pathname === menuData.link ? "text-lmdi-lighten underline" : ""
         }`}
       >
         {menuData.label}

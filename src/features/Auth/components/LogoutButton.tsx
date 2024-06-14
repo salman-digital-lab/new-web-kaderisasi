@@ -12,7 +12,7 @@ export default function LogoutButton() {
       variant="secondary"
       className="mt-4"
     >
-      Keluar
+      Logout
     </Button>
   );
 }

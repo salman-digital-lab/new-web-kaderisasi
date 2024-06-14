@@ -12,10 +12,13 @@ export type Profile = {
   id: number;
   user_id: number;
   name: string;
+  personal_id: string;
   gender: "F" | "M";
   whatsapp: string;
   line: string;
   instagram: string;
+  tiktok: string;
+  linkedin: string;
   province_id: number;
   city_id: number;
   university_id: number;
@@ -27,6 +30,7 @@ export type Profile = {
   university: string;
   city: string;
   province: string;
+  university_temp: string;
 };
 
 export type Province = {

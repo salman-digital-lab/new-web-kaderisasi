@@ -21,14 +21,12 @@ export default async function register(formData: FormData) {
 
     const parsedResponse = await response.json();
 
-    if (response.ok) {
-      return parsedResponse?.message;
-    } else {
-      throw new Error(
+    return {
+      ok: response.ok,
+      message:
         parsedResponse?.message ||
-          "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
-      );
-    }
+        "Sistem dalam gangguan. Silahkan mencoba kembali beberapa saat lagi.",
+    };
   } catch (error: unknown) {
     let message: string;
 
@@ -42,6 +40,6 @@ export default async function register(formData: FormData) {
       message = "Something when wrong";
     }
 
-    throw new Error(message);
+    return { ok: false, message };
   }
 }

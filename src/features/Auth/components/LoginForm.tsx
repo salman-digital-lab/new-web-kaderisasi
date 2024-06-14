@@ -7,15 +7,17 @@ import InputPassword from "@/components/form/InputPassword";
 import SubmitButton from "@/components/form/SubmitButton";
 import login from "../actions/login";
 import { NotifyUser } from "@/functions/notification";
+import Link from "next/link";
+import { Button } from "@/components/common";
 
 export default function LoginForm() {
   const router = useRouter();
 
   const loginUser = async (formData: FormData) => {
     try {
-      const message = await login(formData);
-      if (message) NotifyUser("SUCCESS", message);
-      router.push("/");
+      const resp = await login(formData);
+      NotifyUser(resp.ok ? "SUCCESS" : "ERROR", resp.message);
+      if (resp.ok) router.push("/");
     } catch (error) {
       if (error instanceof Error) NotifyUser("ERROR", error?.message);
     }
@@ -31,8 +33,8 @@ export default function LoginForm() {
           id="email"
           name="email"
           type="email"
-          placeholder="Masukkan Email Anda"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0 focus:outline-primary-600 md:focus:outline-2"
+          placeholder="Input Your Email"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-primary-600 lg:focus:outline-2"
           required
         />
       </div>
@@ -43,20 +45,25 @@ export default function LoginForm() {
         <InputPassword
           id="password"
           name="password"
-          placeholder="Masukkan Kata Sandi"
-          className="py-2 md:py-4 px-4 md:px-8 lg:px-4 md:border-0  focus:outline-primary-600 md:focus:outline-2"
+          placeholder="Input Your Password"
+          className="py-2 md:py-4 px-4 lg:border-0 focus:outline-primary-600 lg:focus:outline-2"
           eyeClassname="md:bottom-[1rem]"
           required
         />
       </div>
-      <div className="mt-4 md:text-xl lg:text-base">
+      <div className="mt-4 flex flex-col gap-4 md:text-xl lg:text-base">
         <SubmitButton
           variant="secondary"
           type="submit"
           className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white"
         >
-          Masuk
+          Login
         </SubmitButton>
+        <Link href={"/"}>
+          <Button className="text-center font-bold py-2 md:py-4 lg:py-4 w-full hover:bg-secondary-500 active:bg-secondary-400 lg:border-2 lg:border-white">
+            Back to Homepage
+          </Button>
+        </Link>
       </div>
     </form>
   );

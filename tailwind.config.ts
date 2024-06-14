@@ -37,6 +37,22 @@ const config: Config = {
         "secondary-800": "#7c3117",
         "secondary-900": "#52210f",
         "secondary-1000": "#311409",
+
+        "lmdi-primary": "#004aad",
+        "lmdi-primary-lighten": "#1a5cb5",
+        "lmdi-primary-darken": "#00439c",
+
+        "lmdi-primary-light": "#6B9BFF",
+        "lmdi-primary-light-lighten": "#7aa5ff",
+        "lmdi-primary-light-darken": "#608ce6",
+
+        "lmdi-secondary": "#7ED957",
+        "lmdi-secondary-lighten": "#8bdd68",
+        "lmdi-secondary-darken": "#71c34e",
+
+        "lmdi-secondary-light": "#A6FF8F",
+        "lmdi-secondary-light-lighten": "#afff9a",
+        "lmdi-secondary-light-darken": "#95e681",
       },
     },
   },

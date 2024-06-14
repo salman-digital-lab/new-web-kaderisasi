@@ -16,10 +16,10 @@ export default function Error({
         return (
           <>
             <h1 className="text-xl">
-              Sesi anda sudah kadarluarsa. Silahkan masuk kembali.
+              Your session has expired. Please log in again.
             </h1>
-            <Button variant="secondary" onClick={() => logout("/masuk")}>
-              Masuk
+            <Button variant="secondary" onClick={() => logout("/login")}>
+              Login
             </Button>
           </>
         );
@@ -27,11 +27,10 @@ export default function Error({
         return (
           <>
             <h1 className="text-xl">
-              Web sedang dalam masalah, silahkan coba kembali beberapa saat
-              lagi!
+              The website is experiencing issues, please try again later!
             </h1>
             <Button variant="secondary" onClick={() => reset()}>
-              Coba Lagi
+              Try Again
             </Button>
           </>
         );

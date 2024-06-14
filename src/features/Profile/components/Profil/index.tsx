@@ -28,7 +28,6 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
     }
   };
 
-  console.log(data.profile);
   return (
     <>
       <h1 className="text-xl text-center font-bold mb-4 lg:text-left">
@@ -41,36 +40,36 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
               <legend className="text-lg text-gray-500 mb-4">Personal</legend>
               <div className="flex flex-col gap-2">
                 <label htmlFor="gender" className="font-bold">
-                  Jenis Kelamin
+                  Gender
                 </label>
                 <Select
                   id="gender"
                   name="gender"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Jenis Kelamin"
+                  placeholder="Enter your gender"
                   options={GENDER_OPTION}
                   defaultValue={GENDER_OPTION.find(
                     (option) => option.value === data?.profile.gender,
                   )}
                 />
               </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="personal-id" className="font-bold">
+                  Personal ID
+                </label>
+                <Input
+                  id="personal-id"
+                  name="personal_id"
+                  type="text"
+                  inputStyle="outlined-primary"
+                  placeholder="Enter your personal id"
+                  defaultValue={data?.profile.personal_id}
+                />
+              </div>
             </fieldset>
 
             <fieldset className="flex flex-col gap-3">
-              <legend className="text-lg text-gray-500 mb-4">Kontak</legend>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="font-bold">
-                  Alamat Email
-                </label>
-                <Input
-                  type="email"
-                  inputStyle="outlined-primary"
-                  id="email"
-                  placeholder="Masukkan alamat Email"
-                  defaultValue={data?.userData.email}
-                  disabled
-                />
-              </div>
+              <legend className="text-lg text-gray-500 mb-4">Contact</legend>
               <div className="flex flex-col gap-2">
                 <label htmlFor="whatsapp" className="font-bold">
                   WhatsApp
@@ -82,112 +81,135 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
                   inputStyle="outlined-primary"
                   id="whatsapp"
                   pattern="^[0-9]*$"
-                  placeholder="Masukkan Nomor WhatsApp"
+                  placeholder="Enter your whatsapp number"
                   defaultValue={data?.profile.whatsapp}
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="id-line" className="font-bold">
-                  ID Line
+                <label htmlFor="linkedin" className="font-bold">
+                  Linkedin
                 </label>
                 <Input
-                  id="id-line"
-                  name="line"
+                  id="linkedin"
+                  name="linkedin"
                   type="text"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan ID Line"
-                  defaultValue={data?.profile.line}
+                  placeholder="Enter your Linkedin profile"
+                  defaultValue={data?.profile.linkedin}
+                />
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <label htmlFor="tiktok" className="font-bold">
+                  Tiktok
+                </label>
+                <Input
+                  id="tiktok"
+                  name="tiktok"
+                  type="text"
+                  inputStyle="outlined-primary"
+                  placeholder="Enter your Tiktok profile"
+                  defaultValue={data?.profile.tiktok}
                 />
               </div>
             </fieldset>
           </div>
           <div className="flex flex-col gap-4 md:w-1/2">
             <fieldset className="flex flex-col gap-3">
-              <legend className="text-lg text-gray-500 mb-4">Domisili</legend>
+              <legend className="text-lg text-gray-500 mb-4">Residence</legend>
               <div className="flex flex-col gap-2">
                 <label htmlFor="province_id" className="font-bold">
-                  Provinsi
+                  Province
                 </label>
                 <Select
                   id="province_id"
                   name="province_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Provinsi"
+                  placeholder="Enter your province"
                   options={provinces?.map((province) => ({
                     label: province.name,
                     value: province.id,
                   }))}
-                  defaultValue={{
-                    value: data?.profile.province_id,
-                    label: provinces?.find(
-                      (option) => option.id === data?.profile.province_id,
-                    )?.name,
-                  }}
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="city_id" className="font-bold">
-                  Kota/Kabupaten
-                </label>
-                <Select
-                  id="city_id"
-                  name="city_id"
-                  inputStyle="outlined-primary"
-                  placeholder="Masukkan Kota"
-                  isDisabled
+                  defaultValue={
+                    data?.profile.province_id
+                      ? {
+                          value: data.profile.province_id,
+                          label: provinces?.find(
+                            (option) => option.id === data.profile.province_id,
+                          )?.name,
+                        }
+                      : undefined
+                  }
                 />
               </div>
             </fieldset>
 
             <fieldset className="flex flex-col gap-3">
               <legend className="text-lg text-gray-500 mb-4">
-                Data Kampus
+                University Data
               </legend>
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <label htmlFor="university_id" className="font-bold">
-                  Nama Kampus
+                  University Name
                 </label>
                 <Select
                   id="university_id"
                   name="university_id"
                   inputStyle="outlined-primary"
-                  placeholder="Masukkan Kampus"
+                  placeholder="Enter your university name"
                   options={universities?.map((university) => ({
                     label: university.name,
                     value: university.id,
                   }))}
-                  defaultValue={{
-                    value: data?.profile.university_id,
-                    label: universities?.find(
-                      (option) => option.id === data?.profile.province_id,
-                    )?.name,
-                  }}
+                  defaultValue={
+                    data?.profile.university_id
+                      ? {
+                          value: data.profile.university_id,
+                          label: universities?.find(
+                            (option) => option.id === data.profile.province_id,
+                          )?.name,
+                        }
+                      : undefined
+                  }
+                />
+              </div> */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="university_temp" className="font-bold">
+                  University Name
+                </label>
+                <Input
+                  name="university_temp"
+                  type="text"
+                  inputStyle="outlined-primary"
+                  id="university_temp"
+                  placeholder="Enter your major"
+                  defaultValue={data?.profile.university_temp}
                 />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="major" className="font-bold">
-                  Jurusan
+                  Major
                 </label>
                 <Input
                   name="major"
                   type="text"
                   inputStyle="outlined-primary"
                   id="major"
-                  placeholder="Masukkan Jurusan"
+                  placeholder="Enter your major"
                   defaultValue={data?.profile.major}
                 />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="intake_year" className="font-bold">
-                  Angkatan/Tahun Masuk
+                  Intake Year
                 </label>
                 <Input
                   name="intake_year"
                   type="number"
                   inputStyle="outlined-primary"
                   id="intake_year"
-                  placeholder="Masukkan Angkatan"
+                  placeholder="Enter your intake year"
                   defaultValue={data?.profile.intake_year}
                 />
               </div>
@@ -196,7 +218,7 @@ export default function Profil({ data, provinces, universities }: ProfilProps) {
         </div>
         <div className="md:self-end mt-4">
           <SubmitButton variant="secondary" type="submit" className="w-full">
-            Update Data Profil
+            Update Profile Data
           </SubmitButton>
         </div>
       </form>
